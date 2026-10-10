@@ -1,0 +1,952 @@
+{
+  "gorodskoy-golova-himik": {
+    "uk": {
+      "title": "МІСЬКИЙ ГОЛОВА — «ХІМІК»",
+      "summary": "Купець С. К. Костюрін торгував вином. У підвалі в нього • була ціла хімічна лабораторія. Там творилися дива: просте вино перетворювалося на портвейн і херес, біле — на лафіт і шаблі, червоне —…"
+    },
+    "en": {
+      "title": "CITY HEAD — «THE CHEMIST»",
+      "summary": "Merchant S. K. Kostyurin traded in wine. In his basement • there was a whole chemical laboratory. Wonders were worked there: plain wine turned into port and sherry, white — into Lafite and Chablis, red —…"
+    }
+  },
+  "ah-ty-moy-krasavets": {
+    "uk": {
+      "title": "АХ ТИ МІЙ КРАСАВЧИК!..",
+      "summary": "У зарослій лісом низині з відвісної стіни бив могутній холодний джерельний струмінь. Цю воду вважали цілющою, і з дозволу Миколи I (Кочеток входив до меж військових поселень) у цьому місці влаштували санаторій…"
+    },
+    "en": {
+      "title": "OH, MY HANDSOME!..",
+      "summary": "In a hollow overgrown with forest, a powerful icy spring gushed from a sheer cliff face. The water was deemed healing, and with Nicholas I's permission (Kochetok lay within military settlement limits) a sanatorium was built there…"
+    }
+  },
+  "neschastnaya-lyubov": {
+    "uk": {
+      "title": "НЕЩАСЛИВЕ КОХАННЯ",
+      "summary": "На курорті в Кочетці під Чугуєвом відпочивав багатий поміщик Сінещеков. Він належав до старовинного роду, пращура якого особисто знав Петро I. На канікули до нього приїхав син Володимир, який служив…"
+    },
+    "en": {
+      "title": "UNHAPPY LOVE",
+      "summary": "At the resort in Kochetok near Chuhuiv rested the wealthy landowner Sineshchekov. He belonged to an old family whose founder Peter the Great had known personally. On holiday his son Vladimir, who was serving…"
+    }
+  },
+  "shef-stroganov": {
+    "uk": {
+      "title": "ШЕФ СТРОГАНОВ",
+      "summary": "Вплив цього губернатора на місцеве життя відчувся не стільки в харківському благоустрої, скільки в харківських звичаях. За словами історика Д. Багалея, під впливом графа А. Строганова в нашому місті…"
+    },
+    "en": {
+      "title": "PATRON STROGANOV",
+      "summary": "This governor's influence on local life showed itself less in Kharkiv's public improvements than in Kharkiv manners. According to the historian D. Bagaley, under Count A. Stroganov our city…"
+    }
+  },
+  "rastratchik": {
+    "uk": {
+      "title": "РОЗТРАТНИК",
+      "summary": "Про харківського губернатора Миколу Долгорукова (з представників давнього княжого роду) збереглися такі спогади сучасника: «Вельможа в повному сенсі слова і сibarit, та людина добра, нікому зла не…"
+    },
+    "en": {
+      "title": "EMBEZZLER",
+      "summary": "Of Kharkiv Governor Nikolai Dolgorukov (of an ancient princely line) a contemporary left these memories: \"A grandee in the full sense and a sybarite, yet a kind man who wished harm to no one…"
+    }
+  },
+  "v-nature": {
+    "uk": {
+      "title": "З НАТУРИ",
+      "summary": "У середині п'ятдесятих років XIX століття в Харківі з'явився художник В. Мечников. Він затримався тут у дорозі з Петербурга до маєтку заможних батьків у Херсонській губернії…"
+    },
+    "en": {
+      "title": "FROM LIFE",
+      "summary": "In the mid-1850s the artist V. Mechnikov appeared in Kharkiv. He stopped here en route from St. Petersburg to his wealthy parents' estate in Kherson province…"
+    }
+  },
+  "dvoynoe-dno": {
+    "uk": {
+      "title": "ПОДВІЙНЕ ДНО",
+      "summary": "Чудовий особняк на вул. Дарвіна (колишня Садово-Куликовська), який нині займає Будинок архітектора, колись належав багатому купцю Рижову. Той був конезаводчиком і родоначальником залізнично-скла…"
+    },
+    "en": {
+      "title": "DOUBLE BOTTOM",
+      "summary": "The fine mansion on Darwin Street (formerly Sado-Kulikovskaya), now home to the Architects' House, once belonged to the wealthy merchant Ryzhov. He was a horse breeder and founder of a rail-and-ware…"
+    }
+  },
+  "dve-poloviny": {
+    "uk": {
+      "title": "ДВІ ПОЛОВИНИ",
+      "summary": "Міщани ділилися на дві частини, різко відмінні одна від одної. До першої належали люди, обдаровані знатністю роду, привілеями стану або багатством. Їх було меншість, хо…"
+    },
+    "en": {
+      "title": "TWO HALVES",
+      "summary": "The townspeople were split into two parts, sharply unlike each other. The first comprised people blessed with noble birth, class privileges, or wealth. They were the minority, al…"
+    }
+  },
+  "v-vyhodnoy": {
+    "uk": {
+      "title": "У ВИХІДНИЙ",
+      "summary": "«Окрім загородних шинків, улюбленим місцем проведення часу харків'ян були Курязький монастир за вісім верст від міста та Хорошевський жіночий монастир — за п'ятнадцять. З самого ра…"
+    },
+    "en": {
+      "title": "ON A DAY OFF",
+      "summary": "\"Besides suburban taverns, Kharkiv residents' favorite pastime was the Kuryazh Monastery eight versts from town and the women's Khoroshev Monastery fifteen versts away. From the very be…"
+    }
+  },
+  "v-dvuh-litsah": {
+    "uk": {
+      "title": "У ДВОХ ОБЛИЧЧЯХ",
+      "summary": "«Цей пан зовсім іншого роду: солодкий, ввічливий, богобоязний і що на слідствах вислідковує селян; не підвищуючи голосу й не знімаючи рукавичок» (І. Тургенєв). «Людина незалежного стану, він підтримує…"
+    },
+    "en": {
+      "title": "IN TWO FACES",
+      "summary": "\"This gentleman is quite another sort: mild, courteous, pious, and one who tracks down peasants at investigations—without raising his voice or removing his gloves\" (I. Turgenev). \"A man of independent means, he indulges…"
+    }
+  },
+  "lechenie-rozgami": {
+    "uk": {
+      "title": "ЛІКУВАННЯ ... РІЗКАМИ",
+      "summary": "З поліцейського двору долинали стогони й звук різок. — Кого це там? — цікавилися міщани. — А це квартальний свою служницю Дашку лікує. — Різками? Шістнадцятирічна служниця квартального наглядача…"
+    },
+    "en": {
+      "title": "TREATMENT ... WITH BIRCH RODS",
+      "summary": "From the police yard came groans and the swish of birch rods. — Who's that? — townspeople wondered. — The district officer is treating his maid Dashka. — With rods? The sixteen-year-old maid of the district supervisor…"
+    }
+  },
+  "darom": {
+    "uk": {
+      "title": "ДАРОМ!",
+      "summary": "Ще в середині XIX століття в Харківі не було банків, де можна було б тримати чи позичати гроші. Цим займалися окремі торговці, які давали гроші в кредит. Оди…"
+    },
+    "en": {
+      "title": "FOR FREE!",
+      "summary": "As late as the mid-nineteenth century Kharkiv had no banks where one could keep or borrow money. Individual merchants handled that, lending on credit. One…"
+    }
+  },
+  "vonyaet": {
+    "uk": {
+      "title": "СМОРІД!",
+      "summary": "Рано-вранці по суботах і неділях до Харкова з різних боків рухалися мешканці околиць і передмість — на базар, щоб продати там овес, борошно, птицю, овочі та інші сільські продукти. За версту від міста…"
+    },
+    "en": {
+      "title": "IT STINKS!",
+      "summary": "Early on Saturdays and Sundays residents of the outskirts and suburbs converged on Kharkiv from all sides—to the market, to sell oats, flour, poultry, vegetables, and other farm produce. A verst from town…"
+    }
+  },
+  "zhertvy-obmana": {
+    "uk": {
+      "title": "ЖЕРТВИ ОБМАНУ",
+      "summary": "Вербувальники вишукують гарних дівчат і запрошують їх виступати в кафешантанах та інших видовищних закладах. Обіцяють високі заробітки, модний одяг, косметику, смачну…"
+    },
+    "en": {
+      "title": "VICTIMS OF FRAUD",
+      "summary": "Recruiters seek out pretty girls and invite them to perform in café-chantants and other entertainment venues. They promise high pay, fashionable clothes, cosmetics, fine food…"
+    }
+  },
+  "vot-takie-sapogi": {
+    "uk": {
+      "title": "ОСЬ ТАКІ ЧЕРЕВИКИ!",
+      "summary": "На Сумській стояла дерев'яна, на три вікна, хатина; на воротах висіла вивіска: «Сапожник, сапоги шиє. Пузанков». Це був тверезий і працьовитий ремісник, на руках якого…"
+    },
+    "en": {
+      "title": "BOOTS LIKE THESE!",
+      "summary": "On Sumska Street stood a wooden hut with three windows; on the gate hung a sign: \"Cobbler sews boots. Puzankov.\" He was a sober, hardworking craftsman whose hands…"
+    }
+  },
+  "predpochel-tyurmu": {
+    "uk": {
+      "title": "ОБРАВ ТЮРЬМУ",
+      "summary": "Старообрядець-купець Гвоздєв був опікуном над купецькими дітьми Кожанчиковими. Він був їм винен тридцять тисяч рублів, і вони просили повернути хоч десять, обіцяючи простити решту боргу…"
+    },
+    "en": {
+      "title": "HE CHOSE PRISON",
+      "summary": "Old Believer merchant Gvozdev served as guardian to the merchant Kozhanchikov children. He owed them thirty thousand rubles; they asked him to return at least ten thousand, promising to forgive the rest…"
+    }
+  },
+  "do-upddu": {
+    "uk": {
+      "title": "ДО УПДДУ",
+      "summary": "Шановний міський голова Костюрін славився гостинністю. Хто потрапляв до нього в контору чи дім, той звідти тверезим уже не виходив. Особливо Костюрін любив святкувати день свого…"
+    },
+    "en": {
+      "title": "TO THE UPDDU",
+      "summary": "The respected city head Kostyurin was famed for his hospitality. Anyone who entered his office or home could hardly leave sober. Kostyurin especially loved celebrating his birthday…"
+    }
+  },
+  "proobraz-vytrezvitelya": {
+    "uk": {
+      "title": "ПРООБРАЗ ВИТРЕЗВИТЕЛЯ",
+      "summary": "З десятої вечора поліцейські під проводом квартального наглядача робили нічний обхід. Ходили вулицями до світанку й забирали до дільниці всіх, кого зустрічали «у нетверезому вигляді». Проте з…"
+    },
+    "en": {
+      "title": "FORERUNNER OF THE SOBERING-UP STATION",
+      "summary": "From ten in the evening police under a district supervisor made the nightly rounds. They walked the streets until dawn and hauled to the station everyone they found \"inebriated.\" Yet…"
+    }
+  },
+  "brityy-zatylok": {
+    "uk": {
+      "title": "ВИГОЛЕНИЙ ЗАТИЛОК",
+      "summary": "Квартальний наглядач Дудишкін був удовцем, йому було п'ятдесят років і троє дітей. Набридло йому жити самому, і він задумав одружитися знову. Під Холодною горою біля Карповського саду у власному…"
+    },
+    "en": {
+      "title": "SHAVED NAPE",
+      "summary": "District supervisor Dudyshkin was a widower, fifty years old, with three children. Life alone wearied him and he decided to marry again. Below Kholodna Hora near Karpovsky Garden in his own…"
+    }
+  },
+  "medvezhi-pestuny": {
+    "uk": {
+      "title": "ВЕДМЕЖІ ПЕСТУНИ",
+      "summary": "У Харківі були багачі-купці, яких прозивали «ведмежими пестунами». Називали їх так ось чому. Десь на Кавказі (нібито в Нахічевані) був погреб, який зверху охороняв величезний ведмідь. І в…"
+    },
+    "en": {
+      "title": "BEAR FOSTERERS",
+      "summary": "Kharkiv had rich merchants nicknamed \"bear fosterers.\" The name came about thus. Somewhere in the Caucasus (supposedly Nakhichevan) lay a cellar guarded above by a huge bear. And…"
+    }
+  },
+  "na-kulachki": {
+    "uk": {
+      "title": "НА КУЛАЧКИ",
+      "summary": "Через брак інших розваг кулачні бої стали звичним задоволенням для харківських міщан. За Мар'їнським мостом на Нетечі на льоду збиралися купками хлопці й, немов гріючись на…"
+    },
+    "en": {
+      "title": "FISTFIGHTS",
+      "summary": "With little else for amusement, fistfights were a common pleasure for Kharkiv townsfolk. Beyond Mariinsky Bridge on the Netech ice, boys gathered in clusters and, as if warming themselves in…"
+    }
+  },
+  "rukopis-szheg": {
+    "uk": {
+      "title": "РУКОПИС СПАЛИВ",
+      "summary": "П. І. Середа мав ступінь магістра історико-філософських наук. У нього було п'ятсот душ кріпаків, та жив він у чотирьох кімнатах, одну з яких займав робітник. Двері його завжди були відчинені для студент…"
+    },
+    "en": {
+      "title": "HE BURNED THE MANUSCRIPT",
+      "summary": "P. I. Sereda held a master's degree in history and philosophy. He owned five hundred serfs yet lived in four rooms, one occupied by a servant. His doors were always open to students…"
+    }
+  },
+  "nischih-studentov-net": {
+    "uk": {
+      "title": "НЕМАЄ БІДНИХ СТУДЕНТІВ!",
+      "summary": "Одного разу дуже багатий поміщик, він же предводитель дворянства, Бахметєв на початку Великого посту надіслав ректорові Харківського університету п'ятсот рублів з проханням знайти трьох бідних студентів…"
+    },
+    "en": {
+      "title": "NO POOR STUDENTS!",
+      "summary": "Once a very wealthy landowner—also marshal of the nobility—Bakhmetiev at the start of Great Lent sent the rector of Kharkiv University five hundred rubles with a request to find three poor students…"
+    }
+  },
+  "pochetnyy-grazhdanin": {
+    "uk": {
+      "title": "ПОЧЕСНИЙ ГРОМАДЯНИН",
+      "summary": "Історик міста Д. І. Багалей писав про нього так: «Молодість (у Харків він потрапив на 31-му році життя), багатство й незалежне становище давали Дурново можливість бути корисним людям. І він був корисним, коли…"
+    },
+    "en": {
+      "title": "HONORARY CITIZEN",
+      "summary": "City historian D. I. Bagaley wrote of him: \"Youth (he came to Kharkiv at thirty-one), wealth, and independent status let Durnovo be useful to people. And he was useful when…"
+    }
+  },
+  "po-sledam-lyubovnika": {
+    "uk": {
+      "title": "ПО СЛІДАХ КОХАНЦЯ",
+      "summary": "У місті Бахмуті (нині Артемівськ) на Донеччині жила подружня пара з чотирма дітьми — усі сини. Вихователем у них був харківський студент Павло Завадський. Мати — Є. С. Гаршина — закохалася в студента…"
+    },
+    "en": {
+      "title": "ON THE LOVER'S TRAIL",
+      "summary": "In the town of Bakhmut (now Artemivsk) in Donetsk region lived a couple with four children—all sons. Their tutor was Kharkiv student Pavel Zavadsky. The mother, E. S. Garshina, fell in love with the student…"
+    }
+  },
+  "bez-svideteley": {
+    "uk": {
+      "title": "БЕЗ СВІДКІВ",
+      "summary": "1868 рік. На одному з звичайних засідань Валківського повітового суду слухалась кримінальна справа. І раптом виявилося, що забули викликати свідків. — Обійдемося! — безапеляційно заявив головуючий…"
+    },
+    "en": {
+      "title": "WITHOUT WITNESSES",
+      "summary": "1868. At an ordinary session of the Valky district court a criminal case was heard. It turned out witnesses had not been summoned. — We'll manage! — the presiding judge declared flatly…"
+    }
+  },
+  "beskorystie": {
+    "uk": {
+      "title": "БЕЗКОРИСЛІСТЬ",
+      "summary": "З послужного списку надворного радника, дворянина А. Є. Кovalєva: — чиновник Харківської палати переваг; — губернський секретар; — чиновник з акцизу Харківської казенної палати; — чиновник Деп…"
+    },
+    "en": {
+      "title": "SELFLESS SERVICE",
+      "summary": "From the service record of Court Counselor, nobleman A. E. Kovalev: — official of the Kharkiv Chamber of Privileges; — provincial secretary; — excise official of the Kharkiv Treasury Chamber; — official of the Dep…"
+    }
+  },
+  "nevidannoe-chudovische": {
+    "uk": {
+      "title": "НЕБАЧЕНЕ ЧУДОВИЩЕ",
+      "summary": "22 травня 1869 року зібрана натовпом міщан гудок, потім з'явилися клуби диму, а з них, як висловився репортер того часу, випливло небачене чудовище. Його…"
+    },
+    "en": {
+      "title": "UNPRECEDENTED MONSTER",
+      "summary": "On 22 May 1869 a crowd of townspeople stirred: first a whistle, then clouds of smoke, and from them—as a reporter of the day put it—emerged an unprecedented monster. Its…"
+    }
+  },
+  "shar-v-nebe": {
+    "uk": {
+      "title": "КУЛЯ В НЕБІ",
+      "summary": "Очаківські селяни перелякано дивилися на великий шар, що летів просто на них. Він швидко наближався, втрачав висоту й опустився на ліс. Цікаві під'їхали й побачили людину, яка намагалася затягнути шар у…"
+    },
+    "en": {
+      "title": "BALLOON IN THE SKY",
+      "summary": "Ochakiv peasants watched fearfully as a large balloon flew straight toward them. It approached quickly, lost height, and came down in the woods. Onlookers rode up and saw a man trying to drag the balloon into…"
+    }
+  },
+  "turok-v-harkove": {
+    "uk": {
+      "title": "ТУРОК У ХАРКОВІ",
+      "summary": "Я кілька разів їздив до Болгарії на знаменитий фестиваль сатири й гумору в Габрово. Організатори влаштовували гостям екскурсії країною, зокрема до міста Плевна, овеяного славою російської зброї. Осв…"
+    },
+    "en": {
+      "title": "A TURK IN KHARKIV",
+      "summary": "I traveled several times to Bulgaria for the famous satire and humor festival in Gabrovo. Organizers arranged excursions, including to Pleven, steeped in the glory of Russian arms. Fam…"
+    }
+  },
+  "biznes-na-domu": {
+    "uk": {
+      "title": "БІЗНЕС УДОМА",
+      "summary": "Нині не рідко зустріти науковців чи діячів мистецтва, які взялися за комерцію (очевидно, переважно з примусу). Проте можна навести подібний приклад півторастолітньої давнини. В університет…"
+    },
+    "en": {
+      "title": "BUSINESS AT HOME",
+      "summary": "Today one often meets scholars or artists who have turned to commerce (mostly out of necessity). Yet a similar case from a century and a half ago exists. At the university…"
+    }
+  },
+  "iz-podpolya": {
+    "uk": {
+      "title": "ІЗ ПІДПІЛЛЯ",
+      "summary": "Час від часу доброзичливці попереджали Х. Д. Алчевську, що готується обшук, і тоді заняття тимчасово припинялися. Адже за вказівкою зі столиці недільні школи в країні були заборон…"
+    },
+    "en": {
+      "title": "FROM THE UNDERGROUND",
+      "summary": "From time to time well-wishers warned Kh. D. Alchevskaya that a search was coming, and classes paused. By order from the capital, Sunday schools in the country had been banned…"
+    }
+  },
+  "na-kogo-molitsya": {
+    "uk": {
+      "title": "ДО КОГО МОЛИТИСЯ?",
+      "summary": "Увійшовши до церкви, прихожани хрестилися на нові образи, та часто рука завмирала на півдорозі. В зображеннях святих вони впізнавали місцевих жителів, chuhuivtsiv, причому часто відомих не найкращою…"
+    },
+    "en": {
+      "title": "WHO TO PRAY TO?",
+      "summary": "Entering church, parishioners crossed themselves before new icons, yet often their hand froze halfway. In the saints' faces they recognized locals, Chuhuiv residents, often noted for less than saintly…"
+    }
+  },
+  "ne-v-svoey-tarelke": {
+    "uk": {
+      "title": "НЕ У СВОЇЙ ТАРІЛЦІ",
+      "summary": "У лавці на Павлівській площі сиділа компанія й потішалася з інженера Рedyuhina. Він постійно звертався до багатих купців з різними проєктами — організувати завод чи якесь виробництво.…"
+    },
+    "en": {
+      "title": "OUT OF HIS ELEMENT",
+      "summary": "In a shop on Pavlov Square a company sat mocking engineer Redyugin. He constantly approached wealthy merchants with schemes—to start a factory or some enterprise.…"
+    }
+  },
+  "udar-gvozdem": {
+    "uk": {
+      "title": "УДАР ЦВЯХОМ",
+      "summary": "По дорозі на місце кулачного бою на Іванівській леваді Зagiba зустріла знайома Ulia й стала благати: — Павле Іллічу, не ходи сьогодні на кулачки! Він, заспокоюючи дівчину, пішов далі. В цей…"
+    },
+    "en": {
+      "title": "THE NAIL'S BLOW",
+      "summary": "On his way to a fistfight at Ivanovka meadow, Zagiba met acquaintance Ulya, who pleaded: — Pavel Ilyich, don't go to the fists today! Reassuring her, he went on. At that…"
+    }
+  },
+  "zaveschanie-gorodu": {
+    "uk": {
+      "title": "ЗАПОВІТ МІСТУ",
+      "summary": "Мене завжди дивувало розташування потужної будівлі на початку Пушкінської, яку займає інститут Мечникова: викривляючи пряму лінію цієї вулиці (ще б — адже її заселяли німці!), вона висунута ледве не…"
+    },
+    "en": {
+      "title": "A BEQUEST TO THE CITY",
+      "summary": "I was always struck by the massive building at the start of Pushkinska, home to the Mechnikov Institute: breaking the street's straight line (small wonder—the Germans settled it!), it juts out almost…"
+    }
+  },
+  "aleksandr-vtoroy-ochen-zhal": {
+    "uk": {
+      "title": "ОЛЕКСАНДР II: «ДУЖЕ ШКОДА!»",
+      "summary": "Харківський губернатор князь Дмитро Кропоткін повертався вночі додому після бала в Інституті благородних дівиць. Біля його дому на Губернаторській за старим громадним тополею його підстеріг чоловік…"
+    },
+    "en": {
+      "title": "ALEXANDER II: \"VERY SORRY!\"",
+      "summary": "Kharkiv Governor Prince Dmitry Kropotkin was returning home at night after a ball at the Institute for Noble Maidens. Near his house on Hubernatorska, behind an old giant poplar, a man lay in wait…"
+    }
+  },
+  "neudavshayasya-popytka": {
+    "uk": {
+      "title": "НЕВДАЛА СПРОБА",
+      "summary": "Зміївською дорогою на виїзді з міста мчала трійка під охороною жандармів. Її наздогнала й обігнала бричка, з якої вискочили двоє озброєних. Один наказав ямщику зупинитися. Той…"
+    },
+    "en": {
+      "title": "A FAILED ATTEMPT",
+      "summary": "Along Zmiiv Road at the city exit a troika raced under gendarme escort. A britzka overtook it; two armed men leaped out. One ordered the driver to stop. He…"
+    }
+  },
+  "vsevlastnyy": {
+    "uk": {
+      "title": "ВСЕВЛАДНИЙ",
+      "summary": "У молодості М. Лoris-Melikov познайомився з молодим поетом-початківцем Н. Некрасовим і навіть певний час знімав з ним кімнату в Петербурзі. Отримавши військову освіту, граф був спрямований на Кавказ…"
+    },
+    "en": {
+      "title": "ALL-POWERFUL",
+      "summary": "In youth M. Loris-Melikov befriended the young poet N. Nekrasov and for a time shared a room in St. Petersburg. After military training the count was sent to the Caucasus…"
+    }
+  },
+  "deshevye-obedy": {
+    "uk": {
+      "title": "ДЕШЕВІ ОБІДИ",
+      "summary": "Кому не відома знаменита епіграма А. Лushkina: В Академії наук Засідає князь Dunduk. Кажуть, не годиться Dunduku така честь, Чому ж він засідає? Бо... їсть. Герой епіграми князь М…"
+    },
+    "en": {
+      "title": "CHEAP LUNCHES",
+      "summary": "Who does not know A. Lushkin's famous epigram: At the Academy of Sciences sits Prince Dunduk. They say Dunduk should not have such honor—why does he sit there? Because... he eats. The epigram's hero Prince M…"
+    }
+  },
+  "iz-harkova-na-katorgu": {
+    "uk": {
+      "title": "ІЗ ХАРКОВА НА КАТОРГУ",
+      "summary": "«10 лютого (1883 р.— Авт.) вранці я глянула на годинник: було восьма, і я вийшла з дому. Не пройшла й десяти кроків, як обличчям в обличчя зустрілася з Merkulovym (колишній член терористичної організації…"
+    },
+    "en": {
+      "title": "FROM KHARKIV TO HARD LABOR",
+      "summary": "\"On the morning of 10 February (1883—Author) I looked at the clock: it was eight, and I left home. I had not taken ten steps when I came face to face with Merkulov (a former member of a terrorist organization…"
+    }
+  },
+  "mezhdu-poezdami": {
+    "uk": {
+      "title": "МІЖ ПОЇЗДАМИ",
+      "summary": "«У Харківі між двома поїздами я встиг з'їздити в місто. Проходячи повз театр, побачив: на цей вечір оголошено «Євгенія Онєгіна». Дуже хотілося залишитися, тим більше що Харків узагалі мені симпат…"
+    },
+    "en": {
+      "title": "BETWEEN TRAINS",
+      "summary": "\"In Kharkiv, between two trains, I had time to ride into town. Passing the theater I saw Eugene Onegin announced for that evening. I longed to stay, especially as Kharkiv generally appealed to me…"
+    }
+  },
+  "krast-nado-menshe": {
+    "uk": {
+      "title": "КРАСТИ ТРЕБА МЕНШЕ!",
+      "summary": "Це сталося вранці 17 жовтня 1888 року під Борками. На повороті з-під коліс швидкісного поїзда вискочила рейка. Паровоз, нахилившись, зарився в землю, вагони перекинулися…"
+    },
+    "en": {
+      "title": "STEAL LESS!",
+      "summary": "It happened on the morning of 17 October 1888 near Borki. On a curve a rail came loose from the wheels of a fast train. The locomotive skewed and dug into the ground; cars overturned…"
+    }
+  },
+  "posledstviya-ukusa": {
+    "uk": {
+      "title": "НАСЛІДКИ УКУСУ",
+      "summary": "У дитинстві якось мене запросив на день народження одноліток — товариш по двору. Поки в вітальні /22"
+    },
+    "en": {
+      "title": "AFTER THE BITE",
+      "summary": "In childhood a peer—a courtyard friend—once invited me to his birthday. While in the living room /22"
+    }
+  },
+  "pod-vliyaniem-l-tolstogo": {
+    "uk": {
+      "title": "ПІД ВПЛИВОМ Л. ТОЛСТОГО",
+      "summary": "Одного разу письменник отримав листа: «Ось скоро два роки, як я відмовився від державної служби, не стільки заради моїх переконань, скільки через знання їхньої хиткості. Не можна рухатися, а тим більше…"
+    },
+    "en": {
+      "title": "UNDER THE INFLUENCE OF L. TOLSTOY",
+      "summary": "Once the writer received a letter: \"It will soon be two years since I gave up government service, less from conviction than from knowing how shaky convictions are. One cannot move, let alone…"
+    }
+  },
+  "vesennyaya-pesnya": {
+    "uk": {
+      "title": "ВЕСНЯНА ПІСНЯ",
+      "summary": "У квітні 1889 року до Олександрівської лікарні на Благовіщенській вулиці (нині ім. К. Маркса) надійшла нова пацієнтка — вісімнадцятирічна дівчина з Волині. Раніше в цьому приміщенні був Інститут б…"
+    },
+    "en": {
+      "title": "SPRING SONG",
+      "summary": "In April 1889 a new patient arrived at Alexandrovskaya Hospital on Blagoveshchenskaya Street (now K. Marx Street)—an eighteen-year-old girl from Volhynia. The building had formerly housed the Institute for…"
+    }
+  },
+  "pod-strahom-isklyucheniya": {
+    "uk": {
+      "title": "ПІД ЗАГРОЗОЮ ВІДКЛИКАННЯ",
+      "summary": "Учень сьомого класу Другої харківської гімназії сидів на заняттях і мучився. Щойно відбулося зібрання, на якому директор під загрозою відсторнення заборонив гімназистам відвідувати театри…"
+    },
+    "en": {
+      "title": "UNDER THREAT OF EXPULSION",
+      "summary": "A seventh-year pupil of the Second Kharkiv Gymnasium sat in class in torment. A meeting had just forbidden gymnasium students, on pain of expulsion, to attend theaters…"
+    }
+  },
+  "strashnaya-minuta": {
+    "uk": {
+      "title": "ЖАХЛИВА ХВИЛИНА",
+      "summary": "Публіка, що зібралася в Харківському драматичному театрі 4 листопада 1881 року, дивилася п'єсу А. Оstrovskoho й С. Gedeonova «Vasilisa Melentieva». Зал був повний — головну роль сміливої й розумної молодої жін…"
+    },
+    "en": {
+      "title": "A TERRIBLE MINUTE",
+      "summary": "The audience gathered in Kharkiv Drama Theater on 4 November 1881 watched Ostrovsky and Gedeonov's Vasilisa Melentieva. The hall was full—the lead, a bold, clever young woman…"
+    }
+  },
+  "den-otkrytyh-dverey": {
+    "uk": {
+      "title": "ДЕНЬ ВІДЧИНЕНИХ ДВЕРЕЙ",
+      "summary": "Такий існував у в'язниці — і щодня. З ранку до одинадцятої вечора камери були відчинені, ув'язнені могли вільно спілкуватися й зустрічатися з рідними. Серед ув'язнених був…"
+    },
+    "en": {
+      "title": "OPEN HOUSE",
+      "summary": "Such a day existed in the prison—daily. From morning until eleven at night the cells stood open; inmates could talk freely and meet relatives. Among the prisoners was…"
+    }
+  },
+  "poklonniki-keyfa": {
+    "uk": {
+      "title": "ПОБОЖНИКИ КЕЙФУ",
+      "summary": "«В університетському саду нині по лівому боці від великої алеї, що веде до виходу на Клочківську, на майданчику для дитячих ігор приватний підприємець устроїв ка…"
+    },
+    "en": {
+      "title": "DEVOTEES OF KIF",
+      "summary": "\"In the university garden, on the left of the main alley leading to Klochkovska Street, on the children's playground a private entrepreneur set up a ca…"
+    }
+  },
+  "zvezdy-v-okno": {
+    "uk": {
+      "title": "ЗІРКИ В ВІКНО",
+      "summary": "Унікальна споруда на Заїковці — християнський храм, оздоблений шестикутними зірками. Побудував його на власні кошти власник лакофарбового заводу Григорій Осипович Гольберг, через що церкву…"
+    },
+    "en": {
+      "title": "STARS IN THE WINDOW",
+      "summary": "A unique building in Zaikovka—a Christian church adorned with six-pointed stars. Paint-factory owner Grigory Osipovich Goldberg built it at his own expense, whence the church…"
+    }
+  },
+  "chudotvornost-ne-spasla": {
+    "uk": {
+      "title": "ЧУДОТВОРНІСТЬ НЕ ВРАТИЛА",
+      "summary": "Головною святинею нашого краю вважалася ікона Озерянської Богоматері. За «чудотворністю» вона нібито поступалася лише головній іконі Російської імперії — Казанській Богоматері. Походження її…"
+    },
+    "en": {
+      "title": "MIRACLES DID NOT SAVE HER",
+      "summary": "The chief shrine of our region was the icon of the Ozeryany Mother of God. In \"miracle-working\" it supposedly yielded only to the empire's chief icon—the Kazan Mother of God. Its origin…"
+    }
+  },
+  "kakie-byvayut-treugolniki": {
+    "uk": {
+      "title": "ЯКІ БУВАЮТЬ ТРЕКУТНИКИ?",
+      "summary": "В аудиторію ввійшов черговий іспитуваний, уже не молодий чоловік. Блідий, він смикав сірими вусами, втирав піт з чола, щось бурмотів, проте не міг відповісти ні на одне запитання. Щоб…"
+    },
+    "en": {
+      "title": "WHAT KINDS OF TRIANGLES ARE THERE?",
+      "summary": "Another examinee entered the hall, no longer young. Pale, he tugged his gray mustache, wiped sweat from his brow, muttered—but could answer no question. To…"
+    }
+  },
+  "chasy-i-vremya": {
+    "uk": {
+      "title": "ГОДИННИКИ Й ЧАС",
+      "summary": "Старовинний дім на куті нинішньої площі Конституції й Московського проспекту відомий «смачною» крамницею «Східні солодощі». Трохи нижче проспектом — крамниця «Українськ…"
+    },
+    "en": {
+      "title": "CLOCKS AND TIME",
+      "summary": "The old house at today's Constitution Square and Moscow Prospect corner is known for the \"tasty\" shop Eastern Sweets. A bit down the prospect is the Ukrainian… shop.…"
+    }
+  },
+  "pervaya-zhenschina": {
+    "uk": {
+      "title": "ПЕРША ЖІНКА",
+      "summary": "Російська Північ давно була місцем заслання. Туди колись відправили за політику слобожанського етнографа П. Єфimenka. На батьківщині Ломоносова, у Холмогорах, він познайомився з молодою вчителькою, уроженкою…"
+    },
+    "en": {
+      "title": "THE FIRST WOMAN",
+      "summary": "The Russian North was long a place of exile. Slobozhansky ethnographer P. Yefimenko was sent there for politics. In Lomonosov's homeland, Kholmogory, he met a young teacher, a native of…"
+    }
+  },
+  "on-poshel-drugim-putem": {
+    "uk": {
+      "title": "ВІН ПІШОВ ІНШИМ ШЛЯХОМ",
+      "summary": "Юлій Бунін жив у Москві, вчився й вів серед студентів революційну роботу. Владі це не сподобалося, і його вислали до Харкова. Тут, у засланні, Бунін перевівся до місцевого університету, де продовж…"
+    },
+    "en": {
+      "title": "HE TOOK ANOTHER PATH",
+      "summary": "Yuly Bunin lived in Moscow, studied, and led revolutionary work among students. The authorities disliked it and exiled him to Kharkiv. There, in banishment, Bunin transferred to the local university and continued…"
+    }
+  },
+  "dama-v-brilliantah": {
+    "uk": {
+      "title": "ДАМА В БРИЛІАНТАХ",
+      "summary": "«Актриса зовнішніх засобів, які досконало відтворюють сутність і подробиці будuarно-бульварного життя... Ролі позбавлені глибини, творчого начала, життєвої правди» — так писав рецензент газ…"
+    },
+    "en": {
+      "title": "A LADY IN DIAMONDS",
+      "summary": "\"An actress of external means that perfectly reproduce the essence and details of boudoir-and-boulevard life... Roles lack depth, creative spark, living truth\"—wrote a reviewer in the press…"
+    }
+  },
+  "zaveschanie-kuptsa": {
+    "uk": {
+      "title": "ЗАПОВІТ КУПЦЯ",
+      "summary": "1894 року помер один із найбагатших мешканців нашого міста, купець першої гільдії В. І. Пашенко-Тряпкін. Вихідець із села Пересічне Харківської губернії, він ще хлопчиком потрапив на службу до московського к…"
+    },
+    "en": {
+      "title": "A MERCHANT'S WILL",
+      "summary": "In 1894 died one of our city's wealthiest citizens, first-guild merchant V. I. Pashchenko-Tryapkin. From the village of Peresechnoye in Kharkiv province, he entered service with a Moscow merchant as a boy…"
+    }
+  },
+  "pervaya-lenta": {
+    "uk": {
+      "title": "ПЕРША СТРІЧКА",
+      "summary": "Залізнична платформа. Підходить поїзд. Паровоз, стаючи все більшим, рухається прямо на публіку. З його величезної труби валить чорний дим. Глядачі перелякано підскакують і мчать до вих…"
+    },
+    "en": {
+      "title": "THE FIRST REEL",
+      "summary": "A railway platform. A train approaches. The locomotive, growing ever larger, moves straight at the audience. Black smoke pours from its huge stack. Viewers leap up in fright and rush for the exit…"
+    }
+  },
+  "isportil-pesnyu": {
+    "uk": {
+      "title": "ЗІПСУВАВ ПІСНЮ",
+      "summary": "Шаляпін співав «Ніченьку». Очі його були заплющені, слухачі зачаровано застигли. І раптом до зали ввійшов лакей і щось запитав у співака. Той з досадою перервав спів, облаяв лакея й показав кулак. «Ех,…"
+    },
+    "en": {
+      "title": "HE SPOILED THE SONG",
+      "summary": "Chaliapin sang \"Nochenka.\" His eyes were closed; listeners stood enchanted. Suddenly a footman entered and asked the singer something. Annoyed, he broke off, cursed the footman, and shook his fist. \"Ah,…"
+    }
+  },
+  "muzykalnyy-obed": {
+    "uk": {
+      "title": "МУЗИЧНИЙ ОБІД",
+      "summary": "Незвичайний прийом відбувся 15 березня 1893 року в домі директора Харківського музичного училища Іллі Слатіна, куди він запросив колег-педагогів. Обід був на честь найшанованішого гостя —…"
+    },
+    "en": {
+      "title": "A MUSICAL LUNCHEON",
+      "summary": "An unusual reception took place on 15 March 1893 at the home of Kharkiv Music School director Ilya Slatin, who invited fellow teachers. The lunch honored the most distinguished guest—…"
+    }
+  },
+  "pod-patronazhem-golovy": {
+    "uk": {
+      "title": "ПІД ПАТРОНАТОМ ГОЛОВИ",
+      "summary": "Чи пам'ятає хтось із нинішніх харків'ян, щоб публіка ломилася на концерти? Ні, не естрадні, а симфонічні. А ось на початку століття таке траплялося. Наприклад, під час приїздів С. Рахманін…"
+    },
+    "en": {
+      "title": "UNDER THE CITY HEAD'S PATRONAGE",
+      "summary": "Do any Kharkiv residents today remember crowds breaking down doors for concerts? Not pop—symphonic. Yet at the century's start it happened, for instance when S. Rachmanin… visited.…"
+    }
+  },
+  "za-glaza": {
+    "uk": {
+      "title": "ЗА ОЧІ",
+      "summary": "Пізнім вечором до приміщення медичного клубу на Кaterynoslavskii, де проходив банкет, вірвалася група студентів. Вони схопили винуватця торжества, відірвали від столу, винесли на вулицю й понесли…"
+    },
+    "en": {
+      "title": "BEHIND HIS BACK",
+      "summary": "Late evening, a group of students burst into the medical club on Katerynoslavska, where a banquet was underway. They seized the guest of honor, pulled him from the table, carried him into the street…"
+    }
+  },
+  "klassik-iz-volchanska": {
+    "uk": {
+      "title": "КЛАСИК ІЗ ВОЛЧАНСЬКА",
+      "summary": "Не знаю, чи зберегся донині могутній бор біля Дергачів. Його посадили наприкінці XIX століття учні місцевої сільськогосподарської школи. Серед них був і Костя Тrenev, що став згодом…"
+    },
+    "en": {
+      "title": "A CLASSIC FROM VOLCHANSK",
+      "summary": "I do not know if the mighty pine forest near Derhachi survives. Local agricultural school pupils planted it in the late nineteenth century. Among them was Kostya Trenev, who later became…"
+    }
+  },
+  "v-obhod-vlastey": {
+    "uk": {
+      "title": "В ОБХІД ВЛАДИ",
+      "summary": "Незважаючи на сувору заборону уряду на спорудження пам'ятників Т. Шевченкові, у 1899 році такий з'явився в Харківі. І то в самому центрі! Влада нічого не могла вдіяти, бо він стояв на…"
+    },
+    "en": {
+      "title": "CIRCUMVENTING THE AUTHORITIES",
+      "summary": "Despite the government's strict ban on monuments to T. Shevchenko, one appeared in Kharkiv in 1899—in the very center! The authorities were helpless, for it stood on…"
+    }
+  },
+  "zhemchuzhina-zalopani": {
+    "uk": {
+      "title": "ПЕРЛИНА ЗАЛОПАНІ",
+      "summary": "Коли з Університетської гірки дивишся на панораму залопанської частини міста, головне, на чому зупиняється погляд, — Благовіщенський собор. Він приваблює масштабом, винахідливістю архітек…"
+    },
+    "en": {
+      "title": "THE PEARL OF ZALOPAN",
+      "summary": "From University Hill the panorama of Zalopan fixes the eye above all on the Annunciation Cathedral. It draws one with its scale and inventive architecture…"
+    }
+  },
+  "pod-poezd": {
+    "uk": {
+      "title": "ПІД ПОЇЗД",
+      "summary": "На пероні Вarsawskoho вокзалу в Санкт-Петербурзі стояв солідний пан похилого віку. Коли наблизився склад, він кинувся під колеса. Ця подія, що стала відомою всій Росії, сталася…"
+    },
+    "en": {
+      "title": "UNDER THE TRAIN",
+      "summary": "On the platform of Warsaw Station in St. Petersburg stood a solid gentleman of advanced years. As the train approached, he threw himself under the wheels. The incident, known throughout Russia, occurred…"
+    }
+  },
+  "spasla-zhenschina": {
+    "uk": {
+      "title": "ВРЯТУВАЛА ЖІНКА",
+      "summary": "1902 рік. Харківський сад «Тіволі» (зараз на його частині — будівля нового оперного театру). Коли ввечері губернатор князь І. Оболенський виходив після спектаклю з зали, у нього стріляли з бр…"
+    },
+    "en": {
+      "title": "A WOMAN SAVED HIM",
+      "summary": "1902. Kharkiv's Tivoli garden (part of it now holds the new opera house). As Governor Prince I. Obolensky left the hall after a performance, shots were fired from a br…"
+    }
+  },
+  "vsya-zhizn-borba": {
+    "uk": {
+      "title": "ВСЕ ЖИТТЯ — БОРОТЬБА",
+      "summary": "Весна 1904 року. Університетський сад. Серед прогулюючих — група панів. На вигляд не скажеш, що ці мирно бесідуючі респектабельні чоловіки — головарі російських революціонерів-терорист…"
+    },
+    "en": {
+      "title": "ALL LIFE IS STRUGGLE",
+      "summary": "Spring 1904. University Garden. Among strollers—a group of gentlemen. You would not guess these respectably chatting men were leaders of Russian revolutionary terrorists…"
+    }
+  },
+  "pokushenie-na-pushkina": {
+    "uk": {
+      "title": "ЗАМІХ НА... ПУШКІНА",
+      "summary": "У ніч на тридцять першого жовтня в самому центрі Харкова прогримів сильний вибух, чутний у віддалених частинах міста. Хвилею вибило безліч вікон, утворилася доволі глиб…"
+    },
+    "en": {
+      "title": "ATTEMPT ON... PUSHKIN",
+      "summary": "On the night of 31 October a powerful explosion rocked central Kharkiv, heard in distant districts. The blast shattered countless windows and left a deep…"
+    }
+  },
+  "dermo-na-zhandarmskoy": {
+    "uk": {
+      "title": "ЛАЙНО НА ЖАНДАРМСЬКІЙ",
+      "summary": "Жандармська — так колись називалася площа ім. Чervonoho militsionera, де стоїть стара пожежна частина з каланчею на Полтавському шляху. Одного разу, наприкінці XIX століття…"
+    },
+    "en": {
+      "title": "MANURE ON ZHANDARMSKA",
+      "summary": "Zhandarmska was the old name of Red Militsioner Square, with the historic fire station and watchtower on Poltavsky Shlyakh. Once, near the end of the nineteenth century…"
+    }
+  },
+  "v-pervyy-i-v-posledniy-raz-na-volnoy-stsene": {
+    "uk": {
+      "title": "ВПЕРШЕ Й ВОСТАННЄ НА ВІЛЬНІЙ СЦЕНІ",
+      "summary": "Скрипкова «Мелодія» Глюка до сліз зворушила глядачів, що прийшли до Малого театру на Харківській набережній. Гостя з Петербурга Вера Komissarzhevska грала Нору — героїню однойменної дра…"
+    },
+    "en": {
+      "title": "FIRST AND LAST ON THE FREE STAGE",
+      "summary": "Gluck's violin \"Melody\" moved the audience at the Small Theater on Kharkiv Embankment to tears. Guest from St. Petersburg Vera Komissarzhevskaya played Nora—the heroine of the namesake drama…"
+    }
+  },
+  "lyubimets-publiki": {
+    "uk": {
+      "title": "УЛЮБЛЕНЕЦЬ ПУБЛІКИ",
+      "summary": "Серед мешканців багатоповерхового доходного будинку на Сумській, 6, на початку століття вирізнявся поривчастий молодик, який, здавалося, не жив, а п'янів життям. Одягався з витонченим смаком, мав солідний…"
+    },
+    "en": {
+      "title": "THE PUBLIC'S FAVORITE",
+      "summary": "Among tenants of the apartment house at Sumska 6 at the century's start stood out a spirited young man who seemed not to live but to be drunk on life. He dressed with refined taste and had a solid…"
+    }
+  },
+  "tramvay-ili-konka": {
+    "uk": {
+      "title": "ТРАМВАЙ ЧИ КОНКА?",
+      "summary": "Початок XX століття. Пушкінською, Сумською та іншими головними магістралями прокладено рейки. Але по одних дзвенять трамваї, по інших повзуть вагончики, що їх тягнуть кінські сили в натураль…"
+    },
+    "en": {
+      "title": "TRAM OR HORSECAR?",
+      "summary": "The early twentieth century. Rails ran along Pushkinska, Sumska, and other main streets. On some lines trams rang; on others carriages crawled, pulled by horse power in the literal…"
+    }
+  },
+  "posle-revolyutsii-v-otstavku": {
+    "uk": {
+      "title": "ПІСЛЯ РЕВОЛЮЦІЇ — У ВІДСТАВКУ",
+      "summary": "«Самовіддана діяльність генерала Пeshkova й проявлена ним при цьому сила волі та такт багато сприяли збереженню порядку й спокою в Харківській губернії» — так міністр внутрішніх справ Рос…"
+    },
+    "en": {
+      "title": "AFTER THE REVOLUTION—RETIREMENT",
+      "summary": "\"General Peshkov's selfless activity and the will and tact he showed greatly helped preserve order and calm in Kharkiv province\"—so wrote Russia's interior minister…"
+    }
+  },
+  "vystrel-v-spinu": {
+    "uk": {
+      "title": "ПОСТРІЛ У СПИНУ",
+      "summary": "Харківське медичне товариство мало під містом дачу з подвір'ям. Ось якось там у жовтні 1907 року з амбара зник оves (ним годували коней, на яких возили лікарів). На дачі…"
+    },
+    "en": {
+      "title": "SHOT IN THE BACK",
+      "summary": "Kharkiv Medical Society had a country dacha with outbuildings. One October 1907 oats vanished from the barn (they fed the horses that carried doctors). At the dacha…"
+    }
+  },
+  "rokovaya-pulya": {
+    "uk": {
+      "title": "РОКОВА КУЛЯ",
+      "summary": "О сьомій ранку в травні 1908 року в одномісній палаті однієї з приватних лікарень Харкова пролунав постріл. Ког-"
+    },
+    "en": {
+      "title": "THE FATAL BULLET",
+      "summary": "At seven in the morning in May 1908, in a single room of one of Kharkiv's private hospitals, a shot rang out. Who-"
+    }
+  },
+  "sladkaya-zhizn": {
+    "uk": {
+      "title": "СОЛОДКЕ ЖИТТЯ",
+      "summary": "Укладач цього збірника з ностальгією згадує свою молодість, коли улюбленою (і цілком доступною) ласощю в родині був «деліс» — шоколадно-вафельний торт. Такі торти випускали різних розмі…"
+    },
+    "en": {
+      "title": "THE SWEET LIFE",
+      "summary": "This anthology's compiler nostalgically recalls his youth when the family's favorite (and affordable) treat was \"Delis\"—a chocolate wafer cake. Such cakes came in various sizes…"
+    }
+  },
+  "korol-smeha": {
+    "uk": {
+      "title": "КОРОЛЬ СМІХУ",
+      "summary": "«Написавши за два роки чотири оповідання, я вирішив, що достатньо попрацював на користь рідної літератури, і вирішив ґрунтовно відпочити, але підкотився 1905 рік і, підхопивши мене, закрутив, як щепку. Я ст…"
+    },
+    "en": {
+      "title": "KING OF LAUGHTER",
+      "summary": "\"Having written four stories in two years, I decided I had done enough for native literature and would rest—but 1905 rolled up and, catching me, spun me like a chip. I…"
+    }
+  },
+  "goluboy-glaz": {
+    "uk": {
+      "title": "БЛАКИТНЕ ОКО",
+      "summary": "Ці слова поруч із символічним зображенням ока з'являлися на театральних оголошеннях, афішах і в старих харківських газетах «Южний край» та «Утро». Так називали театр, що діяв у нас у 1909–1911…"
+    },
+    "en": {
+      "title": "THE BLUE EYE",
+      "summary": "These words beside a symbolic eye appeared on theater notices, posters, and in old Kharkiv papers Yuzhny Krai and Utro. That was the name of a theater active here in 1909–1911…"
+    }
+  },
+  "podzemnyy-harkov": {
+    "uk": {
+      "title": "ПІДЗЕМНИЙ ХАРКІВ",
+      "summary": "1913 року у дворі Комерційного клубу на Рymarskii вулиці (нині — обласна філarmoniya) можна було спостерігати цікаве видовище. Група людей стежила за діями людини з відстороненим вигляд…"
+    },
+    "en": {
+      "title": "UNDERGROUND KHARKIV",
+      "summary": "In 1913 in the Commercial Club courtyard on Rymarska Street (now the regional philharmonic) one could watch a curious sight. A group followed a man who looked detached as he…"
+    }
+  },
+  "zheltaya-kofta": {
+    "uk": {
+      "title": "ЖОВТА КОФТА",
+      "summary": "Січень 1913 року. Харківська громадська бібліотека (нині ім. В. Г. Короленка). Вечір поезії. Виступають гості з Москви — поети Василь Камensky, David Burliuk, наш земляк, і двадцятирічний Volodymyr…"
+    },
+    "en": {
+      "title": "THE YELLOW SHIRT",
+      "summary": "January 1913. Kharkiv Public Library (now V. G. Korolenko). A poetry evening. Guests from Moscow perform—poets Vasily Kamensky, David Burliuk, our fellow townsman, and twenty-year-old Vladimir…"
+    }
+  },
+  "k-oruzhiyu": {
+    "uk": {
+      "title": "ДО ЗБРОЇ!",
+      "summary": "Яка, здавалося б, связь між повстанням на броненосці «Potemkin» в Одесі 1905 року й нашим містом? Пряма! Керував повстанням наш земляк Афанасій Matyushenko. Дитинство його минуло в Дергачах. Під…"
+    },
+    "en": {
+      "title": "TO ARMS!",
+      "summary": "What link could there be between the 1905 mutiny on the battleship Potemkin in Odesa and our city? A direct one! Our fellow townsman Afanasy Matyushenko led the mutiny. His childhood passed in Derhachi. Under…"
+    }
+  },
+  "muzyka-v-kamne": {
+    "uk": {
+      "title": "МУЗИКА В КАМЕНІ",
+      "summary": "Неможливо уявити Харків без будівель Юридичної академії (колишнє Комерційне училище), автotransportного технікуму (колишній Земельний банк), театру ляльок (колишній Волжсько-Камський банк), НДІ ім. М…"
+    },
+    "en": {
+      "title": "MUSIC IN STONE",
+      "summary": "Kharkiv is unimaginable without the Law Academy (former Commercial School), the auto transport college (former Land Bank), the puppet theater (former Volga-Kama Bank), the M… Research Institute…"
+    }
+  },
+  "ne-na-togo-napali": {
+    "uk": {
+      "title": "НЕ НА ТОГО НАПАЛИ",
+      "summary": "Якось уночі на вулиці грабіжники напали на охайно одягненого пана. Добряче його побивши, почали роздягати, та тут з-за хмари виглянула місяць, і один із грабіжників вигукнув: — Постойте, братцы!…"
+    },
+    "en": {
+      "title": "THEY ATTACKED THE WRONG MAN",
+      "summary": "One night robbers attacked a respectably dressed gentleman. After a thorough beating they began to strip him, but the moon peeked from a cloud and one robber cried: — Wait, brothers!…"
+    }
+  },
+  "kak-v-germanii": {
+    "uk": {
+      "title": "ЯК У НІМЕЧЧИНІ",
+      "summary": "Недоглянутий і безладний Благовіщенський базар давно дратував міського голову А. К. Pogorelko, і він задумав навести лад. Опинившись у Німеччині, градоначальник знайшов рішення цієї проб…"
+    },
+    "en": {
+      "title": "LIKE IN GERMANY",
+      "summary": "The unkempt Blagoveshchensky Market long vexed city head A. K. Pogorelko, and he planned to set it in order. In Germany the mayor found a solution to the prob…"
+    }
+  },
+  "den-romashki": {
+    "uk": {
+      "title": "ДЕНЬ РОМАШКИ",
+      "summary": "Раз на рік харківськими вулицями їздили екипажі й автомобілі, прикрашені ромашкою. Квітку продавали всюди: на Микolaivskii та Pavlivskii площах, Сумській, Московській, Katerynoslavskii…"
+    },
+    "en": {
+      "title": "DAISY DAY",
+      "summary": "Once a year carriages and automobiles decorated with daisies rolled through Kharkiv's streets. The flower sold everywhere: Mykolaivska and Pavlovska squares, Sumska, Moskovska, Katerynoslavska…"
+    }
+  },
+  "spasenie-shtandarta": {
+    "uk": {
+      "title": "ПОРАТУНОК ШТАНДАРТА",
+      "summary": "Харків'янам випало прикривати відхід армійського корпусу. Особливо важким був бій 12 серпня на річці Ekau. Протягом 24 годин, під безперервним вогнем, полк повільно відходив з позиції на позицію…"
+    },
+    "en": {
+      "title": "SAVING THE STANDARD",
+      "summary": "Kharkiv residents had to cover an army corps' retreat. The fight on the Ekau River on 12 August was especially heavy. For twenty-four hours under steady fire the regiment slowly fell back from position to position…"
+    }
+  },
+  "chetyre-s-polovinoy": {
+    "uk": {
+      "title": "ЧОТИРИ З ПОЛОВИНОЮ",
+      "summary": "Взводним у навчальній команді в Ізюмі служив унтер-офіцер на прізвисько Чотири з половиною. Прозвали так, бо вказівний палець на правій руці був наполовину коротший. Він нерідко пускав у…"
+    },
+    "en": {
+      "title": "FOUR AND A HALF",
+      "summary": "A platoon leader in the training detachment at Izium was a noncommissioned officer nicknamed Four and a Half. They called him that because the index finger on his right hand was half short. He often joked…"
+    }
+  },
+  "otets-i-doch": {
+    "uk": {
+      "title": "БАТЬКО І ДОНЬКА",
+      "summary": "Натовп глядачів дивився, як пілот посадив у кабіну спочатку дівчинку, а потім сів сам. Треба було мати повну впевненість у апараті, щоб підняти в повітря доньку. Тим більше що літак був власної кон…"
+    },
+    "en": {
+      "title": "FATHER AND DAUGHTER",
+      "summary": "A crowd watched the pilot seat a girl in the cockpit, then climb in himself. One needed full faith in the machine to lift one's daughter into the air—especially as the airplane was of his own design…"
+    }
+  },
+  "vsem-golovam-golova": {
+    "uk": {
+      "title": "УСІМ ГОЛОВАМ — ГОЛОВА!",
+      "summary": "1918-го гетман П. Skoropadsky запропонував Д. І. Bagaley пост прем'єр-міністра, та той відмовився — до того часу він розчарувався в політиці й відійшов від неї. А досвід адміністративної роботи у Dmyt…"
+    },
+    "en": {
+      "title": "A HEAD FOR ALL HEADS!",
+      "summary": "In 1918 Hetman P. Skoropadsky offered D. I. Bagaley the premiership, but he declined—by then disillusioned with politics. Yet Bagaley had administrative experience as Dmyt…"
+    }
+  },
+  "defekt-zreniya": {
+    "uk": {
+      "title": "ДЕФЕКТ ЗОРУ",
+      "summary": "У жовтні 1917-го в Харківській очній клініці Гірshmana лікувалася певна пацієнтка. Зір she пошкодила, готуючи терористичний акт у Києві ще 1906 року — бомба вибухнула…"
+    },
+    "en": {
+      "title": "A DEFECT OF VISION",
+      "summary": "In October 1917 a patient was treated at Hirshman's Kharkiv eye clinic. She had damaged her sight preparing a terrorist act in Kyiv in 1906—the bomb exploded…"
+    }
+  },
+  "adyutant-ego-prevoshoditelstva": {
+    "uk": {
+      "title": "АД'ЮТАНТ ЙОГО ПРЕВОСХІДНИЦТВА",
+      "summary": "24 червня 1919 року частини Добровольчої армії вступили в Харків. Їх зустрічали квітами й урочистим дзвоном. У соборі відбулася молебень з нагоди «дивовижного визволення давнього православного…"
+    },
+    "en": {
+      "title": "AIDE-DE-CAMP TO HIS EXCELLENCY",
+      "summary": "On 24 June 1919 Volunteer Army units entered Kharkiv. They were greeted with flowers and solemn bell-ringing. A service was held in the cathedral for the \"miraculous deliverance of the ancient Orthodox…"
+    }
+  },
+  "bronirovannyy-monstr": {
+    "uk": {
+      "title": "БРОНЬОВАНИЙ МОНСТР",
+      "summary": "Махина, що стоїть неподалік історичного музею, має дивний вигляд, схожий на величезну залізну заклепану скриню. Це один із найперших танків, освоєних світовою військовою промисловістю. Батьківщина…"
+    },
+    "en": {
+      "title": "ARMORED MONSTER",
+      "summary": "The hulk near the history museum looks strange, like a huge riveted iron box. It is one of the first tanks mastered by world military industry. Its homeland…"
+    }
+  },
+  "nahodka-belogvardeytsa": {
+    "uk": {
+      "title": "ЗНАХІДКА БІЛОГВАРДІЙЦЯ",
+      "summary": "1919 рік. Харківщина в руках Добровольчої армії генерала Denikina. Селом Великий Бурлuk проїжджав полковник Isenbеk. Він вирішив заглянути в садибу місцевого поміщика Zadonskoho. Та виявилася розгромл…"
+    },
+    "en": {
+      "title": "A WHITE GUARD'S FIND",
+      "summary": "1919. Kharkiv region was held by General Denikin's Volunteer Army. Colonel Isenberg passed through Velykyi Burluk village. He decided to look into local landowner Zadonsky's estate. It lay in ruins…"
+    }
+  }
+}

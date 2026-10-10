@@ -1,0 +1,1173 @@
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const meta = JSON.parse(
+  fs.readFileSync(path.join(root, "scripts/stories-meta.json"), "utf8"),
+).slice(0, 95);
+
+/** @type {Record<string, { uk: { title: string; summary: string }; en: { title: string; summary: string } }>} */
+const T = {
+  annotatsiya: {
+    uk: {
+      title: "АНОТАЦІЯ",
+      summary:
+        "У книзі «Харків у байках і анекдотах» зібрано кумедні й драматичні оповіді, життєві історії, байки та історичні анекдоти про Харків і знаменитих харків'ян у тому вигляді, в якому їх донесла до нас пам'ять…",
+    },
+    en: {
+      title: "ANNOTATION",
+      summary:
+        "The book Kharkiv in Yarns and Anecdotes gathers amusing and dramatic stories, lived tales, yarns, and historical anecdotes about Kharkiv and famous Kharkivites in the form in which memory has handed them down…",
+    },
+  },
+  "o-knige-i-ee-avtore": {
+    uk: {
+      title: "ПРО КНИГУ ТА ЇЇ АВТОРА",
+      summary:
+        "Перу Савелія Ципіна належать десяток сатиричних книг, кілька п'єс, безліч естрадних і кінематюр. Закінчивши колись фізтех Харківського державного університету, що випускає, як…",
+    },
+    en: {
+      title: "ABOUT THE BOOK AND ITS AUTHOR",
+      summary:
+        "Saveliy Tsypin is the author of a dozen satirical books, several plays, and many stage and film sketches. Having graduated from the physics department of Kharkiv State University, which trains, as…",
+    },
+  },
+  "ot-avtora": {
+    uk: {
+      title: "ВІД АВТОРА",
+      summary:
+        "Про Харків і знаменитих харків'ян написано немало — від солідних праць до нарисів. Мені ж хотілося в цій книзі зібрати примітні історії — кумедні й трагічні, байки й легенди, в яких…",
+    },
+    en: {
+      title: "FROM THE AUTHOR",
+      summary:
+        "Much has been written about Kharkiv and its famous sons and daughters—from weighty tomes to essays. In this book I wanted to gather remarkable stories—funny and tragic, yarns and legends in which…",
+    },
+  },
+  zatmenie: {
+    uk: {
+      title: "ЗАТЕМНЕННЯ",
+      summary:
+        "О 16:55 перед самою переправою через Сіверський Донець небо потемніло — почалося сонячне затемнення. Воїнів охопила паніка: важче було уявити похмурішу примету. Адже за давнім повір'ям при…",
+    },
+    en: {
+      title: "ECLIPSE",
+      summary:
+        "At 4:55 p.m., just before the crossing of the Siversky Donets, the sky darkened—a solar eclipse began. The soldiers panicked; it was hard to imagine a grimmer omen. For according to an old belief, at…",
+    },
+  },
+  "otkuda-harkov": {
+    uk: {
+      title: "ЗВІДКИ ХАРКІВ?",
+      summary:
+        "На коні в повному спорядженні — зі щитом і пікою, луком і стрілами — сидить козак, за його спиною — вежі й укріплення острогу. Так стародавній художник зобразив легендарного засновника нашого міста Харка…",
+    },
+    en: {
+      title: "WHERE DID KHARKIV COME FROM?",
+      summary:
+        "On a horse in full gear—with shield and pike, bow and arrows—sits a Cossack; behind him rise the towers and walls of a stockade. Thus an old artist portrayed the legendary founder of our city, Kharko…",
+    },
+  },
+  "tri-gerba": {
+    uk: {
+      title: "ТРИ ГЕРБИ",
+      summary:
+        "У 1781 році імператриця Катерина II затвердила на проєкті герб Харківської губернії: «Бути по сему». Той являв собою зелене поле з рогом достатку, плодами й квітами, а на…",
+    },
+    en: {
+      title: "THREE COATS OF ARMS",
+      summary:
+        "In 1781 Empress Catherine II approved the design of the Kharkiv province coat of arms: \"Let it be so.\" It showed a green field with a cornucopia, fruit, and flowers, and on…",
+    },
+  },
+  "raklo-vanko-zhuzhka-i-dr": {
+    uk: {
+      title: "«РАКЛО», «ВАНЬКО», «ЖУЖКА» ТА ІН.",
+      summary:
+        "Мові харків'ян притаманні специфічні, лише їм властиві словечка, яких не вживають в інших місцевостях. Згадаймо майже зниклий з нашого лексикону, але такий барвистий термін, як «р…",
+    },
+    en: {
+      title: "\"RAKLO,\" \"VANKO,\" \"ZHUZHKA,\" AND MORE",
+      summary:
+        "Kharkiv speech has its own distinctive words found nowhere else. Let us recall a term almost gone from our vocabulary, yet so colorful—the \"r…",
+    },
+  },
+  "na-ulitsu-vyshel-a-ulitsy-net": {
+    uk: {
+      title: "НА ВУЛИЦЮ ВИЙШОВ, А ВУЛИЦІ НЕМАЄ",
+      summary:
+        "Топоніміці Харкова присвячено цілі дослідження, і в них немало цікавого. Вулиці Чоботарська, Кузнечна, Римарська, Кацарська, Столярний і Слюсарний провулки, район Гончарівка, очевидно, одержали наз…",
+    },
+    en: {
+      title: "OUT INTO THE STREET—AND NO STREET",
+      summary:
+        "Whole studies are devoted to Kharkiv toponymy, full of curious detail. Chebotarska, Kuznechna, Rymarska, Katsarska, Stolyarny and Slesarny lanes, the Honcharivka district—all evidently took their names…",
+    },
+  },
+  "kuda-delas-netech": {
+    uk: {
+      title: "КУДИ ПОДІЛАСЬ НЕТЕЧ?",
+      summary:
+        "«Хоч лопни, Харків не тече» — одна з наших старих місцевих прислів'їв. У ній зібрані назви річок у центрі міста: Харків, Лопань і Нетеч. Перші дві існують досі, але куди поділася третя…",
+    },
+    en: {
+      title: "WHERE DID NETECH GO?",
+      summary:
+        "\"Burst if you will, Kharkiv doesn't flow\"—one of our old local sayings. It bundles the names of rivers in the city center: Kharkiv, Lopan, and Netech. The first two still exist, but where did the third…",
+    },
+  },
+  "ilya-mechnikov": {
+    uk: {
+      title: "ІЛЛЯ МЕЧНИКОВ",
+      summary:
+        "У гімназії Ілля з однокласниками організував «Союз науки». Вони влаштовували диспути, складали реферати з наукових питань. Ще будучи гімназистом, юнак уперше переступив поріг Харківського університет…",
+    },
+    en: {
+      title: "ILYA MECHNIKOV",
+      summary:
+        "At gymnasium Ilya and his classmates founded a \"Union of Science.\" They held debates and wrote papers on scientific topics. Still a schoolboy, he first crossed the threshold of Kharkiv University…",
+    },
+  },
+  "saymon-kuznets": {
+    uk: {
+      title: "САЙМОН КУЗНЕЦ",
+      summary:
+        "Семен народився в Харківі 1901 року в родині торговця хутром. Видно, комерційні справи в Кузнеця-старшого ладилися не дуже, і він вирішив шукати щастя в Америці. Оселитися там, а потім викликати ро…",
+    },
+    en: {
+      title: "SIMON KUZNETS",
+      summary:
+        "Semyon was born in Kharkiv in 1901 to a fur merchant's family. Business evidently fared poorly for Kuznets senior, and he decided to try his luck in America—settle there, then send for his fa…",
+    },
+  },
+  "lev-landau": {
+    uk: {
+      title: "ЛЕВ ЛАНДАУ",
+      summary:
+        "Науковий співробітник Українського фізико-технічного інституту, певний Н., одержав з Москви телеграму: Нобелівський комітет вирішив розглянути питання про присудження йому Нобелівської премії, а тому…",
+    },
+    en: {
+      title: "LEV LANDAU",
+      summary:
+        "A researcher at the Ukrainian Institute of Physics and Technology, one Mr. N., received a telegram from Moscow: the Nobel Committee would consider awarding him the Nobel Prize, and therefore…",
+    },
+  },
+  "po-odezhke-vstrechali": {
+    uk: {
+      title: "ПО ОДЯГУ ЗУСТРІЧАЛИ...",
+      summary:
+        "Чоловіки й жінки, особливо у свята, носили кафтани, по бортах чи боках обшиті золотим або срібним позументом, і покрій чоловічого одягу мало чим відрізнявся від жіночого. Лиш…",
+    },
+    en: {
+      title: "JUDGED BY THE CLOTHES...",
+      summary:
+        "Men and women, especially on holidays, wore caftans edged with gold or silver trim; men's dress differed little from women's. Only…",
+    },
+  },
+  "svatane-na-goncharovke": {
+    uk: {
+      title: "СВАТАННЯ НА ГОНЧАРІВЦІ",
+      summary:
+        "«Весілля справляли галасливо й тратили на них чималі гроші. Починалося з того, що до батьків нареченої посилали сватів: вони брали з собою як посланці хліб і посохи. За згоди нареченої вона давала стар…",
+    },
+    en: {
+      title: "MATCHMAKING IN HONCHARIVKA",
+      summary:
+        "\"Weddings were loud affairs and cost a fortune. Matchmakers were sent to the bride's parents bearing bread and staffs. When the bride agreed, she gave the elder…",
+    },
+  },
+  "chelom-bem": {
+    uk: {
+      title: "ЧОЛОМ Б'ЄМ",
+      summary:
+        "«Царю-державо й великому князю Олексію Михайловичу всієї великої й малої та білої Русі Самодержцю. Б'ють чолом богомольці Твої бідні, государеві українського далекого міста Харкова черкаський поп Єре…",
+    },
+    en: {
+      title: "WE BOW LOW",
+      summary:
+        "\"To the Tsar and Grand Duke Alexei Mikhailovich of All Russia, Autocrat. Your poor pilgrims of the sovereign Ukrainian far city of Kharkiv, the Cherkasy priest Yere, bow their foreheads…",
+    },
+  },
+  "falshivaya-moneta": {
+    uk: {
+      title: "ФАЛЬШИВА МОНЕТА",
+      summary:
+        "Органам охорони громадського порядку вдалося вистежити й затримати двох фальшивомонетників на прізвиськах Іконник і Золотар. Застосувавши слідчі методи, ті зізналися у своєму злочин…",
+    },
+    en: {
+      title: "COUNTERFEIT COIN",
+      summary:
+        "The police tracked down and arrested two counterfeiters nicknamed Ikonnik and Zolotar. Under investigation they confessed to their crime…",
+    },
+  },
+  "kto-sochinil-pismo-turetskomu-sultanu": {
+    uk: {
+      title: "ХТО СКЛАДАВ ЛИС ТУРЕЦЬКОМУ СУЛТАНУ?",
+      summary:
+        "«Ти — шайтан турецький, проклятого чорта брат і товариш і самого люцифера секретар. Який ти, у чорта, лицар? Чорт викидає, а твоє військо пожирає. Не будеш ти годен силою християнських під собою мати, т…",
+    },
+    en: {
+      title: "WHO WROTE THE LETTER TO THE TURKISH SULTAN?",
+      summary:
+        "\"You Turkish devil, brother and comrade of the accursed one and secretary to Lucifer himself—what sort of knight are you, damn it? The devil casts out, and your army devours. You shall not be fit to hold Christians under you by force, th…",
+    },
+  },
+  "gorod-v-osade": {
+    uk: {
+      title: "МІСТО В ОБЛОЗІ",
+      summary:
+        "У 1668 році харківську фортецю обложив ворог. Але це були не татари, не московське військо, а частини нашого земляка, козацького отамана Івана Сирка. За давнім свідченням, вони «харківського п…",
+    },
+    en: {
+      title: "CITY UNDER SIEGE",
+      summary:
+        "In 1668 an enemy besieged the Kharkiv fortress—but not Tatars or the Muscovite army, rather troops of our countryman, Cossack hetman Ivan Sirko. An old account says they \"Kharkiv p…",
+    },
+  },
+  "kak-shvedy-pod-harkovom": {
+    uk: {
+      title: "ЯК ШВЕДИ ПІД... ХАРКОВОМ",
+      summary:
+        "Відомий вислів «розбитий, як швед під Полтавою» міг звучати й «розбитий, як швед під Харковом». Бо, за однією з легенд, вирішальну битву з Карлом XII і його союзниками Петро I нібито задумав…",
+    },
+    en: {
+      title: "THE SWEDES NEAR... KHARKIV",
+      summary:
+        "The saying \"broken like a Swede at Poltava\" might as well have been \"broken like a Swede near Kharkiv.\" For legend has it that Peter the Great planned the decisive battle with Charles XII and his allies…",
+    },
+  },
+  "rogan-ne-tolko-pivo": {
+    uk: {
+      title: "«РОГАНЬ» — НЕ ЛИШЕ ПИВО",
+      summary:
+        "Слово «Рогань» у нас асоціюється з пивом або з назвою нового житлового масиву, але зовсім не з прізвищем Кантемір. Територія нинішньої Рогані, починаючи з першої половини XVIII століття, належ…",
+    },
+    en: {
+      title: "\"ROHAN\"—NOT JUST BEER",
+      summary:
+        "For us \"Rohan\" suggests beer or a new housing district, not the name Kantemir. The land of present-day Rohan, from the early eighteenth century onward, belonged…",
+    },
+  },
+  "dvorets-na-odnu-noch": {
+    uk: {
+      title: "ПАЛАЦ НА ОДНУ НІЧ",
+      summary:
+        "Після завоювання Криму генерал-фельдмаршал Потьомкін, одержавши за те титул князя Таврійського, вирішив показати імператриці нові територіальні надбання Росії й організував їй туди ек…",
+    },
+    en: {
+      title: "A PALACE FOR ONE NIGHT",
+      summary:
+        "After conquering Crimea, Field Marshal Potemkin—made Prince of Taurida for it—decided to show the Empress Russia's new lands and arranged for her a journey there…",
+    },
+  },
+  "mir-lovil-ego": {
+    uk: {
+      title: "СВІТ ЛОВИВ ЙОГО",
+      summary:
+        "Катерина II, під'їжджаючи до Харкова з Криму, помітила на пагорбі пожилого чоловіка в простому одязі, зануреного в думки. На запитання, хто це, їй відповіли: знаменитий філософ Григорій С…",
+    },
+    en: {
+      title: "THE WORLD SOUGHT HIM",
+      summary:
+        "Catherine II, approaching Kharkiv from Crimea, noticed an elderly man in plain clothes, lost in thought on a hill. Asked who he was, she was told: the famous philosopher Grigory S…",
+    },
+  },
+  "truba-klassiku": {
+    uk: {
+      title: "ТРУБА — КЛАСИКУ",
+      summary:
+        "Западина в лісі. Дном її тягнеться короткий бетонний рів з киданими туди цегляними уламками й розбитими пляшками. З бетонної стінки стирчить відрізок іржавої труби, звідки струменить водичка. Це що — недо…",
+    },
+    en: {
+      title: "PIPE FOR A CLASSIC",
+      summary:
+        "A hollow in the woods. Along its bottom runs a short concrete ditch littered with brick fragments and broken bottles. From the wall juts a stub of rusty pipe trickling water. Is this an unfinished…",
+    },
+  },
+  "i-goroda-b-ne-stalo": {
+    uk: {
+      title: "І МІСТА Б НЕ СТАЛО",
+      summary:
+        "Одного разу на дверях Вознесенської церкви, що височіла на Вознесенській площі (нині Фейєрбаха), знайшли листівку. Виявилося, це — ні більше ні менше — пасквіль на його імператорську величність Па…",
+    },
+    en: {
+      title: "AND THERE'D BE NO CITY",
+      summary:
+        "Once a leaflet was found on the door of the Ascension Church that towered over Ascension Square (now Feuerbach Square). It proved to be nothing less than a lampoon on His Imperial Majesty Pa…",
+    },
+  },
+  "polkovnik-smutyan": {
+    uk: {
+      title: "ПОЛКОВНИК-ЛЮТУВАТЕЛЬ",
+      summary:
+        "Літом 1765 року полковник харківського полка Х. Краснокутський опинився в Санкт-Петербурзі й дізнався там вістку, що страшенно його схвилювала. Катерина II видала маніфест про слобідські полки, де…",
+    },
+    en: {
+      title: "THE MUTINOUS COLONEL",
+      summary:
+        "In the summer of 1765 Colonel Kh. Krasnokutsky of the Kharkiv regiment was in St. Petersburg and learned news that deeply alarmed him. Catherine II had issued a manifesto on the Sloboda regiments, where…",
+    },
+  },
+  "namestnik-zaochnik": {
+    uk: {
+      title: "НАМІСНИК-ЗАОЧНИК",
+      summary:
+        "«Розповім вам, як я нагородила фельдмаршала Румянцева: 1) у день святкування миру він одержав грамоту, де докладно викладено всі його перемоги, завоювання й укладення миру; 2) фельдмаршальський жез…",
+    },
+    en: {
+      title: "GOVERNOR BY CORRESPONDENCE",
+      summary:
+        "\"I shall tell you how I rewarded Field Marshal Rumyantsev: 1) on the day peace was celebrated he received a charter detailing all his victories, conquests, and the peace itself; 2) the marshal's baton…",
+    },
+  },
+  zaezdom: {
+    uk: {
+      title: "ЗАЇЗДОМ",
+      summary:
+        "«Наступного дня, по приїзді, князя чекали в соборі… Светліший прийшов уже після «Достойно» й зупинився не на приготованому для нього сидінні під балдахіном, а праворуч від амвона, посеред церк…",
+    },
+    en: {
+      title: "A ROYAL VISIT",
+      summary:
+        "\"The next day, after his arrival, the prince was expected in the cathedral… His Highness came already after the 'It is meet' and stopped not at the seat prepared under the canopy but to the right of the pulpit, in the midst of the church…",
+    },
+  },
+  "gde-obitali-gubernatory": {
+    uk: {
+      title: "ДЕ МЕШКАЛИ ГУБЕРНАТОРИ",
+      summary:
+        "Де мешкали найперші харківські начальники, авторові невідомо, але до 1777 року вони вирішили створити собі представницьку резиденцію. Її зведено на Університетській горі до 1777 року…",
+    },
+    en: {
+      title: "WHERE THE GOVERNORS LIVED",
+      summary:
+        "Where Kharkiv's earliest rulers lived is unknown, but by 1777 they decided to build a formal residence. It was erected on University Hill by that year…",
+    },
+  },
+  "let-za-dvesti-na-odnom-meste": {
+    uk: {
+      title: "ЛЕТ ЗА ДВІСТІ НА ОДНОМУ МІСЦІ",
+      summary:
+        "Відвідувачам недавно збудованого скляного кафе на площі Поезії й не сниться, біля чиєї стіни вони стоять. А це найдавніша споруда нашого міста, поступається віком, мабуть, лише Покровській церк…",
+    },
+    en: {
+      title: "TWO CENTURIES IN ONE SPOT",
+      summary:
+        "Visitors to the new glass-walled café on Poetry Square little guess whose wall they lean against. It is the oldest building in the city, second in age perhaps only to the Intercession Church…",
+    },
+  },
+  "na-perekladnyh": {
+    uk: {
+      title: "НА ПЕРЕКЛАДНИХ",
+      summary:
+        "Харків'янам, що надіслали листа в інше місто, місяцями доводилося чекати відповіді. По-перше, пошта виїжджала з Харкова лише двічі на тиждень: у середу — Московським трактом, у неділю —…",
+    },
+    en: {
+      title: "BY STAGECOACH",
+      summary:
+        "Kharkivites who mailed a letter to another city might wait months for a reply. For one thing, mail left Kharkiv only twice a week: on Wednesdays along the Moscow road, on Sundays…",
+    },
+  },
+  "na-postoy": {
+    uk: {
+      title: "НА ПОСТІЙ",
+      summary:
+        "«Дуже великі видатки для міста складали трати на військових постояльців, що тоді квартували в Харківі. Думі доводилося давати їм не лише приміщення, а й клопотати про задоволення їхніх різ…",
+    },
+    en: {
+      title: "QUARTERING TROOPS",
+      summary:
+        "\"Military guests quartered in Kharkiv at the time cost the city dearly. The Duma had to provide them lodging and see to their various needs…",
+    },
+  },
+  "uchenyy-v-kutuzku": {
+    uk: {
+      title: "УЧЕНИЙ? У КУТУЗКУ!",
+      summary:
+        "Вранці 28 серпня 1781 року на харківську поштову станцію з'явився пан. Представився Василем Зуєвим — ад'юнктом академії в Санкт-Петербурзі, командированим на вивчення й опис півдня Росії. Він…",
+    },
+    en: {
+      title: "A SCHOLAR? TO THE CORNER!",
+      summary:
+        "On the morning of August 28, 1781, a gentleman appeared at the Kharkiv post station. He gave his name as Vasily Zuev, adjunct of the Academy in St. Petersburg, sent to study and describe the south of Russia. He…",
+    },
+  },
+  "bito-za-chuzhuyu-svitu": {
+    uk: {
+      title: "БИТО ЗА ЧУЖУ СВИТУ",
+      summary:
+        "Під час Троїцького ярмарку до лавочника на ім'я Ахмет підійшов відвідувач і попросив позичити десять копійок. Заставою залишив свою свитку (яка й без того мало вартувала), обіцявши завтра принести гроші й забрати…",
+    },
+    en: {
+      title: "FLOGGED OVER A BORROWED COAT",
+      summary:
+        "During the Trinity Fair a visitor asked the shopkeeper Akhmet to lend him ten kopecks, leaving his coat as pledge—worth little anyway—and promising to bring the money tomorrow and reclaim…",
+    },
+  },
+  "kryuchok-ot-lyustry": {
+    uk: {
+      title: "ГАК ВІД ЛЮСТРИ",
+      summary:
+        "Якось поміщику Мордвінову знадобилася певна сума грошей. Довго він думав, де їх дістати, і видумав — продав місту власний дім. Проте нікуди з нього не збирався їхати й спокійно продовжував…",
+    },
+    en: {
+      title: "THE CHANDELIER HOOK",
+      summary:
+        "Landowner Mordvinov once needed a sum of money. He pondered long where to get it and sold his house to the city—yet had no intention of moving out and calmly continued…",
+    },
+  },
+  "ukrali-most": {
+    uk: {
+      title: "УКРАЛИ МІСТ",
+      summary:
+        "Якось харків'яни виявили, що на Лопані… зник міст. Звернулися до міської Думи, але там нічого не знали й самі запитали губернатора. Той відповів, що міст наказано розібра…",
+    },
+    en: {
+      title: "THEY STOLE THE BRIDGE",
+      summary:
+        "Kharkivites once found that a bridge on the Lopan… had vanished. They appealed to the City Duma, which knew nothing and asked the governor. He replied that the bridge had been ordered dismantled…",
+    },
+  },
+  "odin-kupets-dvuh-gubernatorov-odolel": {
+    uk: {
+      title: "ОДИН КУПЕЦЬ ДВОХ ГУБЕРНАТОРІВ ПЕРЕМІГ",
+      summary:
+        "Незручною для губернської влади постаттю був купець 3-ї гільдії Єгор Єгорович Урюпін, якого 1799 року обрали міським головою. Очолювана ним міська Дума заявила, що в своїй діяль…",
+    },
+    en: {
+      title: "ONE MERCHANT BEAT TWO GOVERNORS",
+      summary:
+        "Merchant of the third guild Yegor Yegorovich Uryupin, elected mayor in 1799, was an awkward figure for the provincial authorities. The Duma he led declared it would act in its own…",
+    },
+  },
+  "krasnyy-petuh": {
+    uk: {
+      title: "ЧЕРВОНИЙ ПІВЕНЬ",
+      summary:
+        "У травні 1733 року в місті сталася велика пожежа: згоріли триста дворів, Соборна й Миколаївська церкви та всі лавки. Хоча ще за півстоліття до того наказом воєводи харків'янам усякого стану заборон…",
+    },
+    en: {
+      title: "THE RED ROOSTER",
+      summary:
+        "In May 1733 a great fire destroyed three hundred yards, the Cathedral and St. Nicholas churches, and all the shops. Half a century earlier the voivode had forbidden Kharkivites of every rank…",
+    },
+  },
+  "s-fonarem-domoy": {
+    uk: {
+      title: "З ЛІХТАРЕМ — ДОДОМУ",
+      summary:
+        "І прості мешканці, і заможні харків'яни прагнули повернутися додому до темна, бо в темряві можна було не стільки стати жертвою грабіжника, скільки зламати ноги на небрукованих вулицях. Нарешті в…",
+    },
+    en: {
+      title: "HOME BY LANTERN LIGHT",
+      summary:
+        "Plain folk and prosperous Kharkivites alike tried to get home before dark; in the gloom one might less often meet a robber than break a leg on unpaved streets. At last in…",
+    },
+  },
+  "za-chto": {
+    uk: {
+      title: "ЗА ЩО?",
+      summary:
+        "Однієї з ночей 1745 року на квартиру капітана Назар'єва напали. Самого капітана в ту мить не було вдома. Увірвавшись у житло, нападники зламали ворота, розбили вікна, до смерті побили…",
+    },
+    en: {
+      title: "WHAT FOR?",
+      summary:
+        "One night in 1745 attackers struck Captain Nazaryev's lodgings. The captain was not home. Bursting in, they broke the gate, smashed windows, beat to death…",
+    },
+  },
+  "baly-obedy-maskarady": {
+    uk: {
+      title: "БАЛИ, ОБІДИ, МАСКАРАДИ...",
+      summary:
+        "«Почалися в Харківі бали, маскаради, благородні зібрання, тоді звані «клубами». І як добре було в ту безетикетну, щиру, патріархальну пору. Кожної неділі, кожного свята…",
+    },
+    en: {
+      title: "BALLS, DINNERS, MASQUERADES...",
+      summary:
+        "\"Balls, masquerades, and genteel gatherings then called 'clubs' began in Kharkiv. How fine it was in that free, sincere, patriarchal age. Every Sunday, every holiday…",
+    },
+  },
+  "zolotaya-shpaga": {
+    uk: {
+      title: "ЗОЛОТА ШПАГА",
+      summary:
+        "А. П. Нікітін був кадровим військовим — закінчив ще в юності кадетський корпус. Як командир артилерійських підрозділів, доблесно брав участь у Вітчизняній війні 1812 року. Був нагороджений золотою шпагою…",
+    },
+    en: {
+      title: "THE GOLDEN SWORD",
+      summary:
+        "A. P. Nikitin was a career soldier—he finished cadet school while still young. Commanding artillery units, he fought bravely in the War of 1812 and was awarded a golden sword…",
+    },
+  },
+  "pod-kolpakom": {
+    uk: {
+      title: "ПІД «КОЛПАКОМ»",
+      summary:
+        "Здавалося б, губернатори, яких призначав цар, були повними господарями на підлеглих територіях і могли чинити там усе, що їм заманеться. Проте це не так. У кожній губернії був ще й прокур…",
+    },
+    en: {
+      title: "UNDER THE \"CAP\"",
+      summary:
+        "Governors appointed by the tsar seemed absolute masters of their provinces and free to do as they pleased. Not so: every province also had a prosecutor…",
+    },
+  },
+  "veselye-monahi": {
+    uk: {
+      title: "ВЕСЕЛІ МОНАХИ",
+      summary:
+        "«1752 року на весіллі сотника Андрія Топчія священник Миколаївської церкви Іоанн жорстоко побився з міським отаманом Петром Булгаковим, обзиваючи того богомерзенним некрещеним басурманином», — так на…",
+    },
+    en: {
+      title: "MERRY MONKS",
+      summary:
+        "\"In 1752 at sotnyk Andrey Topchiy's wedding, St. Nicholas priest Ioann fiercely fought the town ataman Pyotr Bulgakov, calling him a godless, unbaptized infidel,\" thus begins…",
+    },
+  },
+  "zakonoprotivnye-postupki": {
+    uk: {
+      title: "ЗАКОНОПРОТИВНІ ВЧИНКИ",
+      summary:
+        "І в давні часи ті, кому доручено охороняти порядок, самі його порушували. Підпоручик Єнохін уночі посилав підлеглих красти в одного міщанина сіно, без приводу забирав у шинкарки…",
+    },
+    en: {
+      title: "LAWLESS ACTS",
+      summary:
+        "Even in old times those sworn to keep order broke it themselves. Sub-lieutenant Yenokhin sent men at night to steal a townsman's hay and seized goods from a tavern keeper without cause…",
+    },
+  },
+  "na-torzhestvo-ne-priglasili": {
+    uk: {
+      title: "НА СВЯТО НЕ ЗАПРОСИЛИ",
+      summary:
+        "«Шукаю замінити вільну скромну вакансію бібліотекаря. Не відмовте мені в цьому! Дайте мені радість навести лад і виявити скарби цієї установи заснованого мною, але…",
+    },
+    en: {
+      title: "NOT INVITED TO THE CELEBRATION",
+      summary:
+        "\"I seek to fill the modest vacant post of librarian. Do not refuse me! Grant me the joy of putting in order and revealing the treasures of this institution founded by me, yet…",
+    },
+  },
+  "avtor-fausta-harkovu": {
+    uk: {
+      title: "АВТОР «ФАУСТА» — ХАРКОВУ",
+      summary:
+        "Кумедно: у Харківі є вулиці Дарвіна, Шекспіра, недавно була Байрона — навіть не підозрюючи про існування нашого міста, — проте немає вулиці Гете. Хоча видатний мислитель, письменник і вчений…",
+    },
+    en: {
+      title: "THE AUTHOR OF \"FAUST\"—FOR KHARKIV",
+      summary:
+        "Oddly, Kharkiv has streets named for Darwin and Shakespeare, and until recently Byron—men who never heard of our city—yet no Goethe Street, though the great thinker, writer, and scholar…",
+    },
+  },
+  "pervyy-v-ukraine": {
+    uk: {
+      title: "ПЕРШИЙ В УКРАЇНІ",
+      summary:
+        "1816 року в нашому місті почав виходити журнал «Харківський Демокрит», який видавав письменник-байкар, колишній вихованець Харківського університету В. Маслович. Журнал мав гумористичний характер і…",
+    },
+    en: {
+      title: "FIRST IN UKRAINE",
+      summary:
+        "In 1816 our city saw the journal Kharkiv Democritus, edited by fabulist and former Kharkiv University student V. Maslovich. The magazine was humorous in tone and…",
+    },
+  },
+  "dolgiy-put": {
+    uk: {
+      title: "ДОВГИЙ ШЛЯХ",
+      summary:
+        "Як відомо, повстання декабристів відбулося в Петербурзі 14 грудня 1825 року. Через їхню нерішучість воно зазнало невдачі. Уряд розпочав слідство, яке для учас…",
+    },
+    en: {
+      title: "THE LONG ROAD",
+      summary:
+        "The Decembrist uprising in St. Petersburg on December 14, 1825, failed through the conspirators' hesitation. The government opened an inquiry that for those involved…",
+    },
+  },
+  "akter-dezertir": {
+    uk: {
+      title: "АКТОР-ДЕЗЕРТИР",
+      summary:
+        "У харківському театрі йшла італійська комедія «Князь-трубочист, трубочист-князь». У першому ряду сиділи два губернатори — харківський і його гість, орловський, що був у місті проїздом…",
+    },
+    en: {
+      title: "ACTOR-DESERTER",
+      summary:
+        "Kharkiv's theater staged the Italian comedy The Prince Chimney Sweep, Chimney Sweep Prince. In the front row sat two governors—the local one and his guest from Oryol, passing through…",
+    },
+  },
+  "ne-vyshe-ivana": {
+    uk: {
+      title: "НЕ ВИЩЕ ІВАНА",
+      summary:
+        "З якого б боку ви не під'їжджали до Харкова, здалеку видно золотоверхий купол дзвіниці Успенського собору. Бо стоїть вона на високій частині міста — на Університетській горі. Дех…",
+    },
+    en: {
+      title: "NO HIGHER THAN IVAN",
+      summary:
+        "Approach Kharkiv from any side and you see the gilded dome of the Dormition bell tower. It stands on the high ground of University Hill. Some…",
+    },
+  },
+  "uchitsya-nikogda-ne-pozdno": {
+    uk: {
+      title: "ВЧИТИСЯ НІКОЛИ НЕ ПІЗНО!",
+      summary:
+        "Цю крилату фразу належить знаменитому поету й сановнику Г. Р. Державіну. Він звернув її до графа В. В. Орлова-Денисова. Молодому офіцеру з блискучою зовнішністю й здібностями симпатизував сам імператор…",
+    },
+    en: {
+      title: "IT IS NEVER TOO LATE TO LEARN!",
+      summary:
+        "The famous poet and statesman G. R. Derzhavin coined this phrase for Count V. V. Orlov-Denisov. The young officer of striking looks and talent enjoyed the emperor's favor…",
+    },
+  },
+  "poshel-von": {
+    uk: {
+      title: "ГЕТЬ ЗВІДСИ!",
+      summary:
+        "Щороку в другій половині серпня Харків приводять у лад. Тим більше що свят двоє: державне — День незалежності України й місцеве — День звільнення міста від німецько-фашист…",
+    },
+    en: {
+      title: "GET OUT!",
+      summary:
+        "Every year in late August Kharkiv is spruced up—especially with two holidays: Ukraine's Independence Day and the local anniversary of the city's liberation from the German-fascist…",
+    },
+  },
+  "kreschenskie-katanya": {
+    uk: {
+      title: "ВОДОХРЕЩЕНСЬКІ КАТАННЯ",
+      summary:
+        "«І в колишні роки наш Харків змагався з Москвою лихою їздою по зимовому шляху, а на Водохрещенському ярмарку на Катеринославській вулиці з двох години дня щодня влаштовували катання. Усе, що прибувало на…",
+    },
+    en: {
+      title: "EPIPHANY SLEIGH RIDES",
+      summary:
+        "\"In years past our Kharkiv rivaled Moscow in daring winter driving, and at the Epiphany fair on Yekaterinoslavskaya Street sleigh rides began daily from two in the afternoon. All who came to…",
+    },
+  },
+  "gvardeets-i-devitsa": {
+    uk: {
+      title: "ГВАРДІЄЦЬ І ДІВЧИНА",
+      summary:
+        "Микола I проводив у Чугуєві парадний смотр військ. Огромний майдан, який займали частини, оточували трибуни в три яруси. На них сиділа публіка. Яскравіли красуні-дівиці й молод…",
+    },
+    en: {
+      title: "GUARDSMAN AND MAIDEN",
+      summary:
+        "Nicholas I held a ceremonial review in Chuguyev. Tribunes rose three tiers around the vast parade ground. The crowd glittered with belles and young…",
+    },
+  },
+  "s-pokoynikom-v-gryaz": {
+    uk: {
+      title: "З ПОКІЙНИКОМ — У БРУД!",
+      summary:
+        "«Літом — пісочниця, навесні й восени — чорнильниця» — так можна було сказати про наше місто аж до кінця XIX століття. Бруд у Харківі, глибокий і довготривалий, був однією з голов…",
+    },
+    en: {
+      title: "INTO THE MUD WITH THE DECEASED!",
+      summary:
+        "\"A sandbox in summer, an inkwell in spring and autumn\"—so one could describe our city nearly to the end of the nineteenth century. Kharkiv's mud, deep and lasting, was one of the main…",
+    },
+  },
+  "lebedi-vmesto-navoza": {
+    uk: {
+      title: "ЛЕБЕДІ ЗАМІСТЬ ГНОЮ",
+      summary:
+        "Звісно, усі харків'яни звертали увагу на круглий сквер на прямій, як лінійка, вулиці Полтавський шлях біля Театру для дітей і юнацтва. Форма його не випадкова. Колись тут був басейн…",
+    },
+    en: {
+      title: "SWANS INSTEAD OF MANURE",
+      summary:
+        "Every Kharkivite noticed the round square on ruler-straight Poltava Highway near the Theater for Children and Youth. Its shape is no accident. Once there was a basin here…",
+    },
+  },
+  "pochem-poklony": {
+    uk: {
+      title: "ЗА СКІЛЬКИ ПОКЛОНИ?",
+      summary:
+        "На початку XIX століття Слобідсько-українською гuberniyeyu деякий час керував Муратов, якого опікував всемогутній граф Аракчєєв. Він покровительствував музам, був людиною гуманітарного складу…",
+    },
+    en: {
+      title: "WHAT PRICE A BOW?",
+      summary:
+        "In the early nineteenth century the Sloboda-Ukrainian province was briefly led by Muratov, protégé of the all-powerful Count Arakcheyev. He patronized the muses and was a man of humane bent…",
+    },
+  },
+  "iz-gryazi-da-v-knyazi": {
+    uk: {
+      title: "ІЗ БРУДУ — В КНЯЗІ",
+      summary:
+        "Одним із видатних харківських губернаторів був Д. Пашков. За нього місто активно благоустроювалося: заростали болота, будувалися мости й переправи, рили канави для водовідводу, зводилися кам'яні храм…",
+    },
+    en: {
+      title: "FROM MUD TO PRINCE",
+      summary:
+        "D. Pashkov was among Kharkiv's notable governors. Under him the city was actively improved: swamps were filled, bridges and ferries built, ditches dug for drainage, stone churches raised…",
+    },
+  },
+  "v-obyatiyah-mertvetsa": {
+    uk: {
+      title: "В ОБІЙМАХ МЕРТВЯКА",
+      summary:
+        "Одного разу прачка пізно ввечері поверталася додому, неся в кошику білизну, взяту в прання. Її супроводжувала дванадцятирічна донька. Бажаючи скоротити шлях, пішли через Мироносицьке кладбище (нині на цьому…",
+    },
+    en: {
+      title: "IN A CORPSE'S EMBRACE",
+      summary:
+        "A laundress was returning home late with a basket of wash, accompanied by her twelve-year-old daughter. To shorten the way they crossed Myrrh-Bearers' cemetery (now on this…",
+    },
+  },
+  "za-golosami": {
+    uk: {
+      title: "ЗА ГОЛОСАМИ",
+      summary:
+        "«Капельмейстеру Придворної співочої капели про видачу йому трьох подорожніх до Полтави: йому, помічникові його Палагіну та звільненому з київської семінарії учневі Гулаку-Артемовському» — такий запис зроб…",
+    },
+    en: {
+      title: "FOR THE VOTES",
+      summary:
+        "\"To the choirmaster of the Court Chapel, travel money for three to Poltava: for him, his assistant Palagin, and Gulak-Artemovsky, a student dismissed from Kyiv seminary\"—so runs a record…",
+    },
+  },
+  "vo-mnogih-litsah": {
+    uk: {
+      title: "У БАГАТЬОХ ОБЛИЧЧЯХ",
+      summary:
+        "Не надіюся я, творче, / Який у нас хиткий вік: / Актор, поет і засідатель / Один і той самий чоловік. Цю епіграму, приписувану В. Каразіну, з'явилося в 1830-х і присвячено Г. Кв…",
+    },
+    en: {
+      title: "IN MANY FACES",
+      summary:
+        "I marvel, creator, / At our tricky age: / Actor, poet, and committeeman / Are one and the same man. This epigram, attributed to V. Karazin, appeared in the 1830s and targets G. Kv…",
+    },
+  },
+  "propavshiy-talant": {
+    uk: {
+      title: "ЗАГУБЛЕНИЙ ТАЛАНТ",
+      summary:
+        "Якось Г. Квитка звернув увагу на вивіски й герби, намальовані особливим чином. Автором виявився юний художник Хамло-Сокира. Виявивши в бідному юнакові несумнівний талант, письмен…",
+    },
+    en: {
+      title: "LOST TALENT",
+      summary:
+        "G. Kvitka noticed shop signs and coats of arms painted in a distinctive hand. The artist was young Khamlo-Sokira. Finding undeniable talent in the poor youth, the writer…",
+    },
+  },
+  "revizor-plagiat": {
+    uk: {
+      title: "«РЕВІЗОР» — ПЛАГІАТ?",
+      summary:
+        "У провінційному місті з'являється молодик, якого місцева влада приймає за ревізора, навколо чого піднімається метушня. Гоголівський «Ревізор»? Ні, це комедія Г. Кvitka-Osnov'yanenko…",
+    },
+    en: {
+      title: "\"THE INSPECTOR GENERAL\"—PLAGIARISM?",
+      summary:
+        "A young man arrives in a provincial town; the authorities take him for an inspector, and uproar follows. Gogol's Inspector General? No—it is G. Kvitka-Osnovyanenko's comedy…",
+    },
+  },
+  "zapozdalaya-pamyat": {
+    uk: {
+      title: "ЗАПІЗНІЛА ПАМ'ЯТЬ",
+      summary:
+        "На похоронах Г. Кvitka-Osnov'yanenko 1843 року його російський друг, учений І. Срезневський, сказав: «Пам'ятай, Україно, цю могилу: тут похований той, хто, оживлений любов'ю до тебе, твого благоденства й сл…",
+    },
+    en: {
+      title: "BELATED MEMORY",
+      summary:
+        "At G. Kvitka-Osnovyanenko's funeral in 1843 his Russian friend, scholar I. Sreznevsky, said: \"Remember, Ukraine, this grave: here lies one who, animated by love for you, your welfare, and your tong…",
+    },
+  },
+  "ulovka-artista": {
+    uk: {
+      title: "ХИТРІСТЬ АРТИСТА",
+      summary:
+        "Полтавець Іван Кotlyarevsky, не припиняючи праці над поемою «Енеїда», написав п'єси «Наталка Полтavka» та «Мoskal-charivnyk». Але де їх поставити? У рідному місті театру не було. І тут у справу вступ…",
+    },
+    en: {
+      title: "AN ACTOR'S RUSE",
+      summary:
+        "Poltava's Ivan Kotlyarevsky, still laboring on his Eneida, wrote the plays Natalka Poltavka and Moskal-charivnyk. But where to put them on? There was no theater at home. Then…",
+    },
+  },
+"moskal-charivnyk": {
+    uk: {
+      title: "МОСКАЛЬ-ЧАРІВНИК",
+      summary:
+        "Михайло Семенович Щепкін уперше з'явився на харківській сцені 1805 року, ще будучи кріпаком. Перший відгук про нього надрукували в нашому місті в «Українському віснику» за 1819 рік, де відзначали рід…",
+    },
+    en: {
+      title: "MOSKAL-CHARIVNYK",
+      summary:
+        "Mikhail Semenovich Schepkin first appeared on the Kharkiv stage in 1805 while still a serf. The first review was printed in our city in the Ukrainian Herald in 1819, noting his rare…",
+    },
+  },
+  podarok: {
+    uk: {
+      title: "ПОДАРУНОК",
+      summary:
+        "Трупа харківських акторів приїхала в інше місто на ярмарок, бажаючи підробити. Домовилися про виступи, і тут сталося непередбачене — місцевій губернаторці сподобався песик, що належ…",
+    },
+    en: {
+      title: "A GIFT",
+      summary:
+        "A Kharkiv acting company came to another town for the fair hoping to earn extra money. They arranged performances—then the governor's wife took a liking to a little dog that belonged…",
+    },
+  },
+  blagotvoritel: {
+    uk: {
+      title: "БЛАГОДІЙНИК",
+      summary:
+        "Наприкінці 1830-х років Харківська губернія пережила кілька неврожаїв. Частина найбіднішого населення, нуждаючись у хлібі, рушила до Харкова й буквально заповнила його жебраками. Простіше всь…",
+    },
+    en: {
+      title: "PHILANTHROPIST",
+      summary:
+        "In the late 1830s Kharkiv province suffered several crop failures. Needing bread, the poorest folk flocked to Kharkiv and filled it with beggars. The simplest…",
+    },
+  },
+  "hruschev-zhdanov-i-dr": {
+    uk: {
+      title: "ХРУЩОВ, ЖДАНОВ І ІН.",
+      summary:
+        "Під час завершення Харківського університету студент Хрущов публічно прочитав дисертацію, в якій доводив необхідність революції для знищення старого віджилого ладу в суспільстві й створення нов…",
+    },
+    en: {
+      title: "KHRUSHCHEV, ZHDANOV, AND OTHERS",
+      summary:
+        "When finishing Kharkiv University, student Khrushchev publicly defended a thesis arguing that revolution was needed to destroy the old order and build a new…",
+    },
+  },
+  "pan-ta-sobaka": {
+    uk: {
+      title: "ПАН ТА СОБАКА",
+      summary:
+        "Петро Петрович Гулак-Артемовський був відомим літератором свого часу. Перекладав з польської й французької, писав лірику, але найбільшу славу принесли йому оригінальні басні, складені на…",
+    },
+    en: {
+      title: "THE GENTLEMAN AND THE DOG",
+      summary:
+        "Pyotr Petrovich Gulak-Artemovsky was a well-known writer of his day. He translated from Polish and French and wrote lyric poetry, but his original fables in…",
+    },
+  },
+  "ot-soldata-plachet-hata": {
+    uk: {
+      title: "ВІД СОЛДАТА ПЛАЧЕ ХАТА",
+      summary:
+        "Нерідко можна було бачити таку картину. У супроводі вуличних музикантів містом чи селом рухалась процесія. Попереду — добре випивший хлопець, за ним — компанія чоловіків і жінок різного віку…",
+    },
+    en: {
+      title: "THE HOUSE WEeps FOR THE SOLDIER",
+      summary:
+        "One often saw this scene: with street musicians, a procession moved through town or village. Up front—a drunken lad; behind him, men and women of all ages…",
+    },
+  },
+  "grazhdane-v-pochete": {
+    uk: {
+      title: "ГРОМАДЯНИ В ПОШАНІ",
+      summary:
+        "Уявіть: купець подає в податкову контору довідку про свої доходи, причому не занижує їх, як можна було б чекати, а, навпаки, завищує. Навіщо? Який у цьому сенс? Демонструючи своє багатство…",
+    },
+    en: {
+      title: "CITIZENS IN HONOR",
+      summary:
+        "Imagine a merchant reporting his income to the tax office—not understating it as one might expect, but inflating it. Why? What is the point? By displaying wealth…",
+    },
+  },
+  ryatuyte: {
+    uk: {
+      title: "РЯТУЙТЕ!",
+      summary:
+        "Купець Животовський торгував у Шляпному (нині Радянському) провулку шляпами й картузним товаром. Маленького зросту, з обличчям, зішкодженим віспою, живий, верткий — увесь його вигляд і характер нагадували мак…",
+    },
+    en: {
+      title: "HELP!",
+      summary:
+        "Merchant Zhyvotovsky sold hats and cap goods in Shlyapny (now Soviet) Lane. Short, pockmarked, lively and nimble—his whole look and character recalled a mac…",
+    },
+  },
+  "gosudar-svat": {
+    uk: {
+      title: "ДЕРЖАВЕЦЬ — СВАТ",
+      summary:
+        "Його величність у першій фігурі мазурки пройшовся з дівицею Оконечниковою, яка своєю красою й гострим умом справила на нього враження. Підійшовши до її батька, купця першої гільдії, государ сказав: — Н…",
+    },
+    en: {
+      title: "THE TSAR AS MATCHMAKER",
+      summary:
+        "His Majesty danced the first figure of the mazurka with Miss Okonechnikova, whose beauty and wit impressed him. Approaching her father, a first-guild merchant, the sovereign said: \"N…",
+    },
+  },
+  "silnyy-duhom": {
+    uk: {
+      title: "СИЛЬНИЙ ДУХОМ",
+      summary:
+        "Дивовижно, але це так: харківські торговці-м'ясники мали звичай різати, колоти й розділяти худобу просто на своїх робочих місцях на ринках. При цьому нутрощі кидав… під прилавок. Зрозуміло, тод…",
+    },
+    en: {
+      title: "STRONG IN SPIRIT",
+      summary:
+        "Strange but true: Kharkiv butchers habitually slaughtered and cut up cattle right at their market stalls, tossing the offal… under the counter. Small wonder then…",
+    },
+  },
+  "vytaschi-mne-harkov-iz-gryazi": {
+    uk: {
+      title: "ВИТЯГНИ МЕНІ ХАРКІВ ІЗ БРУДУ",
+      summary:
+        "«Витягни мені Харків із бруду», — доручив Микола Павлович С. А. Кокошкіну, призначаючи його генерал-губернатором. Імператорові, що любив наше місто, набридло бачити його, що топить у непролазному болоті. Одержавши…",
+    },
+    en: {
+      title: "PULL KHARKIV OUT OF THE MUD FOR ME",
+      summary:
+        "\"Pull Kharkiv out of the mud for me,\" Nicholas I told S. A. Kokoshkin when appointing him governor-general. The emperor, fond of our city, was tired of seeing it sunk in impassable mire. Having received…",
+    },
+  },
+  "kadry-reshayut-vse": {
+    uk: {
+      title: "КАДРИ ВИРІШУЮТЬ УСЕ",
+      summary:
+        "Тверезий і практичний, С. Кокошкін почав прибирання міста… з поліцейського й чиновницького апарату. І тут стали з'являтися давно мучивші городян питання: звідки, наприклад, у секретаря…",
+    },
+    en: {
+      title: "CADRES DECIDE EVERYTHING",
+      summary:
+        "Sober and practical, S. Kokoshkin began cleaning up the city… starting with the police and bureaucracy. Then long troubling questions surfaced: where, for example, did a secretary get…",
+    },
+  },
+  "pod-lineechku": {
+    uk: {
+      title: "ПІД ЛІНІЙКУ",
+      summary:
+        "Око Кокошкіна не терпіло кривих ліній, особливо коли йшлося про місто. І тут для нього не існувало перешкод. Він звернув увагу на головні вулиці, насамперед, звісно…",
+    },
+    en: {
+      title: "BY THE RULER",
+      summary:
+        "Kokoshkin's eye could not abide crooked lines, especially in the city layout. Nothing stopped him. He turned to the main streets, above all…",
+    },
+  },
+  "mostovoy-nalog": {
+    uk: {
+      title: "«МОСТОВИЙ» ПОДАТОК",
+      summary:
+        "Виконуючи наказ імператора витягнути Харків із бруду, Кокошкін узяся за ремонт тротуарів і брукування вулиць. Вирішив щоліта безупинно покривати їх бруківкою, причому не лише центральні, а й…",
+    },
+    en: {
+      title: "\"BRIDGE\" TAX",
+      summary:
+        "Carrying out the emperor's order to pull Kharkiv from the mud, Kokoshkin set about repairing sidewalks and paving streets. He decided to cobble them every summer without pause—not only central ones but…",
+    },
+  },
+  "ne-dremal": {
+    uk: {
+      title: "НЕ ДРІМАВ",
+      summary:
+        "З спогадів: «Рано-вранці щодня можна було бачити Сергія Олександровича на роботах, особливо під час спорудження мостів, у супроводі розпорядника ними беззмінного капітана Паля…",
+    },
+    en: {
+      title: "HE DID NOT DOZE",
+      summary:
+        "From memoirs: \"Early each morning one could see Sergey Alexandrovich at the works, especially when bridges were built, accompanied by their ever-present superintendent, Captain Paly…",
+    },
+  },
+  "kokoshkin-stroit-most": {
+    uk: {
+      title: "КОКОШКІН БУДУЄ МІСТ",
+      summary:
+        "Генерал давно задумував збудувати через річку Харків новий міст, тим більше що саме в цьому місці в місто в'їжджав імператор. Знаючи придирливість губернатора, місцеві купці брати підряд на цю споруду…",
+    },
+    en: {
+      title: "KOKOSHKIN BUILDS A BRIDGE",
+      summary:
+        "The general long planned a new bridge over the Kharkiv River—especially since the emperor entered the city at that spot. Knowing the governor's exacting ways, local merchants were loath to take the contract…",
+    },
+  },
+  "revnitel-blagonraviya": {
+    uk: {
+      title: "РЕВНИТЕЛЬ БЛАГОЧинності",
+      summary:
+        "Беручи приклад із свого всемогутнього володаря, генерал вважав за потрібне особисто стежити за моральністю підданих. Мав він лакея на ім'я Мартин, а в дружини-генеральші — горничну Євфимію. Ці…",
+    },
+    en: {
+      title: "GUARDIAN OF MORALITY",
+      summary:
+        "Following his all-powerful sovereign's example, the general personally watched over his subjects' morals. He had a lackey named Martin; his wife the general's lady had a maid, Euphemia. These…",
+    },
+  },
+  vybiray: {
+    uk: {
+      title: "ОБИРАЙ!",
+      summary:
+        "Магазин купця Болотова торгував предметами розкоші. Одного разу тут з'явився Кокошкін. Він довго й уважно перебирав різні речі, розглядаючи кожну й переставляючи з місця на місце. Підняв один із…",
+    },
+    en: {
+      title: "TAKE YOUR PICK!",
+      summary:
+        "Merchant Bolotov's shop sold luxury goods. Kokoshkin dropped in one day. He slowly sifted through items, examining and rearranging each. He lifted one of…",
+    },
+  },
+  "tsena-po-prikazu": {
+    uk: {
+      title: "ЦІНА — ЗА НАКАЗОМ",
+      summary:
+        "1852 року в Харківі випав такий великий град, що траплялися градини розміром з куряче яйце. Скло в Інституті благородних дівиць, гімназії, присутніх місцях і взагалі в більшості будинків міста…",
+    },
+    en: {
+      title: "PRICE BY ORDER",
+      summary:
+        "In 1852 Kharkiv was hit by hailstones as large as hen's eggs. Glass shattered at the Institute for Noble Maidens, the gymnasium, government offices, and most city buildings…",
+    },
+  },
+  "zagovor-protiv-gubernatora": {
+    uk: {
+      title: "ЗМОВА ПРОТИ ГУБЕРНАТОРА",
+      summary:
+        "Нарешті через жорсткі й насильницькі дії господаря міста терпіння купців і заможних торговців лопнуло. Вони змовилися й склали прохання-скаргу на найввище ім'я. Від імени всіх громад…",
+    },
+    en: {
+      title: "CONSPIRACY AGAINST THE GOVERNOR",
+      summary:
+        "At last the merchants' and rich traders' patience broke under the city's master's harsh, coercive ways. They conspired and drafted a petition to the throne. On behalf of all citizens…",
+    },
+  },
+  "na-tot-svet": {
+    uk: {
+      title: "НА ТОЙ СВІТ",
+      summary:
+        "1856 року Кокошкіна перевели з Харкова до столиці й призначили сенатором. Якось у Петербурзі він проходив повз одну з будівель, що зводилися, і з цікавості та пристрасті до будівельних робіт зайшов…",
+    },
+    en: {
+      title: "TO THE NEXT WORLD",
+      summary:
+        "In 1856 Kokoshkin was transferred from Kharkiv to the capital as a senator. Passing a building under construction in St. Petersburg, he entered out of curiosity and his passion for building works…",
+    },
+  },
+  "otkuda-puh": {
+    uk: {
+      title: "ЗВІДКИ ПУХ",
+      summary:
+        "Щовесни Харків покривається білим тополиним пухом, що викликає в багатьох алергію й доставляє дітям задоволення, коли вони його підпалюють. Це дерево зовсім не «рідне» для нашого міста. В…",
+    },
+    en: {
+      title: "WHERE THE FLUFF COMES FROM",
+      summary:
+        "Each spring Kharkiv is covered in white poplar fluff that triggers allergies and delights children who set it alight. The tree is hardly native to our city. In…",
+    },
+  },
+  "sredi-bolot": {
+    uk: {
+      title: "СЕРЕД БОЛІТ",
+      summary:
+        "«Серед широких степів, у багатьох місцях ще дівочих, незнайомих із орало́м і що сріблилися ковилем-травою, в виключно землеробській губернії, позбавленій промисловості й слабо заселеній, при сл…",
+    },
+    en: {
+      title: "AMID THE SWAMPS",
+      summary:
+        "\"Amid vast steppes, in many places still virgin, untouched by the plow and silvered with feather grass, in a purely agricultural province without industry and thinly settled, when…",
+    },
+  },
+  "zhertva-dueli": {
+    uk: {
+      title: "ЖЕРТВА ДУЕЛІ",
+      summary:
+        "В основ'янському лісі відбулася дуель — зійшлися шкільний наглядач і учитель географії. Приводом поєдинку була дружина їхнього шефа, господаря пансіону, що розташовувався на Зміївській вулиці (нині проспект Г…",
+    },
+    en: {
+      title: "DUEL VICTIM",
+      summary:
+        "A duel was fought in the Osnovyansky woods between a school supervisor and a geography teacher. The cause was their employer's wife, head of a boarding house on Zmiyevskaya Street (now Prospekt G…",
+    },
+  },
+  "harchi-na-dorogu": {
+    uk: {
+      title: "ХАРЧІ НА ДОРОГУ",
+      summary:
+        "Актор і найбільший організатор театральної справи в Харківі середини XIX століття Л. Млотковський був настільки відданий своїй справі, що сучасник свідчив: «Щойно з'явиться на петер…",
+    },
+    en: {
+      title: "PROVISIONS FOR THE ROAD",
+      summary:
+        "Actor and leading organizer of Kharkiv theater in the mid-nineteenth century, L. Mlotkovsky was so devoted to his craft that a contemporary wrote: \"Hardly had he appeared in Peter…",
+    },
+  },
+  "za-dvoih": {
+    uk: {
+      title: "ЗА ДВОЇХ",
+      summary:
+        "Харківські глядачі, що прийшли подивитися гастроль знаменитого петербурзького актора В. Самойлова, були вражені. В одній із сцен у його персонажа за роллю передбачався діалог з іншим персонажем, в…",
+    },
+    en: {
+      title: "FOR TWO",
+      summary:
+        "Kharkiv audiences who came to see the famous St. Petersburg actor V. Samoilov were astonished. In one scene his character was to dialogue with another role, in…",
+    },
+  },
+  "golaya-venera": {
+    uk: {
+      title: "ГОЛА ВЕНЕРА",
+      summary:
+        "Час від часу до Харкова приїжджав цирк, що складався зі збірної мандрівної трупи клоунів, акrobatів і наїзників. Він ставив собі тимчасовий балаган на Михайлівській площі. Бажаючи привернути більше гля…",
+    },
+    en: {
+      title: "NAKED VENUS",
+      summary:
+        "From time to time a circus came to Kharkiv—a motley traveling troupe of clowns, acrobats, and riders. It put up a temporary booth on Mykhailivska Square. To draw more spectat…",
+    },
+  },
+  "chestnoe-kupecheskoe": {
+    uk: {
+      title: "ЧЕСНЕ КУПЕЦЬКЕ?",
+      summary:
+        "Виходець із приказчиків купець Лимов торгував спочатку парчею, а потім модним товаром і вовною, відправляючи великі транспорти до Москви й Петербурга. У Москві покупцем у нього був відомий фабрикант сукon…",
+    },
+    en: {
+      title: "HONEST MERCHANT'S WORD?",
+      summary:
+        "Limov, a merchant risen from clerk, first traded brocade, then fashion goods and wool, shipping large consignments to Moscow and St. Petersburg. In Moscow his buyer was a famous cloth manufacturer…",
+    },
+  },
+  "za-poltseny": {
+    uk: {
+      title: "ЗА ПІВ ЦІНИ",
+      summary:
+        "Колись в Одесі існувало так зване порто-франко, тобто імпорт не обкладався митом. Серед привезених товарів були голландське полотно, дороги чаї, різні бронзові вироби, мереживо…",
+    },
+    en: {
+      title: "HALF PRICE",
+      summary:
+        "Odessa once had porto franco—import without duty. Among the goods were Dutch cloth, costly teas, bronze wares, lace…",
+    },
+  },
+  "eh-ptitsa-troyka": {
+    uk: {
+      title: "ЕХ, ПТИЦЕ-ТРІЙКО!..",
+      summary:
+        "У Харківі жив извozchik-лихач Akim Bazhenov. На відміну від своїх професійних братів він був охайний, добре одягнений, мав власні трійки. Кіні завжди вичищені, сбруя прикрашена посрібленими бляхами…",
+    },
+    en: {
+      title: "AH, MY THOROUGHBRED TEAM!..",
+      summary:
+        "Kharkiv had a dashing coachman, Akim Bazhenov. Unlike his fellows he was neat, well dressed, and owned his troikas. The horses were always groomed, harness hung with silvered plaques…",
+    },
+  },
+};
+
+// Part 2 appended below via StrReplace
+
+const outDir = path.join(root, "scripts/i18n-batches");
+fs.mkdirSync(outDir, { recursive: true });
+
+const missing = meta.filter((m) => !T[m.slug]);
+if (missing.length) {
+  console.error("Missing translations for:", missing.map((m) => m.slug).join(", "));
+  process.exit(1);
+}
+
+const out = {};
+for (const { slug } of meta) out[slug] = T[slug];
+
+fs.writeFileSync(
+  path.join(outDir, "batch-0.json"),
+  JSON.stringify(out, null, 2),
+  "utf8",
+);
+console.log("Wrote", Object.keys(out).length, "slugs");

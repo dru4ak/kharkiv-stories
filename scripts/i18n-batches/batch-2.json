@@ -1,0 +1,952 @@
+{
+  "day-serdtsu-volyu": {
+    "uk": {
+      "title": "ДАЙ СЕРЦЮ ВОЛЮ...",
+      "summary": "Після революції селяни сусідніх сіл навалилися на хутір Затишок на Харківщині, розграбували панський дім, а потім спалили. Власник не встиг стати свідком цього вандалізму, оскільки за…"
+    },
+    "en": {
+      "title": "GIVE YOUR HEART FREE REIN...",
+      "summary": "After the revolution, peasants from neighboring villages descended on the khutir Zatyshok in the Kharkiv region, looted the manor house, and then burned it down. The owner never lived to witness this vandalism, because…"
+    }
+  },
+  "medik-u-vlasti": {
+    "uk": {
+      "title": "МЕДИК У ВЛАДІ",
+      "summary": "Цей чоловік вивчав медицину в Женеві та Цюриху, де познайомився з ідеями психоаналізу; останні два роки студентства провів у Франції. Медичну освіту завершив у 1897 році докторською дис…"
+    },
+    "en": {
+      "title": "A DOCTOR IN POWER",
+      "summary": "This man studied medicine in Geneva and Zurich, where he encountered the ideas of psychoanalysis; he spent the last two years of his studies in France. He completed his medical training in 1897 with a doctoral diss…"
+    }
+  },
+  "repressirovan-posmertno": {
+    "uk": {
+      "title": "РЕПРЕСОВАНИЙ ПІСЛЯ СМЕРТІ",
+      "summary": "Одного ранку, проходячи маленькою площею, де сходяться вулиці Гіршмана, Чернишевського та Артема, харків'яни здивувалися: пам'ятник посеред неї зник. Офіційна версія гласила: вночі його випадково…"
+    },
+    "en": {
+      "title": "REPRESSED POSTHUMOUSLY",
+      "summary": "One morning, passing the small square where Hirshman, Chernyshevsky, and Artem streets meet, Kharkiv residents were surprised: the monument in its center had vanished. The official version said that at night it had been accidentally…"
+    }
+  },
+  "balzam-dlya-lenina": {
+    "uk": {
+      "title": "БАЛЬЗАМ ДЛЯ ЛЕНІНА",
+      "summary": "22 січня 1924 року помер Володимир Ленін. Уже через два дні Раднарком ухвалив рішення про бальзамування тіла. Фахівці операцію виконали, однак харківський професор-анатом В. П. Воробйов висловив…"
+    },
+    "en": {
+      "title": "BALM FOR LENIN",
+      "summary": "On January 22, 1924, Vladimir Lenin died. Just two days later the Council of People's Commissars decided to embalm the body. Specialists carried out the operation, yet Kharkiv professor-anatomist V. P. Vorobyov expressed…"
+    }
+  },
+  "grazhdanin-neba": {
+    "uk": {
+      "title": "ГРОМАДЯНИН НЕБА",
+      "summary": "1920-й. Біля обсерваторії в Університетському саду зупинився загін червоноармійців. Їх зустрів завідувач — молодий чоловік. Командир попросив розповісти про астрономію й показати прилади. — Тут не…"
+    },
+    "en": {
+      "title": "CITIZEN OF THE SKY",
+      "summary": "1920. Near the observatory in University Garden, a detachment of Red Army men halted. They were met by the director—a young man. The commander asked him to talk about astronomy and show the instruments. \"This is not…"
+    }
+  },
+  "za-figu-pod-sud": {
+    "uk": {
+      "title": "ЗА ФІГУ — ПІД СУД!",
+      "summary": "7 листопада 1924 року. Традиційна міська демонстрація на честь чергової річниці Жовтня. З різних боків колони демонстрантів із портретами й транспарантами стікалися на площу Тевелєва (нині Кон…"
+    },
+    "en": {
+      "title": "FOR A FIG — TO COURT!",
+      "summary": "November 7, 1924. The traditional city demonstration marking another anniversary of October. From different directions columns of marchers with portraits and banners converged on Tevelev Square (now Kon…"
+    }
+  },
+  "pod-chuzhim-imenem": {
+    "uk": {
+      "title": "ПІД ЧУЖИМ ІМ'ЕМ",
+      "summary": "У Першу світову А. Шаргей був на фронті, потім потрапив до білої армії. Пробув у ній недовго й після встановлення Радянської влади зайнявся мирною працею. Проте постійно жив під загрозою, що білогвардійськ…"
+    },
+    "en": {
+      "title": "UNDER ANOTHER NAME",
+      "summary": "In the First World War, A. Sharghei served at the front, then ended up in the White Army. He did not stay there long and, after Soviet power was established, turned to peaceful work. Yet he constantly lived under the threat that White Guard…"
+    }
+  },
+  "harkov-menya-podkoval-i-vospital": {
+    "uk": {
+      "title": "ХАРКІВ МЕНЕ ПІДКУВ І ВИХОВАВ",
+      "summary": "«На майдані» було й лишається найвідомішим віршем часів громадянської війни — цей поетичний шедевр увібрав у себе всю суть подій тих літ. Його автор — тоді ще зовсім молодий Павло Тич…"
+    },
+    "en": {
+      "title": "KHARKIV FORGED ME AND RAISED ME",
+      "summary": "\"At the Maidan\" was and remains the most famous poem of the Civil War years—this poetic masterpiece embodied the very essence of those events. Its author was the then very young Pavlo Tych…"
+    }
+  },
+  "iz-dvoryan-otkazat": {
+    "uk": {
+      "title": "ІЗ ДВОРЯН? ВІДМОВИТИ!",
+      "summary": "До приймальної комісії Харківського університету (після революції той іменувався Харківським інститутом народної освіти) прийшла дівчина — серед інших абітурієнток подавати документи. — Прізвище?…"
+    },
+    "en": {
+      "title": "FROM THE NOBILITY? REJECT!",
+      "summary": "A young woman came to the admissions office of Kharkiv University (after the revolution it was called the Kharkiv Institute of Public Education)—among other applicants, to submit her documents. \"Your surname?\"…"
+    }
+  },
+  "vozvraschenie": {
+    "uk": {
+      "title": "ПОВЕРНЕННЯ",
+      "summary": "«Садовський повернувся на Україну з еміграції. Йому дали можливість виступити в Харкові лише раз. Театр ім. Франка, тобто трупа Г. Юри, ставив «Ревізора». Жодної реклами не було: звичайна афіша на…"
+    },
+    "en": {
+      "title": "THE RETURN",
+      "summary": "\"Sadovsky returned to Ukraine from emigration. He was allowed to perform in Kharkiv only once. The Franco Theater—that is, H. Yura's company—was staging The Inspector General. There was no publicity: an ordinary poster on…"
+    }
+  },
+  "bashnya-kominterna": {
+    "uk": {
+      "title": "ВЕЖА КОМІНТЕРНУ",
+      "summary": "Конструкція з металевих форм і смуг у вигляді подвійної спіралі, що стрімко закручується вгору навколо нахиленої осі споруди. Кут нахилу осі відповідає нахилу осі земної кулі, спіра…"
+    },
+    "en": {
+      "title": "THE COMINTERN TOWER",
+      "summary": "A structure of metal forms and strips shaped as a double spiral twisting swiftly upward around the inclined axis of the building. The angle of the axis matches the tilt of the Earth's axis, the spir…"
+    }
+  },
+  "stihotvorenie-natoschak": {
+    "uk": {
+      "title": "ВІРШ НАТЩЕСЕРЦЕ",
+      "summary": "Одного з квітневих днів 1920-го поет прокинувся, і тут же, просто в ліжку, народилося вірш. За годину він уже читав його господарям квартири (на вул. Рибній — нині Кооперативна): По-осенньому кычет…"
+    },
+    "en": {
+      "title": "A POEM ON AN EMPTY STOMACH",
+      "summary": "One April day in 1920 the poet woke up and, right there in bed, a poem was born. An hour later he was already reading it to his hosts (on Rybna Street—now Kooperativna): In autumn fashion it screeches…"
+    }
+  },
+  "polundra": {
+    "uk": {
+      "title": "ПОЛУНДРА",
+      "summary": "Була рання весна 1920 року, стояла тепла сонячна погода. Міщани святкували Великдень і неспішно поверталися з церков, яких лише в самому центрі міста було з десяток. У Театральному сквері…"
+    },
+    "en": {
+      "title": "POLUNDRA",
+      "summary": "It was early spring 1920, warm sunny weather. Townspeople celebrated Easter and unhurriedly returned from churches—there were about a dozen of them in the very center of the city alone. In Theater Square…"
+    }
+  },
+  "predsedatel-zemnogo-shara": {
+    "uk": {
+      "title": "ГОЛОВА ЗЕМНОЇ КУЛІ",
+      "summary": "У травні 1920-го в Харкові обрали Голову Земної кулі. Ним став знаменитий поет-футурист Велемир Хлебников, якого хвилі громадянської війни занесли до столиці України. Спочатку його запро…"
+    },
+    "en": {
+      "title": "CHAIRMAN OF THE GLOBE",
+      "summary": "In May 1920 Kharkiv elected a Chairman of the Globe. The famous futurist poet Velimir Khlebnikov became him—the waves of the civil war had washed him into the capital of Ukraine. At first he was invit…"
+    }
+  },
+  "serega-izvini": {
+    "uk": {
+      "title": "СЕРЕГО, ВИБАЧ...",
+      "summary": "Це сталося під час одного з приїздів до Харкова Сергія Єсєніна. Заглянувши якось у годинникову кишеньку, той виявив, що «луковиці» там немає. Звісно, цей факт гостя не порадував — і він не помітив, як ста…"
+    },
+    "en": {
+      "title": "SEREZHA, I'M SORRY...",
+      "summary": "It happened during one of Sergei Yesenin's visits to Kharkiv. Glancing into his watch pocket one day, he found that his \"onion\" was not there. Of course this did not please the guest—and he did not notice how he became…"
+    }
+  },
+  "odin-stanok-eto-prosto-stanok": {
+    "uk": {
+      "title": "ОДИН ВЕРСТАТ — ЦЕ ПРОСТО ВЕРСТАТ...",
+      "summary": "«Чудово пам'ятаю Харків середини грудня 1921 року. Ми з Володимиром Владимировичем удень бродили зимовим містом, по ожеледиці, розмовляли на ходу про багато чого: про вулиці, про поетів. Пам'ятається, на Універс…"
+    },
+    "en": {
+      "title": "ONE LATHE IS JUST A LATHE...",
+      "summary": "\"I remember Kharkiv in mid-December 1921 vividly. Vladimir Vladimirovich and I wandered through the winter city by day, on the ice, talking on the move about many things: streets, poets. I recall, at Univers…"
+    }
+  },
+  "vam-chto": {
+    "uk": {
+      "title": "ВАМ ЩО?",
+      "summary": "В. Маяковський у тодішній столиці України активно виступав, співпрацював як сценарист з Всеукраїнським фотокіноуправлінням (ВУФКУ), тому матеріально почувався в нашому місті цілком комфортно.…"
+    },
+    "en": {
+      "title": "WHAT DO YOU WANT?",
+      "summary": "V. Mayakovsky was actively performing in the then capital of Ukraine and worked as a screenwriter with the All-Ukrainian Photo-Cinema Administration (VUFKU), so materially he felt quite comfortable in our city.…"
+    }
+  },
+  "poet-pod-stolom": {
+    "uk": {
+      "title": "ПОЕТ ПІД СТОЛОМ",
+      "summary": "«Ми відкрили Дім Блакитного — наш письменницький клуб, але кімната, відведена під більярдну, виявилася замала, щоб помістити в ній нормальний більярд — треба було дістати кабінетний. Таких, як на зло, н…"
+    },
+    "en": {
+      "title": "THE POET UNDER THE TABLE",
+      "summary": "\"We opened the House of the Blue One—our writers' club, but the room set aside for billiards turned out too small for a proper table—we had to find a cabinet-sized one. Such tables, as if on purpose, were n…"
+    }
+  },
+  "pokormite": {
+    "uk": {
+      "title": "ПОГОДУЙТЕ!",
+      "summary": "Молодий, але амбітний харківський поет Михайло Голодний мріяв познайомитися з В. Маяковським, але в нього все не виходило. Не пощастило йому зустрітися й під час одного з чергових приїздів Маяковського…"
+    },
+    "en": {
+      "title": "FEED ME!",
+      "summary": "The young but ambitious Kharkiv poet Mykhailo Holodny dreamed of meeting V. Mayakovsky, but nothing worked out. He was unlucky enough not to meet him even during one of Mayakovsky's visits…"
+    }
+  },
+  "personazh-mihaila-bulgakova": {
+    "uk": {
+      "title": "ПЕРСОНАЖ МИХАЙЛА БУЛГАКОВА",
+      "summary": "Два солдати-червоноармійці з метою підвищення свого культурного рівня отримали наказ командира вирушити в оперу, а потім наївно викладають йому свої враження: «А оркестр нажарює. Далі —…"
+    },
+    "en": {
+      "title": "A CHARACTER OF MIKHAIL BULGAKOV",
+      "summary": "Two Red Army soldiers, aiming to raise their cultural level, received an order from their commander to go to the opera, and afterward naively describe their impressions: \"And the orchestra is frying. Next—…"
+    }
+  },
+  "v-pomosch-golodayuschemu": {
+    "uk": {
+      "title": "НА ДОПОМОГУ ГОЛОДНОМУ",
+      "summary": "Олексій Павлович жив і працював на Півночі. Друзі не раз запрошували його до Харкова, і він нарешті, за порадою Горького, вирішив скористатися цим запрошенням. Наше місто постало перед письменником сірим і…"
+    },
+    "en": {
+      "title": "TO HELP THE STARVING",
+      "summary": "Alexei Pavlovich lived and worked in the North. Friends had often invited him to Kharkiv, and he finally decided, on Gorky's advice, to accept the invitation. Our city appeared before the writer gray and…"
+    }
+  },
+  "svoim-skidka": {
+    "uk": {
+      "title": "СВОЇМ — ЗНИЖКА",
+      "summary": "Наскільки я розумію, однією з різновидів так званого дисконту є таке. Якщо клієнт укладає договір на обслуговування з певною фірмою (наприклад, договір користування системою є…"
+    },
+    "en": {
+      "title": "DISCOUNT FOR OUR OWN",
+      "summary": "As I understand it, one variety of so-called discount is the following. If a client concludes a service contract with a particular firm (for example, a contract to use a system of e…"
+    }
+  },
+  "bez-tormozov": {
+    "uk": {
+      "title": "БЕЗ ГАЛЬМ",
+      "summary": "Міщани стали свідками страшної картини: униз Пушкінською на повній швидкості без зупинок мчав трамвай, на повороті до бібліотеки ім. Корolenka перекинувся. Загинули люди, зокрема конду…"
+    },
+    "en": {
+      "title": "WITHOUT BRAKES",
+      "summary": "City residents witnessed a terrible scene: a tram raced down Pushkinska at full speed without stopping, and overturned at the turn toward the Korolenko library. People died, including the conduc…"
+    }
+  },
+  "ego-zvali-dunya": {
+    "uk": {
+      "title": "ЙОГО ЗВАЛИ ДУНЯ",
+      "summary": "До директора Харківського музичного училища Іллі Ілліча Слатіна явився хлопчик."
+    },
+    "en": {
+      "title": "THEY CALLED HIM DUNYA",
+      "summary": "A boy appeared before the director of the Kharkiv Music College, Ilya Ilyich Slatin."
+    }
+  },
+  "allo-govorit-hark1v": {
+    "uk": {
+      "title": "АЛЛО, ГОВОРИТЬ ХАРК1В!",
+      "summary": "Під час одного з приїздів до Москви голова Раднаркому України В. Чубар спеціально зустрівся з В. І. Леніним, щоб доповісти про розвиток радіосправи в Харкові. Вождь дуже цікавився цим питанням…"
+    },
+    "en": {
+      "title": "HELLO, THIS IS KHARK1V SPEAKING!",
+      "summary": "During one of his trips to Moscow, Chairman of the Ukrainian Council of People's Commissars V. Chubar met specially with V. I. Lenin to report on the development of radio engineering in Kharkiv. The leader was very interested in this issue…"
+    }
+  },
+  "uchitel-gershvina": {
+    "uk": {
+      "title": "ВЧИТЕЛЬ ГЕРШВІНА",
+      "summary": "Сам геній-засновник теорії відносності вклонявся перед цим чоловіком, заявляючи, що той зробив у музиці те, що він, Ейнштейн, у фізиці. Спілкувалися вони в експериментальномуному дослідницькому…"
+    },
+    "en": {
+      "title": "GEORGE GERSHWIN'S TEACHER",
+      "summary": "The genius founder of the theory of relativity himself bowed before this man, saying that he had done in music what he, Einstein, had done in physics. They met at an experimental research…"
+    }
+  },
+  "prevzoshel-samogo-avtora": {
+    "uk": {
+      "title": "ПЕРЕВЕРШИВ САМОГО АВТОРА",
+      "summary": "Улюбленим композитором знаменитого піаніста Володимира Горовиця був Сергій Рахманінов, близький йому романтичною природою творчості. Йому дев'ятнадцятирічний виконавець присвятив свій перший у Харкові к…"
+    },
+    "en": {
+      "title": "SURPASSING THE AUTHOR HIMSELF",
+      "summary": "The favorite composer of the famous pianist Vladimir Horowitz was Sergei Rachmaninoff, close to him in the romantic nature of his work. The nineteen-year-old performer dedicated to him his first Kharkiv c…"
+    }
+  },
+  "neschastnyy-den": {
+    "uk": {
+      "title": "НЕЩАСЛИВИЙ ДЕНЬ",
+      "summary": "Зал був повний, знаменитого письменника-гumorиста зустріли бурхливими оплесками. Публіка, що ходила на виступи читців, які виконували його твори, передчувала: якщо ті читають так смішно, то що ж відкри…"
+    },
+    "en": {
+      "title": "AN UNLUCKY DAY",
+      "summary": "The hall was full; the famous humorist writer was greeted with a storm of applause. The audience, used to reciters performing his works, anticipated: if they read so amusingly, what would the author himself reveal…"
+    }
+  },
+  "k-dvum-boytsam": {
+    "uk": {
+      "title": "ДО «ДВОХ БІЙЦІВ»",
+      "summary": "До кабінету командарма В. К. Блюхера, який тоді квартирував у Харкові, увійшов енергійний молодий чоловік. Він попросив надати йому в розпорядження військову частину разом із бойовою технікою. Командую…"
+    },
+    "en": {
+      "title": "TOWARD \"TWO FIGHTERS\"",
+      "summary": "An energetic young man entered the office of Commander V. K. Blücher, who was then quartered in Kharkiv. He asked to be given a military unit along with combat equipment at his disposal. The command…"
+    }
+  },
+  "buti-muti": {
+    "uk": {
+      "title": "БУТИ-МУТИ",
+      "summary": "Йшли практичні заняття з хімії в Харківському університеті (тоді він іменувався Інститутом народної освіти). Пояснюючи студентам певну хімічну реакцію, професор змішав у колбі інгредієнти…"
+    },
+    "en": {
+      "title": "BUTI-MUTI",
+      "summary": "Practical chemistry classes were underway at Kharkiv University (then called the Institute of Public Education). Explaining a certain chemical reaction to the students, the professor mixed ingredients in a flask…"
+    }
+  },
+  "ni-puha-ni-pera": {
+    "uk": {
+      "title": "НІ ПУХУ, НІ ПЕРА",
+      "summary": "По Благбазу ходив щільний чоловік у стеганці й у повному мисливському спорядженні: опоясаний патронташем, з рушницею за плечима. Високі гумові чоботи були заляпані болотною брудом. Знайшовши ряди, де п…"
+    },
+    "en": {
+      "title": "NEITHER DOWN NOR FEATHER",
+      "summary": "A stocky man in a quilted jacket and full hunting gear walked through Blagbaz: cartridge belt, shotgun over his shoulders. His high rubber boots were smeared with marsh mud. Finding the rows where p…"
+    }
+  },
+  "s-tarasom-bulboy-znakom": {
+    "uk": {
+      "title": "З ТАРАСОМ БУЛЬБОЮ ЗНАЙОМИЙ",
+      "summary": "На початку колективізації група харківських літераторів приїхала виступати в село. До Остапа Вишні підійшов місцевий чоловік: — Прикурити! — безапеляційно попросив він. Павло Михайлович дав йому сірники й п…"
+    },
+    "en": {
+      "title": "ACQUAINTED WITH TARAS BULBA",
+      "summary": "At the start of collectivization a group of Kharkiv writers came to perform in a village. A local man approached Ostap Vyshnia: \"Got a light!\" he demanded flatly. Pavlo Mykhailovych gave him matches and p…"
+    }
+  },
+  "hvost-po-zemle": {
+    "uk": {
+      "title": "ХВІСТ ПО ЗЕМЛІ",
+      "summary": "Якось Остап Вишня приїхав відпочити в Двуречне на Харківщині зі своїми друзями: письменниками Олеsem Досвітнім, Григорієм Епіком, Миколою Кулішем і актором Амвrosiem Бучмою. На світанку вирушили…"
+    },
+    "en": {
+      "title": "TAIL ON THE GROUND",
+      "summary": "Once Ostap Vyshnia came to rest in Dvurechne in the Kharkiv region with his friends: writers Oles Dosvitny, Hryhorii Epik, Mykola Kulish, and actor Amvrosii Buchma. At dawn they set out…"
+    }
+  },
+  "zapiska-ot-zaytsa": {
+    "uk": {
+      "title": "ЗАПИСКА ВІД ЗАЙЦЯ",
+      "summary": "Погожим зимовим днем по свіжому пушку рухалася компанія любителів полювання: Вишня, Бучма, Йогансен, Слесаренко, Смолич. У Смолича було новеньке рушницю, і йому так хотілося відзначити придбання здобиччю. П…"
+    },
+    "en": {
+      "title": "A NOTE FROM A HARE",
+      "summary": "On a fine winter day a party of hunting enthusiasts moved along fresh powder snow: Vyshnia, Buchma, Yohansen, Slesarenko, Smolych. Smolych had a brand-new shotgun and was eager to celebrate the purchase with game. P…"
+    }
+  },
+  "sluchay-v-vagone": {
+    "uk": {
+      "title": "ВИПАДОК У ВАГОНІ",
+      "summary": "Якось Павло Михайлович проводив на вокзалі групу знайомих артистів, що їхали на гастролі з Харкова до Сум. Прощалися у вагоні. Так розговорилися, що не помітили, як рушив поїзд. А тут контрол…"
+    },
+    "en": {
+      "title": "AN INCIDENT IN A CARRIAGE",
+      "summary": "Once Pavlo Mykhailovych saw off a group of actor friends at the station—they were leaving Kharkiv for Sumy on tour. They said goodbye in the carriage. They talked so much they did not notice the train moving off. Then the conduct…"
+    }
+  },
+  "zayachiy-zvonok": {
+    "uk": {
+      "title": "ЗАЯЧИЙ ДЗВІНОК",
+      "summary": "Не менше за саме полювання Остапу Вишні доставляли приготування до нього. Робилося це ґрунтовно й завчасно. Про це завжди заздалегідь знав увесь Союз письменників. Нерідко напарником…"
+    },
+    "en": {
+      "title": "HARE'S BELL",
+      "summary": "Ostap Vyshnia found preparing for the hunt no less satisfying than the hunt itself. Preparations were thorough and long in advance. The entire Writers' Union always knew about it beforehand. Often his partner…"
+    }
+  },
+  "bomba-dlya-konsula": {
+    "uk": {
+      "title": "БОМБА ДЛЯ КОНСУЛА",
+      "summary": "Після якогось бенкету пізнім вечором поверталася компанія письменників-гумористів: Остап Вишня, його брат Василь Чечвянський і Юрій Вухналь. Настрій у всіх був веселий, запальний. Проходили повз буд…"
+    },
+    "en": {
+      "title": "A BOMB FOR THE CONSUL",
+      "summary": "After some banquet late in the evening a company of humorist writers was returning: Ostap Vyshnia, his brother Vasyl Chechviansky, and Yurii Vukhnal. Everyone was in a merry, lively mood. They passed a house…"
+    }
+  },
+  "sovetskiy-borsch": {
+    "uk": {
+      "title": "РАДЯНСЬКИЙ БОРЩ",
+      "summary": "На початку 30-х внаслідок зусиль офіційної пропаганди слово «український» почало вживатися лише в поєднанні зі словами «буржуазний націоналізм». Загальновживним стало словосполучення «українськ…"
+    },
+    "en": {
+      "title": "SOVIET BORSCHT",
+      "summary": "In the early 1930s, through official propaganda, the word \"Ukrainian\" came to be used only together with \"bourgeois nationalism.\" The phrase \"Ukrainian…\" became commonplace…"
+    }
+  },
+  "lozhnyy-vyzov": {
+    "uk": {
+      "title": "ХИБНИЙ ВИКЛИК",
+      "summary": "На початку грудня 1933 року Остап Вишня отримав телеграму від знайомого єгеря. Той запрошував до себе в район на полювання, обіцяючи особливо вдалу здобич. Павла Михайловича ця пропозиція спокusила, і він ст…"
+    },
+    "en": {
+      "title": "A FALSE SUMMONS",
+      "summary": "In early December 1933 Ostap Vyshnia received a telegram from a gamekeeper he knew. The man invited him to his district for a hunt, promising especially good game. Pavlo Mykhailovych was tempted by the offer and st…"
+    }
+  },
+  "na-svezhem-vozduhe": {
+    "uk": {
+      "title": "НА СВІЖОМУ ПОВІТРІ",
+      "summary": "У грудні 1933 року Остапа Вишню заарештувало ГПУ. Слідчий інкримінував йому участь в УВО — Українській військовій організації (якої насправді не існувало). Конкретно ж звинуватив у підготовц…"
+    },
+    "en": {
+      "title": "IN THE FRESH AIR",
+      "summary": "In December 1933 the GPU arrested Ostap Vyshnia. The investigator charged him with membership in the UVO—the Ukrainian Military Organization (which did not actually exist). Specifically he accused him of preparing…"
+    }
+  },
+  "a-vas-za-chto": {
+    "uk": {
+      "title": "А ВАС ЗА ЩО?",
+      "summary": "Якось у таборі Остап Вишня розмовився з одним із прибулих сюди — колишнім головою сільради. — За що вас? — поцікавився він. — Та за Остапа Вишню. — Як це за Остапа Вишню? — здивувався пи…"
+    },
+    "en": {
+      "title": "AND WHAT ARE YOU IN FOR?",
+      "summary": "Once in the camp Ostap Vyshnia chatted with one of the newcomers—a former village council chairman. \"What are you in for?\" he asked. \"For Ostap Vyshnia.\" \"What do you mean, for Ostap Vyshnia?\" the writ…"
+    }
+  },
+  "puskay-smeshit-narod": {
+    "uk": {
+      "title": "НЕХАЙ СМІШИТЬ НАРОД",
+      "summary": "Наприкінці літа 1943-го Сталін зустрівся з очільником українського уряду Корнієм. Після обговорення питань відновлення промисловості й сільського господарства республіки вождь несподівано дов…"
+    },
+    "en": {
+      "title": "LET HIM MAKE THE PEOPLE LAUGH",
+      "summary": "In late summer 1943 Stalin met with the head of the Ukrainian government, Korniichuk. After discussing the restoration of the republic's industry and agriculture, the leader unexpectedly turned…"
+    }
+  },
+  "i-vam-ne-stydno": {
+    "uk": {
+      "title": "І ВАМ НЕ СОРОМ?",
+      "summary": "У жовтні 1943-го Остапа Вишню викликали до табірного начальника. Той наказав йому збирати речі, а перед тим, як належить, пройти лазню. Письменник зрозумів, що його кудись відправляють. Потім його під к…"
+    },
+    "en": {
+      "title": "AND YOU'RE NOT ASHAMED?",
+      "summary": "In October 1943 Ostap Vyshnia was summoned to the camp commandant. He ordered him to pack his things and, as required, take a bath first. The writer understood he was being sent somewhere. Then, under escort…"
+    }
+  },
+  "teper-ya-vam": {
+    "uk": {
+      "title": "ТЕПЕР Я ВАМ",
+      "summary": "Початок 50-х. Остап Вишня приїхав у відрядження з Києва до Харкова як кореспондент газети «Радянська Україна» — освітити, як вона тоді офіційно іменувалася, обласну виставку досягнень…"
+    },
+    "en": {
+      "title": "NOW IT'S MY TURN",
+      "summary": "The early 1950s. Ostap Vyshnia came on assignment from Kyiv to Kharkiv as a correspondent for the newspaper \"Radanska Ukraina\"—as it was then officially called—to cover the regional exhibition of achievements…"
+    }
+  },
+  "sploshnoy-yumor": {
+    "uk": {
+      "title": "СПЛОШНИЙ ГУМОР",
+      "summary": "Приїжджаючи після війни до Харкова, Остап Вишня зупинявся в квартирі своєї молодшої сестри Марії. Якось вона побачила, що брат гортає товсту книжку й сміється. — Що це ти читаєш? — поцікавилася…"
+    },
+    "en": {
+      "title": "NOTHING BUT HUMOR",
+      "summary": "When he came to Kharkiv after the war, Ostap Vyshnia stayed at his younger sister Maria's apartment. Once she saw her brother leafing through a thick book and laughing. \"What are you reading?\" she asked…"
+    }
+  },
+  "doloy-styd": {
+    "uk": {
+      "title": "ГЕТЬ СОРОМ!",
+      "summary": "На початку 20-х, у роки непу, виник ліберальний ідеологічний просвіт, коли дозволялося все, хіба що окрім явної контрреволюції. Поширення набули праці й ідеї Ніцше, Фрейда, теорії вільного…"
+    },
+    "en": {
+      "title": "DOWN WITH SHAME!",
+      "summary": "In the early 1920s, during NEP, a liberal ideological enlightenment arose when almost everything was permitted except open counter-revolution. The works and ideas of Nietzsche, Фрейда, and theories of free…"
+    }
+  },
+  "gde-zakalyalas-stal": {
+    "uk": {
+      "title": "ДЕ ЗАГАЛЮВАЛАСЯ СТАЛЬ?",
+      "summary": "Процес цей відбувався 1926 року в одній із палат Українського медико-механічного інституту (нині НДІ патології хребта й суглобів ім. Н. Ситенка). Тут сліпий і паралізований внаслідок трав…"
+    },
+    "en": {
+      "title": "WHERE WAS STEEL TEMPERED?",
+      "summary": "This trial took place in 1926 in one of the wards of the Ukrainian Medical and Mechanical Institute (now the N. Sytenko Institute of Spine and Joint Pathology). Here a blind and paralyzed man as a result of inj…"
+    }
+  },
+  "yagodka-lyubvi": {
+    "uk": {
+      "title": "ЯГІДКА КОХАННЯ",
+      "summary": "З вагона потяга, що прибув до Харкова, вийшов молодий чоловік, стрункий, високолобий, у фетровому капелюсі, розпахнутому сірому пальті «в ялинку», з-під якого виднілася сорочка à la апаш. Це колишній секрет…"
+    },
+    "en": {
+      "title": "A BERRY OF LOVE",
+      "summary": "From the train car that arrived in Kharkiv stepped a young man, slender, high-foreheaded, in a felt hat and open gray herringbone coat, with an à la apache shirt visible beneath. This was a former secret…"
+    }
+  },
+  "vverh-nogami": {
+    "uk": {
+      "title": "ВГОРУ НОГАМИ",
+      "summary": "«Вишня тоді ще жив на кінці Сумської, у великому — у стилі модерн — будинку на п'ятому поверсі. Квартира його складалася з однієї величезної кімнати, але меблів було замало, компанія ввалилася чимала — душ двад…"
+    },
+    "en": {
+      "title": "UPSIDE DOWN",
+      "summary": "\"Vyshnia still lived then at the end of Sumska, in a large art nouveau house on the fifth floor. His apartment consisted of one huge room, but there was little furniture; quite a crowd burst in—twenty souls…"
+    }
+  },
+  "ne-pischat": {
+    "uk": {
+      "title": "НЕ ПИЩАТИ!",
+      "summary": "У березні 1926 року в будівлю на вулиці Артема з Полтавщини надійшла телеграма: «Харків Наркомпрос Наполегливо просимо передати Куряж нам можливо скоро забезпечити посівну кошторис додатково Загальні збори…"
+    },
+    "en": {
+      "title": "NO SQUEAKING!",
+      "summary": "In March 1926 a telegram arrived at the building on Artem Street from Poltava region: \"Kharkiv Narcompros We urgently ask you to relay to Kuryazh that we may soon additionally fund the sowing estimate General meeting…"
+    }
+  },
+  "parnas-dybom": {
+    "uk": {
+      "title": "ПАРНАС ДЫБОМ",
+      "summary": "У 1925 році в харківському видавництві «Космос» вийшла незвична книжка. На обкладинці був зображений зірнувший Пегас, з якого падав окулястий автор з пером за вухом. Заголовок являв собою пере…"
+    },
+    "en": {
+      "title": "PARNASSUS ON END",
+      "summary": "In 1925 an unusual book appeared from the Kharkiv publisher \"Kosmos.\" On its cover a rearing Pegasus was shown, and from it fell a bespectacled writer with a quill behind his ear. The title was a re…"
+    }
+  },
+  "burlila-zhizn": {
+    "uk": {
+      "title": "БУРЛИЛА ЖИТТЯ...",
+      "summary": "«Це був затишний двоповерховий особняк, з високим і просторим «ре-де-шоссе». На першому поверсі хід із вестибюля ліворуч вів у синю вітальню й далі — у бібліотеку, читальню, кабінет директора та в його квар…"
+    },
+    "en": {
+      "title": "LIFE WAS BOILING...",
+      "summary": "\"It was a cozy two-story mansion with a high, spacious 're-de-chaussee.' On the first floor a passage from the vestibule left led to the blue drawing room and on—to the library, reading room, director's office and his ap…"
+    }
+  },
+  "begstvo-iz-psihushki": {
+    "uk": {
+      "title": "ВТЕЧА З ПСИХУШКИ",
+      "summary": "Пізньої ночі (1930 р.) поета привезли на Сабурову дачу — так у народі іменували харківську психлікарню (за прізвищем колишнього власника садиби). Він був у збудженні, лаявся, погрожував. Санітари приборкали його…"
+    },
+    "en": {
+      "title": "ESCAPE FROM THE MADHOUSE",
+      "summary": "Late at night (1930) the poet was brought to Saburova Dacha—as people called the Kharkiv psychiatric hospital (after the former estate owner's surname). He was agitated, swearing, threatening. Orderlies subdued him…"
+    }
+  },
+  "potseluy-v-ruku": {
+    "uk": {
+      "title": "ПОЦІЛУНОК У РУКУ",
+      "summary": "На літературний вечір у педагогічний інститут імені Г. Сковороди явилася група письменників. Вийшли на сцену. У них був свій порядок виступів, однак зал загримів: «Сосюру! Сосюру!..» Володимиру Микolajовичу…"
+    },
+    "en": {
+      "title": "A KISS ON THE HAND",
+      "summary": "A group of writers came to a literary evening at the H. Skovoroda Pedagogical Institute. They went on stage. They had their own order of appearances, but the hall thundered: \"Sosiura! Sosiura!..\" Vladimir Mykola…"
+    }
+  },
+  "kto-znaet": {
+    "uk": {
+      "title": "ХТО ЗНАЄ...",
+      "summary": "Популярний український письменник-гуморист Олександр Ковинька жив у Полтаві, але нерідко в 20-ті роки з літературних справ наведувався в тодішню столицю республіки. І ось якось іде він однією з харків…"
+    },
+    "en": {
+      "title": "WHO KNOWS...",
+      "summary": "The popular Ukrainian humorist writer Oleksandr Kovinka lived in Poltava but often in the 1920s visited the then capital of the republic on literary business. And once he is walking along one of Kharkiv's…"
+    }
+  },
+  "zalizyaku-na-puzyaku": {
+    "uk": {
+      "title": "ЗАЛИЗЯКУ НА ПУЗЯКУ",
+      "summary": "Оперний театр був повний — безліч меломанів прийшло послухати гастролера — знаменитого тенора. Він вийшов на сцену в одній із коронних ролей — Ленського в «Євгенії Онєгіні». І тут глядачів чекав сюр…"
+    },
+    "en": {
+      "title": "LICK THE BELLY",
+      "summary": "The opera house was full—many music lovers came to hear the guest artist, a famous tenor. He appeared on stage in one of his signature roles—Lensky in Eugene Onegin. And then the audience was in for a sur…"
+    }
+  },
+  "vstrecha-s-atamanom": {
+    "uk": {
+      "title": "ЗУСТРІЧ З ОТАМАНОМ",
+      "summary": "«Хлопець поклав перо й глянув на людину, яка хотіла з ним привітатися. Далі сталося ось що. На мить хлопець застиг, вчепившись поглядом у постать того, хто увійшов. Дивився, не відводячи очей, і схож…"
+    },
+    "en": {
+      "title": "MEETING WITH THE ATAMAN",
+      "summary": "\"The lad set down his pen and looked at the man who wanted to greet him. Then this happened. For a moment the lad froze, his gaze locked on the figure of the newcomer. He stared without looking away, and it seemed…"
+    }
+  },
+  "chelovek-afisha": {
+    "uk": {
+      "title": "ЛЮДИНА-АФІША",
+      "summary": "Одного разу на концерті Марк Бернес почав розповідати про себе: «Я народився в Нежині, виріс у Харкові...» Тут із залу встав чоловік і гучно сказав: «Не бреши, ти народився в Одесі!» Після концерту він прорвався…"
+    },
+    "en": {
+      "title": "THE HUMAN POSTER",
+      "summary": "Once at a concert Марк Бернес began to talk about himself: \"I was born in Nizhyn, I grew up in Kharkiv...\" Then a man rose from the hall and said loudly: \"Don't lie, you were born in Odesa!\" After the concert he broke through…"
+    }
+  },
+  "bylo-gde-posmeyatsya": {
+    "uk": {
+      "title": "БУЛО ДЕ ПОСМІЯТИСЯ...",
+      "summary": "У столичному Харкові було де розважитися, куди піти ввечері або у вихідний посміятися й відпочити. У місті діяло безліч концертних майданчиків, театрів estrady й мініатюр, кафешантанів і cabaret…"
+    },
+    "en": {
+      "title": "THERE WAS PLACE TO LAUGH...",
+      "summary": "In the capital Kharkiv there was plenty to do—where to go in the evening or on a day off to laugh and relax. The city had many concert venues, variety and miniature theaters, café-chantants and cabarets…"
+    }
+  },
+  "v-dvenadtsati-stulyah": {
+    "uk": {
+      "title": "У «ДВАНАДЦЯТИ СТУЛЯХ»",
+      "summary": "«Місто галасливе — центр Української республіки. Після провінції здається, ніби за кордон потрапив», — так писав, перебуваючи на харківському вокzalі, певний перехожий у рясі своїй дружині Kateryni Oleksandrivni…"
+    },
+    "en": {
+      "title": "IN \"THE TWELVE CHAIRS\"",
+      "summary": "\"A noisy city—the center of the Ukrainian republic. After the provinces it seems as if you've gone abroad,\" wrote a certain traveler in cassock to his wife Kateryna Oleksandrivna while at the Kharkiv station…"
+    }
+  },
+  "pesnya-spektakl": {
+    "uk": {
+      "title": "ПІСНЯ — СПЕКТАКЛЬ",
+      "summary": "«Народилася й виросла я на Україні, в місті Харкові, на Володимирській вулиці, будинок 45, у квартирі 6. Коли батьки йшли в гості чи в театр і мені доводилося лишатися самій, я вмикала світло в усіх к…"
+    },
+    "en": {
+      "title": "SONG IS A SHOW",
+      "summary": "\"I was born and grew up in Ukraine, in the city of Kharkiv, on Volodymyrska Street, house 45, apartment 6. When my parents went visiting or to the theater and I had to stay alone, I turned on the lights in all the r…"
+    }
+  },
+  "oni-poznakomilis-v-tivoli": {
+    "uk": {
+      "title": "ВОНИ ПОЗНАЙОМИЛИСЯ В «ТІVOLI»",
+      "summary": "Осінь 1929 року. Літній сад «Тivoli». Виступав популярний куплетист з Одеси Володимир Кораллі. Не вперше його увагу привертала дівчина, яка регулярно ходила на його концерти й займала ме…"
+    },
+    "en": {
+      "title": "THEY MET AT \"TIVOLI\"",
+      "summary": "Autumn 1929. The summer garden \"Tivoli.\" The popular couplet singer from Odesa Vladimir Koralli was performing. Not for the first time his attention was drawn to a girl who regularly attended his concerts and took a seat…"
+    }
+  },
+  "organizovannaya-gora": {
+    "uk": {
+      "title": "ОРГАНІЗОВАНА ГОРА",
+      "summary": "У відомому ще німому фільмі радянських часів «Уламок imperii» є такий кадр: уперше потрапивши в велике місто, селянин приголомшено розглядає величезну бетонну будівлю. Для зйомок цього епізod…"
+    },
+    "en": {
+      "title": "AN ORGANIZED CROWD",
+      "summary": "In the still-famous Soviet silent film \"Fragment of an Empire\" there is a shot: a peasant who has entered a big city for the first time stares in shock at a huge concrete building. This episode was filmed…"
+    }
+  },
+  "stalin-v-kube": {
+    "uk": {
+      "title": "СТАЛІН У КУБІ",
+      "summary": "Popри весь прагматизм свого витонченого розуму, Сталін водночас був досить забобонним і насторожено ставився до всяких віщунів і зачарованих місць, особливо якщо це могло якось стосуватися…"
+    },
+    "en": {
+      "title": "STALIN IN A CUBE",
+      "summary": "For all the pragmatism of his refined mind, Stalin was at the same time quite superstitious and wary of all sorts of fortune-tellers and enchanted places, especially if it could somehow concern…"
+    }
+  },
+  "na-kostyah": {
+    "uk": {
+      "title": "НА КІСТКАХ",
+      "summary": "Пам'ятаю, ще довго після війни трамвайну зупинку біля великого gastronому на Пушкінській іменували «Кaplуновською». Я не розумів чому, а потім дізнався, що на місці цієї будівлі колись стояла Kapluno…"
+    },
+    "en": {
+      "title": "ON BONES",
+      "summary": "I remember that long after the war the tram stop near the large grocery store on Pushkinska was still called \"Kaplunovska.\" I did not understand why, and then learned that the building once stood where Kapluno…"
+    }
+  },
+  "v-odnom-ryadu-s-arhimedom": {
+    "uk": {
+      "title": "В ОДНОМУ РЯДУ З АРХІМЕДОМ",
+      "summary": "Одного разу на початку 30-х до Харківського інституту математики прийшов учитель однієї з шкіл разом із підлітком. — Вибачте за клopіт, але мені здається, цей школяр має незвичайні здібності.…"
+    },
+    "en": {
+      "title": "IN THE SAME LEAGUE AS ARCHIMEDES",
+      "summary": "Once in the early 1930s a schoolteacher came to the Kharkiv Institute of Mathematics with a teenager. \"Sorry to bother you, but it seems to me this pupil has extraordinary abilities.…"
+    }
+  },
+  "rasscheplenie-yadra": {
+    "uk": {
+      "title": "РОЗЩЕПЛЕННЯ ЯДРА",
+      "summary": "Мешканці вулиць Чайковського, Лермонтовської й Юмовської здивувалися — їхній мікрорайон чомусь опинився оточеним НКВС. Оточення тривало кілька годин, після чого його зняли. Про те, що відбувалося…"
+    },
+    "en": {
+      "title": "SPLITTING THE ATOM",
+      "summary": "Residents of Tchaikovsky, Lermontov, and Yuma streets were surprised—their neighborhood was somehow cordoned off by the NKVD. The cordon lasted several hours, then was lifted. About what happened…"
+    }
+  },
+  "tsaritsa-zverey": {
+    "uk": {
+      "title": "ЦАРИЦЯ ЗВІРІВ",
+      "summary": "Відвідувачі харківського цирку захоплено дивилися на арену. Підкоряючись волі дресувальниці, леви їхали верхи на кінях, ходили по канату, стрибали крізь пalaючі обручі. Приборкувальниця укладала їх…"
+    },
+    "en": {
+      "title": "QUEEN OF BEASTS",
+      "summary": "Visitors to the Kharkiv circus watched the ring in admiration. Obeying the trainer, lions rode horses, walked the tightrope, jumped through burning hoops. The lion tamer laid them down…"
+    }
+  },
+  "vycherknutyy-iz-spiska": {
+    "uk": {
+      "title": "ВИКРЕСЛЕНИЙ ІЗ СПИСКУ",
+      "summary": "У 1934 році найпершій групі видатних радянських спортсменів присвоювали звання заслужених майстрів спорту. У списку представлених харків'ян був і легендарний футболіст Микола Кротов. Це під…"
+    },
+    "en": {
+      "title": "CROSSED OFF THE LIST",
+      "summary": "In 1934 the very first group of outstanding Soviet athletes was awarded the title of Honored Master of Sport. Among the Kharkiv residents on the list was the legendary footballer Mykola Krotov. This supported…"
+    }
+  },
+  "ne-smeshno": {
+    "uk": {
+      "title": "НЕ СМІШНО",
+      "summary": "1933-й. Клуб залізничників на вул. Котлова (колишня Велика Пanasовska). Цю будівлю оригінальної архітектури тоді лише збудували, і дирекція всячески намагалася залучити туди публику. Того вечора з…"
+    },
+    "en": {
+      "title": "NOT FUNNY",
+      "summary": "1933. The railway workers' club on Kotlov Street (formerly Bolshaya Panasovska). This building of original architecture had just been erected, and the management tried hard to draw the public there. That evening…"
+    }
+  },
+  "poslednee-slovo-vozhdya": {
+    "uk": {
+      "title": "ОСТАННЄ «СЛОВО» ВОЖДЯ",
+      "summary": "Наприкінці 20-х — у 30-ті в Харкові велося потужне промислове й житлове будівництво. І робітники, і службовці з хат і комunalok переселялися в комфортабельні будинки. Вирішили обзавестися власн…"
+    },
+    "en": {
+      "title": "THE LEADER'S LAST \"WORD\"",
+      "summary": "In the late 1920s and 1930s Kharkiv saw massive industrial and housing construction. Workers and employees moved from shacks and communal flats into comfortable buildings. They decided to acquire their own…"
+    }
+  },
+  "rozhdenie-giganta": {
+    "uk": {
+      "title": "НАРОДЖЕННЯ ГІГАНТА",
+      "summary": "У жовтні 1931 року введено в дію гіганта соціалістичної індустрії — Харківський тракторний завод. Це була найбільша подія в житті країни. Урочисте збори й нагородження будівельників ре…"
+    },
+    "en": {
+      "title": "BIRTH OF A GIANT",
+      "summary": "In October 1931 the giant of socialist industry—the Kharkiv Tractor Plant—was commissioned. It was the country's greatest event. A solemn meeting and awards for the builders took pl…"
+    }
+  },
+  "get-vsch-moskvi": {
+    "uk": {
+      "title": "ГЕТЬ ВЩ МОСКВИ!",
+      "summary": "Ранком 13 травня 1933 року Микола Хвильовий зібрав у себе в квартирі в будинку «Слово» найближчих друзів-письменників. Пригощав їх чаєм, жартував, грав на гітарі, декlamував. Потім вийшов у свій кабінет. Лу…"
+    },
+    "en": {
+      "title": "DOWN WITH MOSCOW!",
+      "summary": "On the morning of May 13, 1933, Mykola Khvylovy gathered his closest writer friends in his apartment in the Slovo building. He treated them to tea, joked, played guitar, recited. Then he went into his study. A sh…"
+    }
+  },
+  "reklama-po-kulishu": {
+    "uk": {
+      "title": "РЕКЛАМА ПО КУЛІШУ",
+      "summary": "У другій половині 20-х у Харкові існували дві могутні торгові напівкооперативні чи напівконцесійні організації: «Ларok» і «Церабкооп» (центральний робітничий кооператив). Вони запекло…"
+    },
+    "en": {
+      "title": "ADVERTISING BY KULISH",
+      "summary": "In the second half of the 1920s Kharkiv had two powerful semi-cooperative or semi-concession trade organizations: \"Larek\" and \"Tserabkoop\" (Central Workers' Cooperative). They fiercely…"
+    }
+  },
+  "kak-prosche": {
+    "uk": {
+      "title": "ЯК ПРОСТІШЕ",
+      "summary": "Лічені роки довелося письменникам і діячам мистецтва пожити в просторих квартирах будинку «Слово» — на початку 30-х, звинувачені в участі у вигаданих терористичних організаціях, вони змушені були…"
+    },
+    "en": {
+      "title": "THE SIMPLER WAY",
+      "summary": "Writers and artists managed to live only a few years in the spacious apartments of the Slovo building—in the early 1930s, accused of membership in fictitious terrorist organizations, they were forced to…"
+    }
+  },
+  "vernite-pasporta": {
+    "uk": {
+      "title": "ПОВЕРНІТЬ ПАСПОРТИ!",
+      "summary": "Усіх дружин заарештованих у 1933 році письменників одразу звільнили з роботи, їм вручили повідомлення, що протягом трьох днів вони разом із дітьми мають покинути свої квартири й виїхати за межі України без пр…"
+    },
+    "en": {
+      "title": "RETURN OUR PASSPORTS!",
+      "summary": "All wives of writers arrested in 1933 were immediately dismissed from work; they received notices that within three days they and their children must leave their apartments and leave Ukraine without pa…"
+    }
+  },
+  "samoubiystvo-v-gosprome": {
+    "uk": {
+      "title": "САМОГУБСТВО В ГОСПРОМІ",
+      "summary": "Потрапивши в черговий раз до в'язниці, Микола став розмірковувати, як з неї втекти. Оглянув свою камеру й придумав! Щойно почало світати, він забрався в димохід і, спираючись руками, ногами й спиною об стіни, ст…"
+    },
+    "en": {
+      "title": "SUICIDE IN GOSPROM",
+      "summary": "Having landed in prison again, Mykola began to think how to escape. He inspected his cell and came up with a plan! At the first light he climbed into the chimney and, bracing with hands, feet, and back against the walls, st…"
+    }
+  },
+  "proschay-stolitsa": {
+    "uk": {
+      "title": "ПРОЩАЙ, СТОЛИЦЕ!",
+      "summary": "9 червня 1934 року. Центральна українська партійна газета «Пролетарій» опублікувала репортаж: «Товариш Постишев обходить ряди проводжальників. А їх багато — на всій довжині платформи густими шеренгами ст…"
+    },
+    "en": {
+      "title": "FAREWELL, CAPITAL!",
+      "summary": "June 9, 1934. The central Ukrainian party newspaper \"Proletarian\" published a report: \"Comrade Постишев walks along the rows of those seeing him off. And there are many of them—along the entire platform in dense ranks st…"
+    }
+  },
+  "kobzar-na-vysote": {
+    "uk": {
+      "title": "КОБЗАР НА ВИСОТІ",
+      "summary": "24 березня 1935 року в Університетському саду з боку Сумської зібрався народ. Пролунали промови, оркестр зіграв «Інтернаціонал», а зведений хор з участю капели «Dumka» виконав «Зapovit». Нарком просві…"
+    },
+    "en": {
+      "title": "KOBZAR ON HIGH",
+      "summary": "On March 24, 1935, a crowd gathered in University Garden from the Sumska side. Speeches were made, the orchestra played the \"Internationale,\" and a combined choir with the Dumka chapel performed \"Zapovit.\" The People's Commissar of Enlighten…"
+    }
+  },
+  "tochnee-amerikantsev": {
+    "uk": {
+      "title": "ТОЧНІШЕ ЗА АМЕРИКАНЦІВ",
+      "summary": "На початку 30-х група фізиків США на чолі з майбутнім «батьком» американської водневої бомби Е. Tellerом провела важливий експеримент: визначила час ядерного намагнічування діелектриків при низьких темпер…"
+    },
+    "en": {
+      "title": "MORE PRECISE THAN THE AMERICANS",
+      "summary": "In the early 1930s a group of U.S. physicists led by the future \"father\" of the American hydrogen bomb, E. Teller, conducted an important experiment: they determined the nuclear magnetic resonance time of dielectrics at low temper…"
+    }
+  },
+  "spasibo-za-privetstvie": {
+    "uk": {
+      "title": "ДЯКУЮ ЗА ПРИВІТАННЯ",
+      "summary": "«Незадовго до Великої Вітчизняної війни до Харкова приїжджав американський письменник Erskine Caldwell. Зустріти іноземного гостя на вокзал прийшли четверо письменників-харків'ян. Серед них лише Юрій Ko…"
+    },
+    "en": {
+      "title": "THANKS FOR THE GREETING",
+      "summary": "\"Shortly before the Great Patriotic War the American writer Erskine Caldwell visited Kharkiv. Four Kharkiv writers came to the station to meet the foreign guest. Among them only Yurii Ko…"
+    }
+  },
+  "ya-vyros-na-bolshom-bazare": {
+    "uk": {
+      "title": "Я ВИРІС НА ВЕЛИКОМУ БАЗАРІ...",
+      "summary": "Він закохався в цю дівчину ще в школі. Коли вона після закінчення поїхала до Москви, юнак подався за нею. А щоб закріпитися в столиці, вступив там до юридичного інституту. Вірші писав так, для себе. Ч…"
+    },
+    "en": {
+      "title": "I GREW UP AT THE BIG MARKET...",
+      "summary": "He fell in love with that girl still at school. When after graduation she left for Moscow, the young man followed her. To gain a foothold in the capital he entered law school there. He wrote poetry for himself. Wh…"
+    }
+  },
+  "ne-nazyvaya-familiy": {
+    "uk": {
+      "title": "НЕ НАЗИВАЮЧИ ПРІЗВИЩ",
+      "summary": "Серед ночі письменник V. Mysyk почув стук. Відчинив. На сходовому майданчику стояли троє у формі НКВС — офіцер і двоє солдатів. — А де ваш сусід? — запитав командир. — Який? — Той, що живе над вами. — Уявлення не ма…"
+    },
+    "en": {
+      "title": "WITHOUT NAMING SURNAMES",
+      "summary": "In the middle of the night writer V. Mysyk heard a knock. He opened the door. On the landing stood three men in NKVD uniforms—an officer and two soldiers. \"Where is your neighbor?\" the commander asked. \"Which one?\" \"The one who lives above you.\" \"I have no idea…"
+    }
+  },
+  "proklyatem-zakleymennyy": {
+    "uk": {
+      "title": "ПРОКЛЯТТЯМ ЗКЛЕЙМЕНИЙ",
+      "summary": "У радянські часи партійні збори, з'їзди й подібні офіційні акції положено було відкривати й закривати загальним виконанням партійного гімну «Інтернаціонал». І не лише партійного — у 191…"
+    },
+    "en": {
+      "title": "BRANDED WITH A CURSE",
+      "summary": "In Soviet times party meetings, congresses, and similar official events had to be opened and closed with a collective performance of the party anthem \"The Internationale.\" And not only the party anthem—in 191…"
+    }
+  },
+  "sledovat-na-sever-mozhet": {
+    "uk": {
+      "title": "МОЖНА ЇХАТИ НА ПІВНІЧ!",
+      "summary": "Молода лікарка глянула на чергового пацієнта — лисого чоловіка старшого шестидесяти, сильно кульгавого на одну ногу. Побіжно оглянувши його, медичка написала стандартну фразу: «Можна їхати…"
+    },
+    "en": {
+      "title": "MAY TRAVEL NORTH!",
+      "summary": "A young woman doctor glanced at the next patient—a bald man over sixty, limping badly on one leg. After a cursory look she wrote the standard phrase: \"May travel…"
+    }
+  },
+  "nochnoy-probeg": {
+    "uk": {
+      "title": "НІЧНИЙ ПРОБІГ",
+      "summary": "У березні 1940-го з воріт Харківського паровозобудівного заводу виїхали два танки. Але замість того щоб рушити на полігон, вони взяли курс на Москву. Добу з лишнім у люту мороз, заметiль по засніжен…"
+    },
+    "en": {
+      "title": "NIGHT RUN",
+      "summary": "In March 1940 two tanks left the gates of the Kharkiv Locomotive Works. But instead of heading for the training ground they set course for Moscow. For more than a day in bitter frost and blizzard through snow-covered…"
+    }
+  },
+  "nevidimaya-tsel": {
+    "uk": {
+      "title": "НЕВИДИМА ЦІЛЬ",
+      "summary": "Льотчик, здійснюючи випробувальний політ, вирішив скоротити програму й виконав на один галс менше. Коли він посадив літак, командир зробив йому за це зауваження. Пilot здивувався неабияк: адже його маш…"
+    },
+    "en": {
+      "title": "INVISIBLE TARGET",
+      "summary": "During a test flight the pilot decided to shorten the program and flew one leg fewer. When he landed, the commander reprimanded him for it. The pilot was greatly surprised: after all his machine…"
+    }
+  },
+  "lyudi-i-zveri": {
+    "uk": {
+      "title": "ЛЮДИ Й ЗВІРІ",
+      "summary": "Жовтень 1941-го. Вночі, під покровом темряви, на територію Харківського зoopарку в'їхало кілька вантажівок з погашеними фарами. З них вийшла група бійців. В secluded місці, ближче до території bot…"
+    },
+    "en": {
+      "title": "PEOPLE AND BEASTS",
+      "summary": "October 1941. At night, under cover of darkness, several trucks with dimmed headlights entered the Kharkiv zoo. A group of soldiers got out. In a secluded spot, closer to the bot…"
+    }
+  },
+  "unichtozhit-gada": {
+    "uk": {
+      "title": "ЗНИЩИТИ ГАДА!",
+      "summary": "Приїжджаючи зі своїм колективом на гастролі до Харкова, народний артист СРСР S. Mikhoels любив завітати до зоопарку. З усіх мешканців там хижаків він виділяв старого лева на кличку Solomon. Артиста приваб…"
+    },
+    "en": {
+      "title": "DESTROY THE VERMIN!",
+      "summary": "When he came with his company on tour to Kharkiv, People's Artist of the USSR S. Mikhoels liked to visit the zoo. Of all the predators there he singled out an old lion named Solomon. The artist was drawn…"
+    }
+  },
+  "na-ekrane-i-v-knige": {
+    "uk": {
+      "title": "НА ЕКРАНІ Й У КНИЗІ",
+      "summary": "У незабутньому фільмі Leonid Lukov воєнних літ «Два бійці» є епізод, де німецький радист, перебуваючи в оточеному Ленінграді, дає своїй артилерії й авіації наводку на міські об'єкти. У цій ролі…"
+    },
+    "en": {
+      "title": "ON SCREEN AND IN THE BOOK",
+      "summary": "In Leonid Lukov's unforgettable wartime film \"Two Fighters\" there is an episode in which a German radio operator, in besieged Leningrad, directs his artillery and aircraft onto city targets. In this role…"
+    }
+  },
+  "sohrani-biblioteku": {
+    "uk": {
+      "title": "ЗБЕРЕЖИ БІБЛІОТЕКУ",
+      "summary": "Зважаючи на значущість Українського фізико-технічного інституту, окупанти направили туди спеціальну зonder-команду, до якої входили вчені. На своє здивування, німецький майор зустрів там свого колиш…"
+    },
+    "en": {
+      "title": "SAVE THE LIBRARY",
+      "summary": "Given the importance of the Ukrainian Institute of Physics and Technology, the occupiers sent there a special Sonder commando that included scientists. To his surprise, a German major met there his former…"
+    }
+  },
+  "operatsiya-zapadnya": {
+    "uk": {
+      "title": "ОПЕРАЦІЯ «ЗАПАДНЯ»",
+      "summary": "Розмістивши свій штаб у будівлі колишнього штабу Харківського військового округу на площі Rudneva, гітlerівці стали шукати житло для командира 68-ї піхотної дивізії генерала Georg von Braun. Приглянулися до…"
+    },
+    "en": {
+      "title": "OPERATION \"TRAP\"",
+      "summary": "Having placed their headquarters in the building of the former Kharkiv Military District staff on Rudnev Square, the Hitlerites began looking for quarters for the commander of the 68th Infantry Division, General Georg von Braun. They settled on…"
+    }
+  },
+  "smert-stervyatnikam": {
+    "uk": {
+      "title": "СМЕРТЬ СТЕРВ'ЯТНИКАМ!",
+      "summary": "У 1943-му над Харковом його літак зустріли фашистські стерв'ятники. Три з них стали жертвами нашого аса. Перший «юнкерс» упав над Rohan'ю, другий — над Merefoю, третій — над Danylivkою. Наше небо б…"
+    },
+    "en": {
+      "title": "DEATH TO THE VULTURES!",
+      "summary": "In 1943 over Kharkiv his plane was met by fascist vultures. Three of them fell victim to our ace. The first Junkers crashed over Rohan, the second over Merefa, the third over Danylivka. Our sky w…"
+    }
+  },
+  "tsennost-dlya-reyha": {
+    "uk": {
+      "title": "ЦІННІСТЬ ДЛЯ РЕЙХУ",
+      "summary": "«Начальник групи управління «П4» Berlin 14, вер. 1943 Прinz Louis Strasse t.16-43-61 Секретно! Пану рейхsміністру через начальника Головного політичного управління В приймальню Щодо перемі…"
+    },
+    "en": {
+      "title": "A TREASURE FOR THE REICH",
+      "summary": "\"Head of Control Group 'P4' Berlin 14, Sept. 1943 Prinz Louis Strasse t.16-43-61 Secret! To the Reich Minister through the head of the Main Political Directorate To the reception office Regarding the transfer…"
+    }
+  },
+  "s-togo-sveta": {
+    "uk": {
+      "title": "З ТОГО СВІТУ",
+      "summary": "Санітари, що виносили поранених, помітили, що свіжа могила... дихає. Розкопали й виявили, що їхній командир G. Malinko живий. Перед тим командир батареї з невеликою групою бійців десять діб утримував…"
+    },
+    "en": {
+      "title": "FROM THE OTHER WORLD",
+      "summary": "Orderlies carrying the wounded noticed that a fresh grave... was breathing. They dug it up and found that their commander G. Malinko was alive. Before that the battery commander with a small group of soldiers had held out for ten days…"
+    }
+  }
+}
