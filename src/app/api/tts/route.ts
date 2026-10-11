@@ -1,9 +1,6 @@
 import { InferenceClient } from "@huggingface/inference";
 import { NextResponse } from "next/server";
 
-export const runtime = "nodejs";
-export const maxDuration = 60;
-
 const MAX_CHARS = 900;
 
 /** MMS models — best for RU/UK; may need HF token + warm model. */
