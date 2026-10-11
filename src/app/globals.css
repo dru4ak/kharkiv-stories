@@ -36,10 +36,19 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(166, 124, 50, 0.22), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(143, 61, 40, 0.16), transparent 50%),
-    linear-gradient(180deg, #b59a68 0%, var(--paper) 22%, #d2bc92 100%);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse 90% 55% at 8% -8%, rgba(166, 124, 50, 0.2), transparent 58%),
+    radial-gradient(ellipse 70% 45% at 100% 0%, rgba(143, 61, 40, 0.12), transparent 52%),
+    linear-gradient(
+      180deg,
+      #c4ad7f 0%,
+      var(--paper) 18%,
+      #d0ba8f 52%,
+      var(--paper) 78%,
+      #c9b48a 100%
+    );
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100vh;
@@ -52,10 +61,10 @@ body::before {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E"),
-    repeating-linear-gradient(0deg, transparent, transparent 3px, var(--grain) 4px);
-  opacity: 0.28;
+  /* Large soft noise tile — no hard seam when it repeats */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.35'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 800px 800px;
+  opacity: 0.22;
   z-index: 0;
   mix-blend-mode: multiply;
 }

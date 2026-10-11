@@ -57,6 +57,7 @@ export function RumorsBoard({
     count: string;
     expand: string;
     collapse: string;
+    epigraph?: string;
   };
 }) {
   const [q, setQ] = useState("");
@@ -140,6 +141,12 @@ export function RumorsBoard({
 
   return (
     <div>
+      {labels.epigraph ? (
+        <p className="mb-5 text-[1.02rem] leading-relaxed text-[var(--ink-soft)] italic">
+          {labels.epigraph}
+        </p>
+      ) : null}
+
       <div className="-mx-1 space-y-3 border border-[var(--line)] bg-[var(--paper-elevated)] p-4 sm:p-5">
         <input
           value={q}
@@ -197,10 +204,23 @@ export function RumorsBoard({
             const mine = myVotes[legend.id] ?? null;
             const open = openId === legend.id;
             const score = scoreOf(stats);
+            const paragraphs = legend.body.split(/\n\n+/).filter(Boolean);
+            const previewCount =
+              paragraphs.length <= 1
+                ? 1
+                : paragraphs[0].length > 280
+                  ? 1
+                  : 2;
+            const preview = paragraphs.slice(0, previewCount);
+            const rest = paragraphs.slice(previewCount);
+            const needsExpand =
+              rest.length > 0 ||
+              (paragraphs.length === 1 && paragraphs[0].length > 420);
             return (
               <article
                 key={legend.id}
                 className="border-b border-[var(--line)] pb-6"
+                style={{ overflowAnchor: "none" }}
               >
                 <div className="flex gap-4">
                   <div className="flex w-14 shrink-0 flex-col items-center gap-1 pt-1">
@@ -273,24 +293,38 @@ export function RumorsBoard({
                       ))}
                     </div>
 
-                    <div
-                      className={`mt-4 space-y-3 text-[1.05rem] leading-7 text-[var(--ink-soft)] ${
-                        open ? "" : "line-clamp-4"
-                      }`}
-                    >
-                      {legend.body.split(/\n\n+/).map((p, i) => (
-                        <p key={`${legend.id}-${i}`}>{p}</p>
+                    <div className="mt-4 space-y-3 text-[1.05rem] leading-7 text-[var(--ink-soft)]">
+                      {preview.map((p, i) => (
+                        <p
+                          key={`${legend.id}-p-${i}`}
+                          className={
+                            !open &&
+                            needsExpand &&
+                            paragraphs.length === 1
+                              ? "line-clamp-4"
+                              : undefined
+                          }
+                        >
+                          {p}
+                        </p>
                       ))}
+                      {open
+                        ? rest.map((p, i) => (
+                            <p key={`${legend.id}-r-${i}`}>{p}</p>
+                          ))
+                        : null}
                     </div>
-                    <button
-                      type="button"
-                      className="mt-3 text-[0.9rem] font-semibold text-[var(--brick)] hover:underline"
-                      onClick={() =>
-                        setOpenId(open ? null : legend.id)
-                      }
-                    >
-                      {open ? labels.collapse : labels.expand}
-                    </button>
+                    {needsExpand ? (
+                      <button
+                        type="button"
+                        className="mt-3 text-[0.9rem] font-semibold text-[var(--brick)] hover:underline"
+                        onClick={() =>
+                          setOpenId(open ? null : legend.id)
+                        }
+                      >
+                        {open ? labels.collapse : labels.expand}
+                      </button>
+                    ) : null}
                   </div>
                 </div>
               </article>

@@ -6,6 +6,11 @@ import { getLocalFilterOptions, localLegends } from "@/data/locals";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { buildPageMetadata } from "@/i18n/seo";
+import {
+  localizeLocals,
+  localizePlace,
+  localizeTheme,
+} from "@/lib/localizeLocal";
 
 export const instant = false;
 
@@ -23,6 +28,9 @@ export default async function RumorsPage({ params }: Props) {
   const locale = raw as Locale;
   const dict = getDictionary(locale);
   const options = getLocalFilterOptions();
+  const legends = localizeLocals(localLegends, locale);
+  const places = options.places.map((p) => localizePlace(p, locale));
+  const themes = options.themes.map((t) => localizeTheme(t, locale));
 
   return (
     <div className="page max-w-3xl py-14 sm:py-16">
@@ -39,9 +47,9 @@ export default async function RumorsPage({ params }: Props) {
 
       <div className="mt-10">
         <RumorsBoard
-          legends={localLegends}
-          places={options.places}
-          themes={options.themes}
+          legends={legends}
+          places={places}
+          themes={themes}
           labels={{
             search: dict.rumors.search,
             all: dict.rumors.all,
@@ -60,6 +68,7 @@ export default async function RumorsPage({ params }: Props) {
             count: dict.rumors.count,
             expand: dict.rumors.expand,
             collapse: dict.rumors.collapse,
+            epigraph: dict.rumors.epigraph,
           }}
         />
       </div>

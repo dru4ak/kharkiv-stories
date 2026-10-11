@@ -24,7 +24,7 @@ export function SiteHeader({
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)]/80 bg-[color-mix(in_oklab,var(--paper)_88%,transparent)] backdrop-blur-md">
+    <header className="relative z-40 border-b border-[var(--line)]/80 bg-[color-mix(in_oklab,var(--paper)_92%,transparent)]">
       <div className="page flex flex-wrap items-center justify-between gap-4 py-4">
         <Link href={localizedPath(locale, "/")} className="group min-w-0 shrink">
           <span className="display block text-[1.15rem] text-[var(--ink)] sm:text-[1.35rem]">

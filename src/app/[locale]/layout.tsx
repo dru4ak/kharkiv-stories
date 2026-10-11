@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { isLocale, localeHtmlLang, locales, type Locale } from "@/i18n/config";
@@ -27,6 +28,9 @@ export default async function LocaleLayout({
       <SiteHeader locale={locale} dict={dict} />
       <main className="flex-1">{children}</main>
       <SiteFooter locale={locale} dict={dict} />
+      <ScrollToTop
+        label={locale === "en" ? "Back to top" : locale === "uk" ? "Нагору" : "Наверх"}
+      />
     </div>
   );
 }

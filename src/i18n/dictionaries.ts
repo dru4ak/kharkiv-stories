@@ -18,6 +18,7 @@ export type Dictionary = {
     title: string;
     lead: string;
     hint: string;
+    epigraph: string;
     search: string;
     all: string;
     place: string;
@@ -141,6 +142,8 @@ const kh: Dictionary = {
     title: "Слухи от харьковчан",
     lead: "Живые городские легенды — без картинок и без претензии на истину. То, что шепчут во дворах и передают из уст в уста: ходят слухи, местные говорили, кто-то когда-то слышал…",
     hint: "Лайками поднимайте рассказ выше, дизлайками — опускайте. Сортировка по умолчанию — по рейтингу. Фильтры: тема и место.",
+    epigraph:
+      "Так это помнят в городе — кто как слышал, кто как пересказал. Проверить уже трудно, а слух живёт своей жизнью.",
     search: "Поиск по слухам…",
     all: "Все",
     place: "Место",
@@ -273,6 +276,8 @@ const uk: Dictionary = {
     title: "Чутки від харків’ян",
     lead: "Живі міські легенди — без картинок і без претензії на істину. Те, що шепочуть у дворах і передають з вуст в уста: ходять чутки, місцеві казали, хтось колись чув…",
     hint: "Лайками піднімайте оповідь вище, дизлайками — опускайте. За замовчуванням — сортування за рейтингом. Фільтри: тема і місце.",
+    epigraph:
+      "Так це пам'ятають у місті — хто як чув, хто як переказав. Перевірити вже важко, а чутка живе своїм життям.",
     search: "Пошук чуток…",
     all: "Усі",
     place: "Місце",
@@ -405,6 +410,8 @@ const en: Dictionary = {
     title: "Rumors from Kharkiv locals",
     lead: "Living city legends — no pictures, no claim to truth. What people whisper in courtyards and pass along: rumor has it, locals used to say, someone once heard…",
     hint: "Likes push a tale up, dislikes push it down. Default sort is by rating. Filters: theme and place.",
+    epigraph:
+      "That's how the city remembers it — each as they heard it, each as they retold it. Hard to verify now, but the rumor lives on.",
     search: "Search rumors…",
     all: "All",
     place: "Place",

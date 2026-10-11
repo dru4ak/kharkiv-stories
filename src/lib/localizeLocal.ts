@@ -113,17 +113,26 @@ export function localizePlace(place: string, locale: Locale): string {
   return PLACE_LABELS[locale][place] || place;
 }
 
+const RUMOR_CLOSING_RE =
+  /(?:\n\n)?\s*Так это помнят в городе — кто как слышал, кто как пересказал\. Проверить уже трудно, а слух живёт своей жизнью\.?\s*$/u;
+
+function stripRumorClosing(body: string): string {
+  return body.replace(RUMOR_CLOSING_RE, "").replace(/\s+$/u, "");
+}
+
 export function localizeLocal(
   legend: LocalLegend,
   locale: Locale,
 ): LocalLegend {
-  if (locale === "kh") return legend;
+  if (locale === "kh") {
+    return { ...legend, body: stripRumorClosing(legend.body) };
+  }
 
   const entry = table[legend.slug]?.[locale];
   return {
     ...legend,
     title: entry?.title?.trim() || legend.title,
-    body: entry?.body?.trim() || legend.body,
+    body: stripRumorClosing(entry?.body?.trim() || legend.body),
     placeName:
       entry?.placeName?.trim() ||
       localizePlace(legend.placeName, locale) ||
