@@ -50,6 +50,7 @@ export default async function RumorsPage({ params }: Props) {
           legends={legends}
           places={places}
           themes={themes}
+          locale={locale}
           labels={{
             search: dict.rumors.search,
             all: dict.rumors.all,
@@ -67,6 +68,10 @@ export default async function RumorsPage({ params }: Props) {
             score: dict.rumors.score,
             count: dict.rumors.count,
             epigraph: dict.rumors.epigraph,
+            listen: dict.story.listen,
+            stop: dict.story.stop,
+            listenLoading: dict.story.listenLoading,
+            listenFallback: dict.story.listenFallback,
           }}
         />
       </div>

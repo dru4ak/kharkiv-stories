@@ -118,6 +118,10 @@ export type Dictionary = {
     relatedPeople: string;
     relatedPlaces: string;
     originalNote: string;
+    listen: string;
+    stop: string;
+    listenLoading: string;
+    listenFallback: string;
   };
   footer: {
     memory: string;
@@ -252,6 +256,10 @@ const kh: Dictionary = {
     relatedPeople: "Личности в этом рассказе",
     relatedPlaces: "Места в этом рассказе",
     originalNote: "Полный текст пока на языке оригинала.",
+    listen: "Слушать",
+    stop: "Стоп",
+    listenLoading: "Готовим голос…",
+    listenFallback: "Голос с сервера недоступен — читает браузер.",
   },
   footer: {
     memory: "Память",
@@ -386,6 +394,10 @@ const uk: Dictionary = {
     relatedPeople: "Особистості в цій оповіді",
     relatedPlaces: "Місця в цій оповіді",
     originalNote: "Повний текст поки мовою оригіналу.",
+    listen: "Слухати",
+    stop: "Стоп",
+    listenLoading: "Готуємо голос…",
+    listenFallback: "Голос із сервера недоступний — читає браузер.",
   },
   footer: {
     memory: "Пам’ять",
@@ -520,6 +532,10 @@ const en: Dictionary = {
     relatedPeople: "People in this story",
     relatedPlaces: "Places in this story",
     originalNote: "Full text is still in the original language for now.",
+    listen: "Listen",
+    stop: "Stop",
+    listenLoading: "Preparing voice…",
+    listenFallback: "Server voice unavailable — using browser speech.",
   },
   footer: {
     memory: "Memory",

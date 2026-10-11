@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { ListenButton } from "@/components/ListenButton";
 import { localizePerson } from "@/data/people.i18n";
 import { localizePlace } from "@/data/places.i18n";
 import { getPeopleForStory } from "@/lib/people";
@@ -89,6 +90,19 @@ export default async function StoryPage({ params }: Props) {
       <h1 className="display mt-3 text-[clamp(2.1rem,5vw,3.4rem)] text-[var(--ink)]">
         {t.title}
       </h1>
+
+      <div className="mt-5">
+        <ListenButton
+          text={`${t.title}. ${t.body}`}
+          locale={locale}
+          labels={{
+            listen: dict.story.listen,
+            stop: dict.story.stop,
+            loading: dict.story.listenLoading,
+            unavailable: dict.story.listenFallback,
+          }}
+        />
+      </div>
 
       <figure className="mt-8 overflow-hidden border border-[var(--line)] shadow-[var(--shadow)]">
         <div className="relative aspect-[4/3]">

@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState, useTransition } from "react";
+import { ListenButton } from "@/components/ListenButton";
 import type { LocalLegend } from "@/data/locals";
+import type { Locale } from "@/i18n/config";
 
 type RumorVoteStats = { likes: number; dislikes: number };
 type SortKey = "rating" | "likes" | "title" | "place" | "year";
@@ -34,11 +36,13 @@ export function RumorsBoard({
   legends,
   places,
   themes,
+  locale,
   labels,
 }: {
   legends: LocalLegend[];
   places: string[];
   themes: string[];
+  locale: Locale;
   labels: {
     search: string;
     all: string;
@@ -56,6 +60,10 @@ export function RumorsBoard({
     score: string;
     count: string;
     epigraph?: string;
+    listen: string;
+    stop: string;
+    listenLoading: string;
+    listenFallback: string;
   };
 }) {
   const [q, setQ] = useState("");
@@ -275,6 +283,19 @@ export function RumorsBoard({
                           {t}
                         </button>
                       ))}
+                    </div>
+
+                    <div className="mt-3">
+                      <ListenButton
+                        text={`${legend.title}. ${legend.body}`}
+                        locale={locale}
+                        labels={{
+                          listen: labels.listen,
+                          stop: labels.stop,
+                          loading: labels.listenLoading,
+                          unavailable: labels.listenFallback,
+                        }}
+                      />
                     </div>
 
                     <div className="mt-4 space-y-3 text-[1.05rem] leading-7 text-[var(--ink-soft)]">
