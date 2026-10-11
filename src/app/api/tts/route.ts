@@ -61,7 +61,7 @@ export async function POST(request: Request) {
   if (preferEdge()) {
     try {
       const { buffer, voice } = await edgeNeuralTts(text, locale, gender, rate);
-      return new NextResponse(buffer, {
+      return new NextResponse(new Uint8Array(buffer), {
         status: 200,
         headers: {
           "Content-Type": "audio/mpeg",
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
 
   try {
     const buffer = await googleTranslateTts(text, locale);
-    return new NextResponse(buffer, {
+    return new NextResponse(new Uint8Array(buffer), {
       status: 200,
       headers: {
         "Content-Type": "audio/mpeg",
