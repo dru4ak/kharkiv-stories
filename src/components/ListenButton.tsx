@@ -109,11 +109,19 @@ export function ListenButton({
   }, []);
 
   async function playServer(payload: string): Promise<boolean> {
-    const res = await fetch("/api/tts", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: payload, locale, voice, rate }),
-    });
+    const ctrl = new AbortController();
+    const timer = window.setTimeout(() => ctrl.abort(), 18000);
+    let res: Response;
+    try {
+      res = await fetch("/api/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: payload, locale, voice, rate }),
+        signal: ctrl.signal,
+      });
+    } finally {
+      window.clearTimeout(timer);
+    }
     if (!res.ok) return false;
     const blob = await res.blob();
     if (!blob.size || stopRef.current) return false;

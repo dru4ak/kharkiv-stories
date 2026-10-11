@@ -1,41 +1,12 @@
-import { randomUUID } from "crypto";
-import { promises as fs } from "fs";
-import os from "os";
-import path from "path";
-import { EdgeTTS } from "node-edge-tts";
 import { NextResponse } from "next/server";
+import {
+  edgeNeuralTts,
+  type RateKey,
+  type VoiceGender,
+} from "@/lib/tts/edgeNeural";
+import { googleTranslateTts } from "@/lib/tts/googleTranslate";
 
 const MAX_CHARS = 2200;
-
-type VoiceGender = "female" | "male";
-type RateKey = "slow" | "normal" | "fast";
-
-const VOICES: Record<string, Record<VoiceGender, string>> = {
-  kh: {
-    female: "ru-RU-SvetlanaNeural",
-    male: "ru-RU-DmitryNeural",
-  },
-  uk: {
-    female: "uk-UA-PolinaNeural",
-    male: "uk-UA-OstapNeural",
-  },
-  en: {
-    female: "en-US-JennyNeural",
-    male: "en-US-GuyNeural",
-  },
-};
-
-const LANG: Record<string, string> = {
-  kh: "ru-RU",
-  uk: "uk-UA",
-  en: "en-US",
-};
-
-const RATE: Record<RateKey, string> = {
-  slow: "-15%",
-  normal: "-5%",
-  fast: "+10%",
-};
 
 function cleanText(raw: string): string {
   return raw
@@ -56,6 +27,13 @@ function pickGender(raw: unknown): VoiceGender {
 function pickRate(raw: unknown): RateKey {
   if (raw === "slow" || raw === "fast") return raw;
   return "normal";
+}
+
+/** Edge WebSocket crashes the Vercel isolate (ws mask bug) — Google HTTP is primary there. */
+function preferEdge(): boolean {
+  if (process.env.TTS_PROVIDER === "edge") return true;
+  if (process.env.TTS_PROVIDER === "google") return false;
+  return !process.env.VERCEL;
 }
 
 export async function POST(request: Request) {
@@ -79,43 +57,42 @@ export async function POST(request: Request) {
   const locale = pickLocale(body.locale);
   const gender = pickGender(body.voice);
   const rate = pickRate(body.rate);
-  const voice = VOICES[locale][gender];
-  const lang = LANG[locale];
-  const outPath = path.join(os.tmpdir(), `kh-tts-${randomUUID()}.mp3`);
+
+  if (preferEdge()) {
+    try {
+      const { buffer, voice } = await edgeNeuralTts(text, locale, gender, rate);
+      return new NextResponse(buffer, {
+        status: 200,
+        headers: {
+          "Content-Type": "audio/mpeg",
+          "Cache-Control": "public, max-age=86400",
+          "X-TTS-Voice": voice,
+          "X-TTS-Provider": "edge",
+        },
+      });
+    } catch (edgeErr) {
+      console.warn(
+        "[tts] edge failed, trying google:",
+        edgeErr instanceof Error ? edgeErr.message : edgeErr,
+      );
+    }
+  }
 
   try {
-    const tts = new EdgeTTS({
-      voice,
-      lang,
-      outputFormat: "audio-24khz-48kbitrate-mono-mp3",
-      rate: RATE[rate],
-      pitch: "-2Hz",
-      timeout: 55000,
-    });
-    await tts.ttsPromise(text, outPath);
-    const buffer = await fs.readFile(outPath);
-
+    const buffer = await googleTranslateTts(text, locale);
     return new NextResponse(buffer, {
       status: 200,
       headers: {
         "Content-Type": "audio/mpeg",
         "Cache-Control": "public, max-age=86400",
-        "X-TTS-Voice": voice,
-        "X-TTS-Provider": "edge",
+        "X-TTS-Voice": `google-${locale}-${gender}`,
+        "X-TTS-Provider": "google",
+        "X-TTS-Rate": rate,
       },
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "tts_failed";
-    console.error("[tts]", voice, message);
-    return NextResponse.json(
-      {
-        error: "tts_failed",
-        voice,
-        message,
-      },
-      { status: 502 },
-    );
-  } finally {
-    await fs.unlink(outPath).catch(() => {});
+    console.error("[tts] google failed", message);
+    return NextResponse.json({ error: "tts_failed", message }, { status: 502 });
   }
 }
