@@ -66,8 +66,6 @@ export default async function RumorsPage({ params }: Props) {
             dislike: dict.rumors.dislike,
             score: dict.rumors.score,
             count: dict.rumors.count,
-            expand: dict.rumors.expand,
-            collapse: dict.rumors.collapse,
             epigraph: dict.rumors.epigraph,
           }}
         />

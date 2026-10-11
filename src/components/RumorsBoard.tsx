@@ -55,8 +55,6 @@ export function RumorsBoard({
     dislike: string;
     score: string;
     count: string;
-    expand: string;
-    collapse: string;
     epigraph?: string;
   };
 }) {
@@ -66,7 +64,6 @@ export function RumorsBoard({
   const [sort, setSort] = useState<SortKey>("rating");
   const [votes, setVotes] = useState<Record<string, RumorVoteStats>>({});
   const [myVotes, setMyVotes] = useState<Record<string, MyVote>>({});
-  const [openId, setOpenId] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
 
   useEffect(() => {
@@ -202,25 +199,12 @@ export function RumorsBoard({
           filtered.map((legend, index) => {
             const stats = votes[legend.id] ?? { likes: 0, dislikes: 0 };
             const mine = myVotes[legend.id] ?? null;
-            const open = openId === legend.id;
             const score = scoreOf(stats);
             const paragraphs = legend.body.split(/\n\n+/).filter(Boolean);
-            const previewCount =
-              paragraphs.length <= 1
-                ? 1
-                : paragraphs[0].length > 280
-                  ? 1
-                  : 2;
-            const preview = paragraphs.slice(0, previewCount);
-            const rest = paragraphs.slice(previewCount);
-            const needsExpand =
-              rest.length > 0 ||
-              (paragraphs.length === 1 && paragraphs[0].length > 420);
             return (
               <article
                 key={legend.id}
                 className="border-b border-[var(--line)] pb-6"
-                style={{ overflowAnchor: "none" }}
               >
                 <div className="flex gap-4">
                   <div className="flex w-14 shrink-0 flex-col items-center gap-1 pt-1">
@@ -294,37 +278,10 @@ export function RumorsBoard({
                     </div>
 
                     <div className="mt-4 space-y-3 text-[1.05rem] leading-7 text-[var(--ink-soft)]">
-                      {preview.map((p, i) => (
-                        <p
-                          key={`${legend.id}-p-${i}`}
-                          className={
-                            !open &&
-                            needsExpand &&
-                            paragraphs.length === 1
-                              ? "line-clamp-4"
-                              : undefined
-                          }
-                        >
-                          {p}
-                        </p>
+                      {paragraphs.map((p, i) => (
+                        <p key={`${legend.id}-p-${i}`}>{p}</p>
                       ))}
-                      {open
-                        ? rest.map((p, i) => (
-                            <p key={`${legend.id}-r-${i}`}>{p}</p>
-                          ))
-                        : null}
                     </div>
-                    {needsExpand ? (
-                      <button
-                        type="button"
-                        className="mt-3 text-[0.9rem] font-semibold text-[var(--brick)] hover:underline"
-                        onClick={() =>
-                          setOpenId(open ? null : legend.id)
-                        }
-                      >
-                        {open ? labels.collapse : labels.expand}
-                      </button>
-                    ) : null}
                   </div>
                 </div>
               </article>
