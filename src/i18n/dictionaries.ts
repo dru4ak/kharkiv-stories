@@ -129,6 +129,7 @@ export type Dictionary = {
     rateSlow: string;
     rateNormal: string;
     rateFast: string;
+    autoNext: string;
   };
   footer: {
     memory: string;
@@ -274,6 +275,7 @@ const kh: Dictionary = {
     rateSlow: "Медленнее",
     rateNormal: "Обычный",
     rateFast: "Быстрее",
+    autoNext: "После окончания — следующий слух в списке",
   },
   footer: {
     memory: "Память",
@@ -419,6 +421,7 @@ const uk: Dictionary = {
     rateSlow: "Повільніше",
     rateNormal: "Звичайний",
     rateFast: "Швидше",
+    autoNext: "Після закінчення — наступна чутка в списку",
   },
   footer: {
     memory: "Пам’ять",
@@ -564,6 +567,7 @@ const en: Dictionary = {
     rateSlow: "Slower",
     rateNormal: "Normal",
     rateFast: "Faster",
+    autoNext: "When finished — play the next rumor in the list",
   },
   footer: {
     memory: "Memory",

@@ -7,12 +7,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   // Keep ws native bits out of the webpack bundle (fixes Edge TTS mask crash on Vercel).
-  serverExternalPackages: [
-    "ws",
-    "bufferutil",
-    "utf-8-validate",
-    "node-edge-tts",
-  ],
+  serverExternalPackages: ["ws", "bufferutil", "utf-8-validate"],
   turbopack: {
     rules: {
       "*.css": {

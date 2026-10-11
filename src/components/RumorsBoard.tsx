@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useState, useTransition } from "react";
-import { ListenButton } from "@/components/ListenButton";
+import {
+  ListenButton,
+  ListenPrefs,
+  loadTtsPrefs,
+  saveTtsPrefs,
+  type RateKey,
+  type VoiceGender,
+} from "@/components/ListenButton";
 import type { LocalLegend } from "@/data/locals";
 import type { Locale } from "@/i18n/config";
 
@@ -71,6 +78,7 @@ export function RumorsBoard({
     rateSlow: string;
     rateNormal: string;
     rateFast: string;
+    autoNext: string;
   };
 }) {
   const [q, setQ] = useState("");
@@ -80,9 +88,17 @@ export function RumorsBoard({
   const [votes, setVotes] = useState<Record<string, RumorVoteStats>>({});
   const [myVotes, setMyVotes] = useState<Record<string, MyVote>>({});
   const [pending, startTransition] = useTransition();
+  const [voice, setVoice] = useState<VoiceGender>("female");
+  const [rate, setRate] = useState<RateKey>("normal");
+  const [playingId, setPlayingId] = useState<string | null>(null);
+  const [autoToken, setAutoToken] = useState<string | null>(null);
+  const [autoQueue, setAutoQueue] = useState(true);
 
   useEffect(() => {
     setMyVotes(loadMyVotes());
+    const prefs = loadTtsPrefs();
+    setVoice(prefs.voice);
+    setRate(prefs.rate);
     fetch("/api/rumor-votes")
       .then((r) => r.json())
       .then((data) => setVotes(data || {}))
@@ -207,6 +223,43 @@ export function RumorsBoard({
         </p>
       </div>
 
+      <div className="mt-5 space-y-2 border border-[var(--line)] bg-[var(--paper-elevated)] p-4">
+        <ListenPrefs
+          voice={voice}
+          rate={rate}
+          labels={{
+            listen: labels.listen,
+            stop: labels.stop,
+            loading: labels.listenLoading,
+            unavailable: labels.listenFallback,
+            voice: labels.voice,
+            voiceFemale: labels.voiceFemale,
+            voiceMale: labels.voiceMale,
+            rate: labels.rate,
+            rateSlow: labels.rateSlow,
+            rateNormal: labels.rateNormal,
+            rateFast: labels.rateFast,
+          }}
+          disabled={playingId !== null}
+          onVoice={(v) => {
+            setVoice(v);
+            saveTtsPrefs(v, rate);
+          }}
+          onRate={(r) => {
+            setRate(r);
+            saveTtsPrefs(voice, r);
+          }}
+        />
+        <label className="flex items-center gap-2 text-[0.85rem] text-[var(--muted)]">
+          <input
+            type="checkbox"
+            checked={autoQueue}
+            onChange={(e) => setAutoQueue(e.target.checked)}
+          />
+          {labels.autoNext}
+        </label>
+      </div>
+
       <div className="mt-8 space-y-6">
         {filtered.length === 0 ? (
           <p className="text-[var(--ink-soft)]">{labels.empty}</p>
@@ -292,10 +345,57 @@ export function RumorsBoard({
                       ))}
                     </div>
 
-                    <div className="mt-3">
+                    <div className="mt-3" id={`rumor-listen-${legend.id}`}>
                       <ListenButton
                         text={`${legend.title}. ${legend.body}`}
                         locale={locale}
+                        voice={voice}
+                        rate={rate}
+                        showPrefs={false}
+                        autoStartToken={
+                          playingId === legend.id &&
+                          autoToken?.startsWith(`${legend.id}:`)
+                            ? autoToken
+                            : null
+                        }
+                        forceStop={
+                          playingId !== null && playingId !== legend.id
+                        }
+                        onStart={() => {
+                          setAutoToken(null);
+                          setPlayingId(legend.id);
+                          document
+                            .getElementById(`rumor-listen-${legend.id}`)
+                            ?.scrollIntoView({
+                              behavior: "smooth",
+                              block: "nearest",
+                            });
+                        }}
+                        onStop={() => {
+                          setPlayingId(null);
+                          setAutoToken(null);
+                        }}
+                        onNaturalEnd={() => {
+                          if (!autoQueue) {
+                            setPlayingId(null);
+                            setAutoToken(null);
+                            return;
+                          }
+                          const next = filtered[index + 1];
+                          if (next) {
+                            setPlayingId(next.id);
+                            setAutoToken(`${next.id}:${Date.now()}`);
+                            document
+                              .getElementById(`rumor-listen-${next.id}`)
+                              ?.scrollIntoView({
+                                behavior: "smooth",
+                                block: "nearest",
+                              });
+                          } else {
+                            setPlayingId(null);
+                            setAutoToken(null);
+                          }
+                        }}
                         labels={{
                           listen: labels.listen,
                           stop: labels.stop,

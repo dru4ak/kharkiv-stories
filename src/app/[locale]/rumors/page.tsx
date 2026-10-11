@@ -79,6 +79,7 @@ export default async function RumorsPage({ params }: Props) {
             rateSlow: dict.story.rateSlow,
             rateNormal: dict.story.rateNormal,
             rateFast: dict.story.rateFast,
+            autoNext: dict.story.autoNext,
           }}
         />
       </div>

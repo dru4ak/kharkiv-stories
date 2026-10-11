@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import {
-  edgeNeuralTts,
+  edgeNativeTts,
   type RateKey,
   type VoiceGender,
-} from "@/lib/tts/edgeNeural";
+} from "@/lib/tts/edgeNative";
 import { googleTranslateTts } from "@/lib/tts/googleTranslate";
 
 const MAX_CHARS = 2200;
@@ -29,13 +29,6 @@ function pickRate(raw: unknown): RateKey {
   return "normal";
 }
 
-/** Edge WebSocket crashes the Vercel isolate (ws mask bug) — Google HTTP is primary there. */
-function preferEdge(): boolean {
-  if (process.env.TTS_PROVIDER === "edge") return true;
-  if (process.env.TTS_PROVIDER === "google") return false;
-  return !process.env.VERCEL;
-}
-
 export async function POST(request: Request) {
   let body: {
     text?: string;
@@ -58,24 +51,23 @@ export async function POST(request: Request) {
   const gender = pickGender(body.voice);
   const rate = pickRate(body.rate);
 
-  if (preferEdge()) {
-    try {
-      const { buffer, voice } = await edgeNeuralTts(text, locale, gender, rate);
-      return new NextResponse(new Uint8Array(buffer), {
-        status: 200,
-        headers: {
-          "Content-Type": "audio/mpeg",
-          "Cache-Control": "public, max-age=86400",
-          "X-TTS-Voice": voice,
-          "X-TTS-Provider": "edge",
-        },
-      });
-    } catch (edgeErr) {
-      console.warn(
-        "[tts] edge failed, trying google:",
-        edgeErr instanceof Error ? edgeErr.message : edgeErr,
-      );
-    }
+  try {
+    const { buffer, voice } = await edgeNativeTts(text, locale, gender, rate);
+    return new NextResponse(new Uint8Array(buffer), {
+      status: 200,
+      headers: {
+        "Content-Type": "audio/mpeg",
+        "Cache-Control": "public, max-age=3600",
+        "X-TTS-Voice": voice,
+        "X-TTS-Provider": "edge",
+        "X-TTS-Rate": rate,
+      },
+    });
+  } catch (edgeErr) {
+    console.warn(
+      "[tts] edge failed, google fallback:",
+      edgeErr instanceof Error ? edgeErr.message : edgeErr,
+    );
   }
 
   try {
@@ -84,8 +76,8 @@ export async function POST(request: Request) {
       status: 200,
       headers: {
         "Content-Type": "audio/mpeg",
-        "Cache-Control": "public, max-age=86400",
-        "X-TTS-Voice": `google-${locale}-${gender}`,
+        "Cache-Control": "public, max-age=3600",
+        "X-TTS-Voice": `google-${locale}`,
         "X-TTS-Provider": "google",
         "X-TTS-Rate": rate,
       },

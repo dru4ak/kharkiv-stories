@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 
-type VoiceGender = "female" | "male";
-type RateKey = "slow" | "normal" | "fast";
+export type VoiceGender = "female" | "male";
+export type RateKey = "slow" | "normal" | "fast";
 
-type Labels = {
+export type ListenLabels = {
   listen: string;
   stop: string;
   loading: string;
@@ -21,6 +21,29 @@ type Labels = {
 };
 
 const STORAGE_KEY = "kh-tts-prefs-v1";
+
+export function loadTtsPrefs(): { voice: VoiceGender; rate: RateKey } {
+  if (typeof window === "undefined") {
+    return { voice: "female", rate: "normal" };
+  }
+  try {
+    const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}") as {
+      voice?: string;
+      rate?: string;
+    };
+    return {
+      voice: raw.voice === "male" ? "male" : "female",
+      rate: raw.rate === "slow" || raw.rate === "fast" ? raw.rate : "normal",
+    };
+  } catch {
+    return { voice: "female", rate: "normal" };
+  }
+}
+
+export function saveTtsPrefs(voice: VoiceGender, rate: RateKey) {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ voice, rate }));
+}
 
 function speechLang(locale: Locale): string {
   if (locale === "uk") return "uk-UA";
@@ -41,51 +64,117 @@ function chunkText(text: string, max = 2000): string {
   return (lastStop > 120 ? cut.slice(0, lastStop + 1) : cut).trim();
 }
 
-function loadPrefs(): { voice: VoiceGender; rate: RateKey } {
-  if (typeof window === "undefined") {
-    return { voice: "female", rate: "normal" };
-  }
-  try {
-    const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}") as {
-      voice?: string;
-      rate?: string;
-    };
-    return {
-      voice: raw.voice === "male" ? "male" : "female",
-      rate:
-        raw.rate === "slow" || raw.rate === "fast" ? raw.rate : "normal",
-    };
-  } catch {
-    return { voice: "female", rate: "normal" };
-  }
+function playbackRate(rate: RateKey, provider: string | null): number {
+  if (provider === "edge") return 1;
+  if (rate === "slow") return 0.85;
+  if (rate === "fast") return 1.15;
+  return 1;
+}
+
+export function ListenPrefs({
+  voice,
+  rate,
+  labels,
+  disabled,
+  onVoice,
+  onRate,
+}: {
+  voice: VoiceGender;
+  rate: RateKey;
+  labels: ListenLabels;
+  disabled?: boolean;
+  onVoice: (v: VoiceGender) => void;
+  onRate: (r: RateKey) => void;
+}) {
+  return (
+    <div className="flex flex-wrap gap-4 text-[0.85rem] text-[var(--muted)]">
+      <label className="flex items-center gap-2">
+        <span className="uppercase tracking-[0.12em] text-[0.72rem]">
+          {labels.voice}
+        </span>
+        <select
+          className="border border-[var(--line)] bg-[var(--paper-elevated)] px-2 py-1.5 text-[0.9rem] text-[var(--ink)]"
+          value={voice}
+          disabled={disabled}
+          onChange={(e) => onVoice(e.target.value as VoiceGender)}
+        >
+          <option value="female">{labels.voiceFemale}</option>
+          <option value="male">{labels.voiceMale}</option>
+        </select>
+      </label>
+      <label className="flex items-center gap-2">
+        <span className="uppercase tracking-[0.12em] text-[0.72rem]">
+          {labels.rate}
+        </span>
+        <select
+          className="border border-[var(--line)] bg-[var(--paper-elevated)] px-2 py-1.5 text-[0.9rem] text-[var(--ink)]"
+          value={rate}
+          disabled={disabled}
+          onChange={(e) => onRate(e.target.value as RateKey)}
+        >
+          <option value="slow">{labels.rateSlow}</option>
+          <option value="normal">{labels.rateNormal}</option>
+          <option value="fast">{labels.rateFast}</option>
+        </select>
+      </label>
+    </div>
+  );
 }
 
 export function ListenButton({
   text,
   locale,
   labels,
+  voice: voiceProp,
+  rate: rateProp,
+  showPrefs = true,
+  autoStartToken = null,
+  forceStop = false,
+  onNaturalEnd,
+  onStart,
+  onStop,
+  onBusyChange,
+  onPrefsChange,
 }: {
   text: string;
   locale: Locale;
-  labels: Labels;
+  labels: ListenLabels;
+  voice?: VoiceGender;
+  rate?: RateKey;
+  showPrefs?: boolean;
+  autoStartToken?: string | null;
+  forceStop?: boolean;
+  onNaturalEnd?: () => void;
+  onStart?: () => void;
+  onStop?: () => void;
+  onBusyChange?: (busy: boolean) => void;
+  onPrefsChange?: (voice: VoiceGender, rate: RateKey) => void;
 }) {
   const [state, setState] = useState<"idle" | "loading" | "playing">("idle");
   const [note, setNote] = useState<string | null>(null);
-  const [voice, setVoice] = useState<VoiceGender>("female");
-  const [rate, setRate] = useState<RateKey>("normal");
+  const [voice, setVoice] = useState<VoiceGender>(voiceProp ?? "female");
+  const [rate, setRate] = useState<RateKey>(rateProp ?? "normal");
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const objectUrlRef = useRef<string | null>(null);
   const stopRef = useRef(false);
+  const naturalEndRef = useRef(false);
+  const lastAutoToken = useRef<string | null>(null);
+  const voiceRef = useRef(voice);
+  const rateRef = useRef(rate);
 
   useEffect(() => {
-    const prefs = loadPrefs();
-    setVoice(prefs.voice);
-    setRate(prefs.rate);
-  }, []);
+    const prefs = loadTtsPrefs();
+    const v = voiceProp ?? prefs.voice;
+    const r = rateProp ?? prefs.rate;
+    setVoice(v);
+    setRate(r);
+    voiceRef.current = v;
+    rateRef.current = r;
+  }, [voiceProp, rateProp]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ voice, rate }));
+    voiceRef.current = voice;
+    rateRef.current = rate;
   }, [voice, rate]);
 
   function cleanupAudio() {
@@ -108,31 +197,45 @@ export function ListenButton({
     };
   }, []);
 
+  useEffect(() => {
+    onBusyChange?.(state !== "idle");
+  }, [state, onBusyChange]);
+
   async function playServer(payload: string): Promise<boolean> {
     const ctrl = new AbortController();
-    const timer = window.setTimeout(() => ctrl.abort(), 18000);
+    const timer = window.setTimeout(() => ctrl.abort(), 28000);
     let res: Response;
     try {
       res = await fetch("/api/tts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: payload, locale, voice, rate }),
+        body: JSON.stringify({
+          text: payload,
+          locale,
+          voice: voiceRef.current,
+          rate: rateRef.current,
+        }),
         signal: ctrl.signal,
       });
     } finally {
       window.clearTimeout(timer);
     }
     if (!res.ok) return false;
+    const provider = res.headers.get("X-TTS-Provider");
     const blob = await res.blob();
     if (!blob.size || stopRef.current) return false;
 
     const url = URL.createObjectURL(blob);
     objectUrlRef.current = url;
     const audio = new Audio(url);
+    audio.playbackRate = playbackRate(rateRef.current, provider);
     audioRef.current = audio;
 
     await new Promise<void>((resolve, reject) => {
-      audio.onended = () => resolve();
+      audio.onended = () => {
+        naturalEndRef.current = true;
+        resolve();
+      };
       audio.onerror = () => reject(new Error("audio_error"));
       audio.onpause = () => {
         if (stopRef.current) resolve();
@@ -151,19 +254,27 @@ export function ListenButton({
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(payload);
       u.lang = speechLang(locale);
-      u.rate = rate === "slow" ? 0.85 : rate === "fast" ? 1.1 : 0.95;
+      const r = rateRef.current;
+      const v = voiceRef.current;
+      u.rate = r === "slow" ? 0.85 : r === "fast" ? 1.1 : 0.95;
       const voices = window.speechSynthesis.getVoices();
       const langPrefix = speechLang(locale).slice(0, 2);
       const match =
         voices.find(
-          (v) =>
-            v.lang.toLowerCase().startsWith(langPrefix) &&
-            (voice === "male"
-              ? /male|dmitry|guy|ostap|david/i.test(v.name)
-              : /female|svetlana|jenny|polina|aria|zira/i.test(v.name)),
-        ) || voices.find((v) => v.lang.toLowerCase().startsWith(langPrefix));
+          (voiceItem) =>
+            voiceItem.lang.toLowerCase().startsWith(langPrefix) &&
+            (v === "male"
+              ? /male|dmitry|guy|ostap|david/i.test(voiceItem.name)
+              : /female|svetlana|jenny|polina|aria|zira/i.test(voiceItem.name)),
+        ) ||
+        voices.find((voiceItem) =>
+          voiceItem.lang.toLowerCase().startsWith(langPrefix),
+        );
       if (match) u.voice = match;
-      u.onend = () => resolve();
+      u.onend = () => {
+        naturalEndRef.current = true;
+        resolve();
+      };
       u.onerror = () => reject(new Error("speech_error"));
       setState("playing");
       window.speechSynthesis.speak(u);
@@ -174,7 +285,9 @@ export function ListenButton({
     const payload = chunkText(text);
     if (!payload) return;
 
+    onStart?.();
     stopRef.current = false;
+    naturalEndRef.current = false;
     setNote(null);
     setState("loading");
     cleanupAudio();
@@ -196,17 +309,36 @@ export function ListenButton({
       }
     } finally {
       if (!stopRef.current) {
+        const endedNaturally = naturalEndRef.current;
         cleanupAudio();
         setState("idle");
+        if (endedNaturally) onNaturalEnd?.();
       }
     }
   }
 
   function stop() {
     stopRef.current = true;
+    naturalEndRef.current = false;
     cleanupAudio();
     setState("idle");
+    onStop?.();
   }
+
+  useEffect(() => {
+    if (!autoStartToken) return;
+    if (autoStartToken === lastAutoToken.current) return;
+    lastAutoToken.current = autoStartToken;
+    void start();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoStartToken, text]);
+
+  useEffect(() => {
+    if (!forceStop) return;
+    if (state === "idle") return;
+    stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [forceStop]);
 
   const busy = state === "loading" || state === "playing";
 
@@ -231,38 +363,24 @@ export function ListenButton({
         ) : null}
       </div>
 
-      <div className="flex flex-wrap gap-4 text-[0.85rem] text-[var(--muted)]">
-        <label className="flex items-center gap-2">
-          <span className="uppercase tracking-[0.12em] text-[0.72rem]">
-            {labels.voice}
-          </span>
-          <select
-            className="border border-[var(--line)] bg-[var(--paper-elevated)] px-2 py-1.5 text-[0.9rem] text-[var(--ink)]"
-            value={voice}
-            disabled={busy}
-            onChange={(e) => setVoice(e.target.value as VoiceGender)}
-          >
-            <option value="female">{labels.voiceFemale}</option>
-            <option value="male">{labels.voiceMale}</option>
-          </select>
-        </label>
-
-        <label className="flex items-center gap-2">
-          <span className="uppercase tracking-[0.12em] text-[0.72rem]">
-            {labels.rate}
-          </span>
-          <select
-            className="border border-[var(--line)] bg-[var(--paper-elevated)] px-2 py-1.5 text-[0.9rem] text-[var(--ink)]"
-            value={rate}
-            disabled={busy}
-            onChange={(e) => setRate(e.target.value as RateKey)}
-          >
-            <option value="slow">{labels.rateSlow}</option>
-            <option value="normal">{labels.rateNormal}</option>
-            <option value="fast">{labels.rateFast}</option>
-          </select>
-        </label>
-      </div>
+      {showPrefs ? (
+        <ListenPrefs
+          voice={voice}
+          rate={rate}
+          labels={labels}
+          disabled={busy}
+          onVoice={(v) => {
+            setVoice(v);
+            saveTtsPrefs(v, rate);
+            onPrefsChange?.(v, rate);
+          }}
+          onRate={(r) => {
+            setRate(r);
+            saveTtsPrefs(voice, r);
+            onPrefsChange?.(voice, r);
+          }}
+        />
+      ) : null}
     </div>
   );
 }
