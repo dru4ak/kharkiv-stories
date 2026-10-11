@@ -122,6 +122,13 @@ export type Dictionary = {
     stop: string;
     listenLoading: string;
     listenFallback: string;
+    voice: string;
+    voiceFemale: string;
+    voiceMale: string;
+    rate: string;
+    rateSlow: string;
+    rateNormal: string;
+    rateFast: string;
   };
   footer: {
     memory: string;
@@ -260,6 +267,13 @@ const kh: Dictionary = {
     stop: "Стоп",
     listenLoading: "Готовим голос…",
     listenFallback: "Голос с сервера недоступен — читает браузер.",
+    voice: "Голос",
+    voiceFemale: "Женский",
+    voiceMale: "Мужской",
+    rate: "Темп",
+    rateSlow: "Медленнее",
+    rateNormal: "Обычный",
+    rateFast: "Быстрее",
   },
   footer: {
     memory: "Память",
@@ -398,6 +412,13 @@ const uk: Dictionary = {
     stop: "Стоп",
     listenLoading: "Готуємо голос…",
     listenFallback: "Голос із сервера недоступний — читає браузер.",
+    voice: "Голос",
+    voiceFemale: "Жіночий",
+    voiceMale: "Чоловічий",
+    rate: "Темп",
+    rateSlow: "Повільніше",
+    rateNormal: "Звичайний",
+    rateFast: "Швидше",
   },
   footer: {
     memory: "Пам’ять",
@@ -536,6 +557,13 @@ const en: Dictionary = {
     stop: "Stop",
     listenLoading: "Preparing voice…",
     listenFallback: "Server voice unavailable — using browser speech.",
+    voice: "Voice",
+    voiceFemale: "Female",
+    voiceMale: "Male",
+    rate: "Speed",
+    rateSlow: "Slower",
+    rateNormal: "Normal",
+    rateFast: "Faster",
   },
   footer: {
     memory: "Memory",

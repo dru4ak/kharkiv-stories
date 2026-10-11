@@ -3,12 +3,24 @@
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 
+type VoiceGender = "female" | "male";
+type RateKey = "slow" | "normal" | "fast";
+
 type Labels = {
   listen: string;
   stop: string;
   loading: string;
   unavailable: string;
+  voice: string;
+  voiceFemale: string;
+  voiceMale: string;
+  rate: string;
+  rateSlow: string;
+  rateNormal: string;
+  rateFast: string;
 };
+
+const STORAGE_KEY = "kh-tts-prefs-v1";
 
 function speechLang(locale: Locale): string {
   if (locale === "uk") return "uk-UA";
@@ -16,7 +28,7 @@ function speechLang(locale: Locale): string {
   return "ru-RU";
 }
 
-function chunkText(text: string, max = 850): string {
+function chunkText(text: string, max = 2000): string {
   const clean = text.replace(/\s+/g, " ").trim();
   if (clean.length <= max) return clean;
   const cut = clean.slice(0, max);
@@ -27,6 +39,25 @@ function chunkText(text: string, max = 850): string {
     cut.lastIndexOf("; "),
   );
   return (lastStop > 120 ? cut.slice(0, lastStop + 1) : cut).trim();
+}
+
+function loadPrefs(): { voice: VoiceGender; rate: RateKey } {
+  if (typeof window === "undefined") {
+    return { voice: "female", rate: "normal" };
+  }
+  try {
+    const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}") as {
+      voice?: string;
+      rate?: string;
+    };
+    return {
+      voice: raw.voice === "male" ? "male" : "female",
+      rate:
+        raw.rate === "slow" || raw.rate === "fast" ? raw.rate : "normal",
+    };
+  } catch {
+    return { voice: "female", rate: "normal" };
+  }
 }
 
 export function ListenButton({
@@ -40,9 +71,22 @@ export function ListenButton({
 }) {
   const [state, setState] = useState<"idle" | "loading" | "playing">("idle");
   const [note, setNote] = useState<string | null>(null);
+  const [voice, setVoice] = useState<VoiceGender>("female");
+  const [rate, setRate] = useState<RateKey>("normal");
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const objectUrlRef = useRef<string | null>(null);
   const stopRef = useRef(false);
+
+  useEffect(() => {
+    const prefs = loadPrefs();
+    setVoice(prefs.voice);
+    setRate(prefs.rate);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ voice, rate }));
+  }, [voice, rate]);
 
   function cleanupAudio() {
     if (audioRef.current) {
@@ -64,11 +108,11 @@ export function ListenButton({
     };
   }, []);
 
-  async function playHf(payload: string): Promise<boolean> {
+  async function playServer(payload: string): Promise<boolean> {
     const res = await fetch("/api/tts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: payload, locale }),
+      body: JSON.stringify({ text: payload, locale, voice, rate }),
     });
     if (!res.ok) return false;
     const blob = await res.blob();
@@ -99,11 +143,17 @@ export function ListenButton({
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(payload);
       u.lang = speechLang(locale);
-      u.rate = 0.95;
+      u.rate = rate === "slow" ? 0.85 : rate === "fast" ? 1.1 : 0.95;
       const voices = window.speechSynthesis.getVoices();
-      const match = voices.find((v) =>
-        v.lang.toLowerCase().startsWith(speechLang(locale).slice(0, 2)),
-      );
+      const langPrefix = speechLang(locale).slice(0, 2);
+      const match =
+        voices.find(
+          (v) =>
+            v.lang.toLowerCase().startsWith(langPrefix) &&
+            (voice === "male"
+              ? /male|dmitry|guy|ostap|david/i.test(v.name)
+              : /female|svetlana|jenny|polina|aria|zira/i.test(v.name)),
+        ) || voices.find((v) => v.lang.toLowerCase().startsWith(langPrefix));
       if (match) u.voice = match;
       u.onend = () => resolve();
       u.onerror = () => reject(new Error("speech_error"));
@@ -122,9 +172,9 @@ export function ListenButton({
     cleanupAudio();
 
     try {
-      const usedHf = await playHf(payload).catch(() => false);
+      const ok = await playServer(payload).catch(() => false);
       if (stopRef.current) return;
-      if (!usedHf) {
+      if (!ok) {
         setNote(labels.unavailable);
         await playBrowser(payload);
       }
@@ -153,23 +203,58 @@ export function ListenButton({
   const busy = state === "loading" || state === "playing";
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <button
-        type="button"
-        className="btn btn-ink"
-        onClick={() => (busy ? stop() : void start())}
-        disabled={state === "loading"}
-        aria-busy={state === "loading"}
-      >
-        {state === "loading"
-          ? labels.loading
-          : state === "playing"
-            ? labels.stop
-            : labels.listen}
-      </button>
-      {note ? (
-        <span className="text-[0.85rem] text-[var(--muted)]">{note}</span>
-      ) : null}
+    <div className="space-y-3">
+      <div className="flex flex-wrap items-center gap-3">
+        <button
+          type="button"
+          className="btn btn-ink"
+          onClick={() => (busy ? stop() : void start())}
+          disabled={state === "loading"}
+          aria-busy={state === "loading"}
+        >
+          {state === "loading"
+            ? labels.loading
+            : state === "playing"
+              ? labels.stop
+              : labels.listen}
+        </button>
+        {note ? (
+          <span className="text-[0.85rem] text-[var(--muted)]">{note}</span>
+        ) : null}
+      </div>
+
+      <div className="flex flex-wrap gap-4 text-[0.85rem] text-[var(--muted)]">
+        <label className="flex items-center gap-2">
+          <span className="uppercase tracking-[0.12em] text-[0.72rem]">
+            {labels.voice}
+          </span>
+          <select
+            className="border border-[var(--line)] bg-[var(--paper-elevated)] px-2 py-1.5 text-[0.9rem] text-[var(--ink)]"
+            value={voice}
+            disabled={busy}
+            onChange={(e) => setVoice(e.target.value as VoiceGender)}
+          >
+            <option value="female">{labels.voiceFemale}</option>
+            <option value="male">{labels.voiceMale}</option>
+          </select>
+        </label>
+
+        <label className="flex items-center gap-2">
+          <span className="uppercase tracking-[0.12em] text-[0.72rem]">
+            {labels.rate}
+          </span>
+          <select
+            className="border border-[var(--line)] bg-[var(--paper-elevated)] px-2 py-1.5 text-[0.9rem] text-[var(--ink)]"
+            value={rate}
+            disabled={busy}
+            onChange={(e) => setRate(e.target.value as RateKey)}
+          >
+            <option value="slow">{labels.rateSlow}</option>
+            <option value="normal">{labels.rateNormal}</option>
+            <option value="fast">{labels.rateFast}</option>
+          </select>
+        </label>
+      </div>
     </div>
   );
 }

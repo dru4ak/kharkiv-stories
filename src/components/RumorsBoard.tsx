@@ -64,6 +64,13 @@ export function RumorsBoard({
     stop: string;
     listenLoading: string;
     listenFallback: string;
+    voice: string;
+    voiceFemale: string;
+    voiceMale: string;
+    rate: string;
+    rateSlow: string;
+    rateNormal: string;
+    rateFast: string;
   };
 }) {
   const [q, setQ] = useState("");
@@ -294,6 +301,13 @@ export function RumorsBoard({
                           stop: labels.stop,
                           loading: labels.listenLoading,
                           unavailable: labels.listenFallback,
+                          voice: labels.voice,
+                          voiceFemale: labels.voiceFemale,
+                          voiceMale: labels.voiceMale,
+                          rate: labels.rate,
+                          rateSlow: labels.rateSlow,
+                          rateNormal: labels.rateNormal,
+                          rateFast: labels.rateFast,
                         }}
                       />
                     </div>
