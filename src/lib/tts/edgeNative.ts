@@ -1,15 +1,18 @@
-import { createHash, randomUUID } from "crypto";
+import { createHash, randomBytes, randomUUID } from "crypto";
 import WebSocket from "ws";
 
 export type VoiceGender = "female" | "male";
 export type RateKey = "slow" | "normal" | "fast";
 
 const TRUSTED_CLIENT_TOKEN = "6A5AA1D4EAFF4E9FB37E23D68491D6F4";
-const CHROMIUM_FULL_VERSION = "143.0.7499.0";
+const CHROMIUM_FULL_VERSION = "143.0.3650.75";
+const CHROMIUM_MAJOR = CHROMIUM_FULL_VERSION.split(".")[0];
 const WIN_EPOCH = 11644473600;
 const WSS_BASE =
   "wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1";
 const CHUNK_CHARS = 480;
+
+let clockSkewSeconds = 0;
 
 const VOICES: Record<string, Record<VoiceGender, string>> = {
   kh: {
@@ -33,11 +36,11 @@ const RATE: Record<RateKey, string> = {
 };
 
 function secMsGec(): string {
-  let ticks = Math.floor(Date.now() / 1000 + WIN_EPOCH);
+  let ticks = Date.now() / 1000 + clockSkewSeconds + WIN_EPOCH;
   ticks -= ticks % 300;
-  ticks = Math.floor(ticks * (1e9 / 100));
+  ticks *= 1e9 / 100;
   return createHash("sha256")
-    .update(`${ticks}${TRUSTED_CLIENT_TOKEN}`)
+    .update(`${Math.floor(ticks)}${TRUSTED_CLIENT_TOKEN}`)
     .digest("hex")
     .toUpperCase();
 }
@@ -86,10 +89,19 @@ function splitChunks(text: string): string[] {
   return parts;
 }
 
+function extractAudio(buf: Buffer): Buffer | null {
+  if (buf.length < 2) return null;
+  const headerLen = buf.readUInt16BE(0);
+  if (headerLen < 0 || headerLen + 2 > buf.length) return null;
+  const audio = buf.subarray(2 + headerLen);
+  return audio.length ? audio : null;
+}
+
 async function synthesizeChunk(
   text: string,
   voice: string,
   rate: RateKey,
+  attempt = 0,
 ): Promise<Buffer> {
   const connectionId = randomUUID().replace(/-/g, "");
   const url =
@@ -100,98 +112,130 @@ async function synthesizeChunk(
 
   const chunks: Buffer[] = [];
 
-  await new Promise<void>((resolve, reject) => {
-    let settled = false;
-    let idleTimer: ReturnType<typeof setTimeout> | null = null;
+  try {
+    await new Promise<void>((resolve, reject) => {
+      let settled = false;
+      let idleTimer: ReturnType<typeof setTimeout> | null = null;
 
-    const ws = new WebSocket(url, {
-      host: "speech.platform.bing.com",
-      origin: "chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold",
-      headers: {
-        "User-Agent":
-          `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${CHROMIUM_FULL_VERSION} Safari/537.36 Edg/${CHROMIUM_FULL_VERSION}`,
-      },
-    });
-
-    const done = (err?: Error) => {
-      if (settled) return;
-      settled = true;
-      if (idleTimer) clearTimeout(idleTimer);
-      clearTimeout(hardTimer);
-      try {
-        ws.close();
-      } catch {
-        /* ignore */
-      }
-      if (err) reject(err);
-      else resolve();
-    };
-
-    const bumpIdle = () => {
-      if (idleTimer) clearTimeout(idleTimer);
-      idleTimer = setTimeout(() => {
-        if (chunks.length) done();
-      }, 900);
-    };
-
-    const hardTimer = setTimeout(() => {
-      if (chunks.length) done();
-      else done(new Error("edge_timeout"));
-    }, 14000);
-
-    ws.on("error", (err) => {
-      done(err instanceof Error ? err : new Error(String(err)));
-    });
-
-    ws.on("open", () => {
-      const config = JSON.stringify({
-        context: {
-          synthesis: {
-            audio: {
-              metadataoptions: {
-                sentenceBoundaryEnabled: "false",
-                wordBoundaryEnabled: "false",
-              },
-              outputFormat: "audio-24khz-96kbitrate-mono-mp3",
-            },
-          },
+      const ws = new WebSocket(url, {
+        origin: "chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold",
+        headers: {
+          Pragma: "no-cache",
+          "Cache-Control": "no-cache",
+          "User-Agent":
+            `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${CHROMIUM_MAJOR}.0.0.0 Safari/537.36 Edg/${CHROMIUM_MAJOR}.0.0.0`,
+          "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
+          Cookie: `muid=${randomBytes(16).toString("hex").toUpperCase()};`,
         },
       });
-      ws.send(
-        `X-Timestamp:${new Date().toISOString()}\r\nContent-Type:application/json; charset=utf-8\r\nPath:speech.config\r\n\r\n${config}`,
-      );
 
-      const ssml = buildSsml(text, voice, rate);
-      const requestId = randomUUID().replace(/-/g, "");
-      ws.send(
-        `X-RequestId:${requestId}\r\nContent-Type:application/ssml+xml\r\n` +
-          `X-Timestamp:${new Date().toISOString()}Z\r\nPath:ssml\r\n\r\n${ssml}`,
-      );
-    });
-
-    ws.on("message", (data, isBinary) => {
-      if (isBinary) {
-        const buf = Buffer.isBuffer(data)
-          ? data
-          : Buffer.from(data as ArrayBuffer);
-        if (buf.length < 2) return;
-        const headerLen = buf.readUInt16BE(0);
-        if (headerLen + 2 > buf.length) return;
-        const audio = buf.subarray(2 + headerLen);
-        if (audio.length) {
-          chunks.push(audio);
-          bumpIdle();
+      const done = (err?: Error) => {
+        if (settled) return;
+        settled = true;
+        if (idleTimer) clearTimeout(idleTimer);
+        clearTimeout(hardTimer);
+        try {
+          ws.close();
+        } catch {
+          /* ignore */
         }
-        return;
-      }
-      if (data.toString().includes("Path:turn.end")) done();
-    });
+        if (err) reject(err);
+        else resolve();
+      };
 
-    ws.on("close", () => {
-      if (chunks.length) done();
-      else done(new Error("edge_closed"));
+      const bumpIdle = () => {
+        if (idleTimer) clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => {
+          if (chunks.length) done();
+        }, 700);
+      };
+
+      const hardTimer = setTimeout(() => {
+        if (chunks.length) done();
+        else done(new Error("edge_timeout"));
+      }, 16000);
+
+      ws.on("unexpected-response", (_req, res) => {
+        const err = new Error(`edge_http_${res.statusCode}`) as Error & {
+          statusCode?: number;
+          serverDate?: string;
+        };
+        err.statusCode = res.statusCode;
+        if (typeof res.headers.date === "string") {
+          err.serverDate = res.headers.date;
+        }
+        done(err);
+      });
+
+      ws.on("error", (err) => {
+        done(err instanceof Error ? err : new Error(String(err)));
+      });
+
+      ws.on("open", () => {
+        const config = JSON.stringify({
+          context: {
+            synthesis: {
+              audio: {
+                metadataoptions: {
+                  sentenceBoundaryEnabled: "false",
+                  wordBoundaryEnabled: "false",
+                },
+                outputFormat: "audio-24khz-48kbitrate-mono-mp3",
+              },
+            },
+          },
+        });
+        ws.send(
+          `X-Timestamp:${new Date().toISOString()}\r\nContent-Type:application/json; charset=utf-8\r\nPath:speech.config\r\n\r\n${config}`,
+        );
+
+        const ssml = buildSsml(text, voice, rate);
+        const requestId = randomUUID().replace(/-/g, "");
+        ws.send(
+          `X-RequestId:${requestId}\r\nContent-Type:application/ssml+xml\r\n` +
+            `X-Timestamp:${new Date().toISOString()}Z\r\nPath:ssml\r\n\r\n${ssml}`,
+        );
+      });
+
+      ws.on("message", (data, isBinary) => {
+        const buf = Buffer.isBuffer(data) ? data : Buffer.from(data as ArrayBuffer);
+
+        // Audio frames are binary (even though the header text contains "Path:audio").
+        if (isBinary || buf[0] === 0x00) {
+          const audio = extractAudio(buf);
+          if (audio) {
+            chunks.push(audio);
+            bumpIdle();
+          }
+          return;
+        }
+
+        const message = buf.toString("utf8");
+        if (message.includes("Path:turn.end")) {
+          done();
+        }
+      });
+
+      ws.on("close", () => {
+        if (chunks.length) done();
+        else done(new Error("edge_closed"));
+      });
     });
-  });
+  } catch (err) {
+    const e = err as Error & { statusCode?: number; serverDate?: string };
+    if (e.statusCode === 403 && attempt < 2) {
+      if (e.serverDate) {
+        const serverTs = Date.parse(e.serverDate) / 1000;
+        if (Number.isFinite(serverTs)) {
+          clockSkewSeconds += serverTs - (Date.now() / 1000 + clockSkewSeconds);
+        }
+      } else {
+        clockSkewSeconds += 1;
+      }
+      return synthesizeChunk(text, voice, rate, attempt + 1);
+    }
+    throw err;
+  }
 
   const buffer = Buffer.concat(chunks);
   if (!buffer.length) throw new Error("edge_empty");
