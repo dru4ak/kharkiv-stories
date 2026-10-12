@@ -1,14 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useTransition } from "react";
-import {
-  ListenButton,
-  ListenPrefs,
-  loadTtsPrefs,
-  saveTtsPrefs,
-  type RateKey,
-  type VoiceGender,
-} from "@/components/ListenButton";
+import { ListenButton } from "@/components/ListenButton";
 import type { LocalLegend } from "@/data/locals";
 import type { Locale } from "@/i18n/config";
 
@@ -71,13 +64,6 @@ export function RumorsBoard({
     stop: string;
     listenLoading: string;
     listenFallback: string;
-    voice: string;
-    voiceFemale: string;
-    voiceMale: string;
-    rate: string;
-    rateSlow: string;
-    rateNormal: string;
-    rateFast: string;
     autoNext: string;
   };
 }) {
@@ -88,17 +74,12 @@ export function RumorsBoard({
   const [votes, setVotes] = useState<Record<string, RumorVoteStats>>({});
   const [myVotes, setMyVotes] = useState<Record<string, MyVote>>({});
   const [pending, startTransition] = useTransition();
-  const [voice, setVoice] = useState<VoiceGender>("female");
-  const [rate, setRate] = useState<RateKey>("normal");
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [autoToken, setAutoToken] = useState<string | null>(null);
   const [autoQueue, setAutoQueue] = useState(true);
 
   useEffect(() => {
     setMyVotes(loadMyVotes());
-    const prefs = loadTtsPrefs();
-    setVoice(prefs.voice);
-    setRate(prefs.rate);
     fetch("/api/rumor-votes")
       .then((r) => r.json())
       .then((data) => setVotes(data || {}))
@@ -223,42 +204,14 @@ export function RumorsBoard({
         </p>
       </div>
 
-      <div className="mt-5 space-y-2 border border-[var(--line)] bg-[var(--paper-elevated)] p-4">
-        <ListenPrefs
-          voice={voice}
-          rate={rate}
-          labels={{
-            listen: labels.listen,
-            stop: labels.stop,
-            loading: labels.listenLoading,
-            unavailable: labels.listenFallback,
-            voice: labels.voice,
-            voiceFemale: labels.voiceFemale,
-            voiceMale: labels.voiceMale,
-            rate: labels.rate,
-            rateSlow: labels.rateSlow,
-            rateNormal: labels.rateNormal,
-            rateFast: labels.rateFast,
-          }}
-          disabled={playingId !== null}
-          onVoice={(v) => {
-            setVoice(v);
-            saveTtsPrefs(v, rate);
-          }}
-          onRate={(r) => {
-            setRate(r);
-            saveTtsPrefs(voice, r);
-          }}
+      <label className="mt-5 flex items-center gap-2 text-[0.85rem] text-[var(--muted)]">
+        <input
+          type="checkbox"
+          checked={autoQueue}
+          onChange={(e) => setAutoQueue(e.target.checked)}
         />
-        <label className="flex items-center gap-2 text-[0.85rem] text-[var(--muted)]">
-          <input
-            type="checkbox"
-            checked={autoQueue}
-            onChange={(e) => setAutoQueue(e.target.checked)}
-          />
-          {labels.autoNext}
-        </label>
-      </div>
+        {labels.autoNext}
+      </label>
 
       <div className="mt-8 space-y-6">
         {filtered.length === 0 ? (
@@ -349,9 +302,6 @@ export function RumorsBoard({
                       <ListenButton
                         text={`${legend.title}. ${legend.body}`}
                         locale={locale}
-                        voice={voice}
-                        rate={rate}
-                        showPrefs={false}
                         autoStartToken={
                           playingId === legend.id &&
                           autoToken?.startsWith(`${legend.id}:`)
@@ -401,13 +351,6 @@ export function RumorsBoard({
                           stop: labels.stop,
                           loading: labels.listenLoading,
                           unavailable: labels.listenFallback,
-                          voice: labels.voice,
-                          voiceFemale: labels.voiceFemale,
-                          voiceMale: labels.voiceMale,
-                          rate: labels.rate,
-                          rateSlow: labels.rateSlow,
-                          rateNormal: labels.rateNormal,
-                          rateFast: labels.rateFast,
                         }}
                       />
                     </div>

@@ -72,13 +72,6 @@ export default async function RumorsPage({ params }: Props) {
             stop: dict.story.stop,
             listenLoading: dict.story.listenLoading,
             listenFallback: dict.story.listenFallback,
-            voice: dict.story.voice,
-            voiceFemale: dict.story.voiceFemale,
-            voiceMale: dict.story.voiceMale,
-            rate: dict.story.rate,
-            rateSlow: dict.story.rateSlow,
-            rateNormal: dict.story.rateNormal,
-            rateFast: dict.story.rateFast,
             autoNext: dict.story.autoNext,
           }}
         />
