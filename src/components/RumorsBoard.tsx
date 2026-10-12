@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState, useTransition } from "react";
-import { ListenButton } from "@/components/ListenButton";
+import {
+  ListenButton,
+  TtsEngineSelect,
+  loadTtsEngine,
+  saveTtsEngine,
+  type TtsEngine,
+} from "@/components/ListenButton";
 import type { LocalLegend } from "@/data/locals";
 import type { Locale } from "@/i18n/config";
 
@@ -64,6 +70,10 @@ export function RumorsBoard({
     stop: string;
     listenLoading: string;
     listenFallback: string;
+    ttsEngine: string;
+    ttsMicrosoft: string;
+    ttsGoogle: string;
+    ttsVercel: string;
     autoNext: string;
   };
 }) {
@@ -77,9 +87,11 @@ export function RumorsBoard({
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [autoToken, setAutoToken] = useState<string | null>(null);
   const [autoQueue, setAutoQueue] = useState(true);
+  const [ttsEngine, setTtsEngine] = useState<TtsEngine>("microsoft");
 
   useEffect(() => {
     setMyVotes(loadMyVotes());
+    setTtsEngine(loadTtsEngine());
     fetch("/api/rumor-votes")
       .then((r) => r.json())
       .then((data) => setVotes(data || {}))
@@ -204,14 +216,34 @@ export function RumorsBoard({
         </p>
       </div>
 
-      <label className="mt-5 flex items-center gap-2 text-[0.85rem] text-[var(--muted)]">
-        <input
-          type="checkbox"
-          checked={autoQueue}
-          onChange={(e) => setAutoQueue(e.target.checked)}
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-5">
+        <TtsEngineSelect
+          engine={ttsEngine}
+          disabled={playingId !== null}
+          labels={{
+            listen: labels.listen,
+            stop: labels.stop,
+            loading: labels.listenLoading,
+            unavailable: labels.listenFallback,
+            engine: labels.ttsEngine,
+            engineMicrosoft: labels.ttsMicrosoft,
+            engineGoogle: labels.ttsGoogle,
+            engineVercel: labels.ttsVercel,
+          }}
+          onChange={(next) => {
+            setTtsEngine(next);
+            saveTtsEngine(next);
+          }}
         />
-        {labels.autoNext}
-      </label>
+        <label className="flex items-center gap-2 text-[0.85rem] text-[var(--muted)]">
+          <input
+            type="checkbox"
+            checked={autoQueue}
+            onChange={(e) => setAutoQueue(e.target.checked)}
+          />
+          {labels.autoNext}
+        </label>
+      </div>
 
       <div className="mt-8 space-y-6">
         {filtered.length === 0 ? (
@@ -302,6 +334,7 @@ export function RumorsBoard({
                       <ListenButton
                         text={`${legend.title}. ${legend.body}`}
                         locale={locale}
+                        engine={ttsEngine}
                         autoStartToken={
                           playingId === legend.id &&
                           autoToken?.startsWith(`${legend.id}:`)

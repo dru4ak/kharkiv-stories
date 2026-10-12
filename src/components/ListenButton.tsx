@@ -3,12 +3,36 @@
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 
+export type TtsEngine = "microsoft" | "google" | "vercel";
+
 export type ListenLabels = {
   listen: string;
   stop: string;
   loading: string;
   unavailable: string;
+  engine?: string;
+  engineMicrosoft?: string;
+  engineGoogle?: string;
+  engineVercel?: string;
 };
+
+const ENGINE_KEY = "kh-tts-engine-v1";
+
+export function loadTtsEngine(): TtsEngine {
+  if (typeof window === "undefined") return "microsoft";
+  try {
+    const v = localStorage.getItem(ENGINE_KEY);
+    if (v === "google" || v === "vercel" || v === "microsoft") return v;
+  } catch {
+    /* ignore */
+  }
+  return "microsoft";
+}
+
+export function saveTtsEngine(engine: TtsEngine) {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(ENGINE_KEY, engine);
+}
 
 function speechLang(locale: Locale): string {
   if (locale === "uk") return "uk-UA";
@@ -43,7 +67,7 @@ async function ensureVoices(): Promise<SpeechSynthesisVoice[]> {
   return window.speechSynthesis.getVoices();
 }
 
-function pickVoice(
+function pickMicrosoftVoice(
   voices: SpeechSynthesisVoice[],
   locale: Locale,
 ): SpeechSynthesisVoice | null {
@@ -52,38 +76,94 @@ function pickVoice(
     v.lang.toLowerCase().startsWith(langPrefix),
   );
   if (!sameLang.length) return null;
-  const neural = sameLang.find((v) =>
-    /natural|neural|online/i.test(v.name),
+
+  const microsoft = sameLang.filter((v) => /microsoft/i.test(v.name));
+  const neural =
+    microsoft.find((v) => /natural|neural|online/i.test(v.name)) ||
+    sameLang.find((v) => /natural|neural|online/i.test(v.name));
+  return neural || microsoft[0] || sameLang[0];
+}
+
+export function TtsEngineSelect({
+  engine,
+  onChange,
+  labels,
+  disabled,
+}: {
+  engine: TtsEngine;
+  onChange: (engine: TtsEngine) => void;
+  labels: ListenLabels;
+  disabled?: boolean;
+}) {
+  return (
+    <label className="flex flex-wrap items-center gap-2 text-[0.85rem] text-[var(--muted)]">
+      <span className="uppercase tracking-[0.12em] text-[0.72rem]">
+        {labels.engine ?? "TTS"}
+      </span>
+      <select
+        className="border border-[var(--line)] bg-[var(--paper-elevated)] px-2 py-1.5 text-[0.9rem] text-[var(--ink)]"
+        value={engine}
+        disabled={disabled}
+        onChange={(e) => onChange(e.target.value as TtsEngine)}
+      >
+        <option value="microsoft">
+          {labels.engineMicrosoft ?? "Microsoft"}
+        </option>
+        <option value="google">{labels.engineGoogle ?? "Google"}</option>
+        <option value="vercel">{labels.engineVercel ?? "Vercel / Edge"}</option>
+      </select>
+    </label>
   );
-  return neural || sameLang[0];
 }
 
 export function ListenButton({
   text,
   locale,
   labels,
+  engine = "microsoft",
+  showEngine = false,
   autoStartToken = null,
   forceStop = false,
   onNaturalEnd,
   onStart,
   onStop,
+  onEngineChange,
 }: {
   text: string;
   locale: Locale;
   labels: ListenLabels;
+  engine?: TtsEngine;
+  showEngine?: boolean;
   autoStartToken?: string | null;
   forceStop?: boolean;
   onNaturalEnd?: () => void;
   onStart?: () => void;
   onStop?: () => void;
+  onEngineChange?: (engine: TtsEngine) => void;
 }) {
   const [state, setState] = useState<"idle" | "loading" | "playing">("idle");
   const [note, setNote] = useState<string | null>(null);
+  const [localEngine, setLocalEngine] = useState<TtsEngine>(engine);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const objectUrlRef = useRef<string | null>(null);
   const stopRef = useRef(false);
   const naturalEndRef = useRef(false);
   const lastAutoToken = useRef<string | null>(null);
+  const engineRef = useRef(localEngine);
+
+  useEffect(() => {
+    setLocalEngine(engine);
+    engineRef.current = engine;
+  }, [engine]);
+
+  useEffect(() => {
+    if (!showEngine) return;
+    const saved = loadTtsEngine();
+    setLocalEngine(saved);
+    engineRef.current = saved;
+    onEngineChange?.(saved);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showEngine]);
 
   function cleanupAudio() {
     if (audioRef.current) {
@@ -105,7 +185,10 @@ export function ListenButton({
     };
   }, []);
 
-  async function playServer(payload: string): Promise<boolean> {
+  async function playServer(
+    payload: string,
+    provider: "google" | "edge" | "auto",
+  ): Promise<boolean> {
     const ctrl = new AbortController();
     const timer = window.setTimeout(() => ctrl.abort(), 45000);
     let res: Response;
@@ -118,6 +201,7 @@ export function ListenButton({
           locale,
           voice: "female",
           rate: "normal",
+          provider,
         }),
         signal: ctrl.signal,
       });
@@ -182,29 +266,29 @@ export function ListenButton({
     setState("loading");
     cleanupAudio();
 
+    const mode = engineRef.current;
+
     try {
-      const voices = await ensureVoices();
-      const neural = pickVoice(voices, locale);
-      if (neural && !stopRef.current) {
-        await playBrowser(payload, neural);
+      if (mode === "microsoft") {
+        const voices = await ensureVoices();
+        const voice = pickMicrosoftVoice(voices, locale);
+        if (!voice) throw new Error("no_ms_voice");
+        await playBrowser(payload, voice);
         return;
       }
 
-      const ok = await playServer(payload).catch(() => false);
-      if (stopRef.current) return;
-      if (ok) return;
+      if (mode === "google") {
+        const ok = await playServer(payload, "google");
+        if (!ok) throw new Error("google_failed");
+        return;
+      }
 
-      setNote(labels.unavailable);
-      await playBrowser(payload, pickVoice(voices, locale));
+      // vercel: Edge on server, then Google fallback
+      const ok = await playServer(payload, "auto");
+      if (!ok) throw new Error("vercel_failed");
     } catch {
       if (stopRef.current) return;
       setNote(labels.unavailable);
-      try {
-        const voices = await ensureVoices();
-        await playBrowser(payload, pickVoice(voices, locale));
-      } catch {
-        setNote(labels.unavailable);
-      }
     } finally {
       if (!stopRef.current) {
         const endedNaturally = naturalEndRef.current;
@@ -229,7 +313,7 @@ export function ListenButton({
     lastAutoToken.current = autoStartToken;
     void start();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoStartToken, text]);
+  }, [autoStartToken, text, localEngine]);
 
   useEffect(() => {
     if (!forceStop) return;
@@ -241,23 +325,38 @@ export function ListenButton({
   const busy = state === "loading" || state === "playing";
 
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <button
-        type="button"
-        className="btn btn-ink"
-        onClick={() => (busy ? stop() : void start())}
-        disabled={state === "loading"}
-        aria-busy={state === "loading"}
-      >
-        {state === "loading"
-          ? labels.loading
-          : state === "playing"
-            ? labels.stop
-            : labels.listen}
-      </button>
-      {note ? (
-        <span className="text-[0.85rem] text-[var(--muted)]">{note}</span>
+    <div className="space-y-3">
+      {showEngine ? (
+        <TtsEngineSelect
+          engine={localEngine}
+          disabled={busy}
+          labels={labels}
+          onChange={(next) => {
+            setLocalEngine(next);
+            engineRef.current = next;
+            saveTtsEngine(next);
+            onEngineChange?.(next);
+          }}
+        />
       ) : null}
+      <div className="flex flex-wrap items-center gap-3">
+        <button
+          type="button"
+          className="btn btn-ink"
+          onClick={() => (busy ? stop() : void start())}
+          disabled={state === "loading"}
+          aria-busy={state === "loading"}
+        >
+          {state === "loading"
+            ? labels.loading
+            : state === "playing"
+              ? labels.stop
+              : labels.listen}
+        </button>
+        {note ? (
+          <span className="text-[0.85rem] text-[var(--muted)]">{note}</span>
+        ) : null}
+      </div>
     </div>
   );
 }

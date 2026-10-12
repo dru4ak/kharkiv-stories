@@ -122,13 +122,10 @@ export type Dictionary = {
     stop: string;
     listenLoading: string;
     listenFallback: string;
-    voice: string;
-    voiceFemale: string;
-    voiceMale: string;
-    rate: string;
-    rateSlow: string;
-    rateNormal: string;
-    rateFast: string;
+    ttsEngine: string;
+    ttsMicrosoft: string;
+    ttsGoogle: string;
+    ttsVercel: string;
     autoNext: string;
   };
   footer: {
@@ -267,14 +264,11 @@ const kh: Dictionary = {
     listen: "Слушать",
     stop: "Стоп",
     listenLoading: "Готовим голос…",
-    listenFallback: "Голос с сервера недоступен — читает браузер.",
-    voice: "Голос",
-    voiceFemale: "Женский",
-    voiceMale: "Мужской",
-    rate: "Темп",
-    rateSlow: "Медленнее",
-    rateNormal: "Обычный",
-    rateFast: "Быстрее",
+    listenFallback: "Этот движок сейчас недоступен. Выберите другой.",
+    ttsEngine: "Озвучка",
+    ttsMicrosoft: "Microsoft (браузер)",
+    ttsGoogle: "Google",
+    ttsVercel: "Vercel / Edge",
     autoNext: "После окончания — следующий слух в списке",
   },
   footer: {
@@ -413,14 +407,11 @@ const uk: Dictionary = {
     listen: "Слухати",
     stop: "Стоп",
     listenLoading: "Готуємо голос…",
-    listenFallback: "Голос із сервера недоступний — читає браузер.",
-    voice: "Голос",
-    voiceFemale: "Жіночий",
-    voiceMale: "Чоловічий",
-    rate: "Темп",
-    rateSlow: "Повільніше",
-    rateNormal: "Звичайний",
-    rateFast: "Швидше",
+    listenFallback: "Цей рушій зараз недоступний. Оберіть інший.",
+    ttsEngine: "Озвучення",
+    ttsMicrosoft: "Microsoft (браузер)",
+    ttsGoogle: "Google",
+    ttsVercel: "Vercel / Edge",
     autoNext: "Після закінчення — наступна чутка в списку",
   },
   footer: {
@@ -559,14 +550,11 @@ const en: Dictionary = {
     listen: "Listen",
     stop: "Stop",
     listenLoading: "Preparing voice…",
-    listenFallback: "Server voice unavailable — using browser speech.",
-    voice: "Voice",
-    voiceFemale: "Female",
-    voiceMale: "Male",
-    rate: "Speed",
-    rateSlow: "Slower",
-    rateNormal: "Normal",
-    rateFast: "Faster",
+    listenFallback: "This engine is unavailable. Try another one.",
+    ttsEngine: "Voice engine",
+    ttsMicrosoft: "Microsoft (browser)",
+    ttsGoogle: "Google",
+    ttsVercel: "Vercel / Edge",
     autoNext: "When finished — play the next rumor in the list",
   },
   footer: {

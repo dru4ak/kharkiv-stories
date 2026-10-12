@@ -95,11 +95,16 @@ export default async function StoryPage({ params }: Props) {
         <ListenButton
           text={`${t.title}. ${t.body}`}
           locale={locale}
+          showEngine
           labels={{
             listen: dict.story.listen,
             stop: dict.story.stop,
             loading: dict.story.listenLoading,
             unavailable: dict.story.listenFallback,
+            engine: dict.story.ttsEngine,
+            engineMicrosoft: dict.story.ttsMicrosoft,
+            engineGoogle: dict.story.ttsGoogle,
+            engineVercel: dict.story.ttsVercel,
           }}
         />
       </div>
