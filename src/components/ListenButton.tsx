@@ -203,7 +203,7 @@ export function ListenButton({
 
   async function playServer(payload: string): Promise<boolean> {
     const ctrl = new AbortController();
-    const timer = window.setTimeout(() => ctrl.abort(), 28000);
+    const timer = window.setTimeout(() => ctrl.abort(), 45000);
     let res: Response;
     try {
       res = await fetch("/api/tts", {

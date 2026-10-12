@@ -29,6 +29,22 @@ function pickRate(raw: unknown): RateKey {
   return "normal";
 }
 
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(`${label}_timeout`)), ms);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (err: unknown) => {
+        clearTimeout(timer);
+        reject(err);
+      },
+    );
+  });
+}
+
 export async function POST(request: Request) {
   let body: {
     text?: string;
@@ -51,8 +67,13 @@ export async function POST(request: Request) {
   const gender = pickGender(body.voice);
   const rate = pickRate(body.rate);
 
+  // Edge Neural sounds best; hard-cap so a hang never blocks Google / never hits 60s 504.
   try {
-    const { buffer, voice } = await edgeNativeTts(text, locale, gender, rate);
+    const { buffer, voice } = await withTimeout(
+      edgeNativeTts(text, locale, gender, rate),
+      20000,
+      "edge",
+    );
     return new NextResponse(new Uint8Array(buffer), {
       status: 200,
       headers: {
@@ -71,7 +92,11 @@ export async function POST(request: Request) {
   }
 
   try {
-    const buffer = await googleTranslateTts(text, locale);
+    const buffer = await withTimeout(
+      googleTranslateTts(text, locale),
+      15000,
+      "google",
+    );
     return new NextResponse(new Uint8Array(buffer), {
       status: 200,
       headers: {

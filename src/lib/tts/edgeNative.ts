@@ -9,6 +9,7 @@ const CHROMIUM_FULL_VERSION = "143.0.7499.0";
 const WIN_EPOCH = 11644473600;
 const WSS_BASE =
   "wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1";
+const CHUNK_CHARS = 480;
 
 const VOICES: Record<string, Record<VoiceGender, string>> = {
   kh: {
@@ -26,9 +27,9 @@ const VOICES: Record<string, Record<VoiceGender, string>> = {
 };
 
 const RATE: Record<RateKey, string> = {
-  slow: "-20%",
-  normal: "-5%",
-  fast: "+15%",
+  slow: "-15%",
+  normal: "+0%",
+  fast: "+20%",
 };
 
 function secMsGec(): string {
@@ -50,28 +51,46 @@ function escapeXml(s: string): string {
     .replace(/'/g, "&apos;");
 }
 
-function buildSsml(
-  text: string,
-  voice: string,
-  rate: RateKey,
-): string {
-  const locale = voice.slice(0, 5); // ru-RU / uk-UA / en-US
+function buildSsml(text: string, voice: string, rate: RateKey): string {
+  const locale = voice.slice(0, 5);
+  const body =
+    rate === "normal"
+      ? escapeXml(text)
+      : `<prosody rate="${RATE[rate]}">${escapeXml(text)}</prosody>`;
   return (
     `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${locale}">` +
-    `<voice name="${voice}">` +
-    `<prosody rate="${RATE[rate]}" pitch="-2Hz">${escapeXml(text)}</prosody>` +
-    `</voice></speak>`
+    `<voice name="${voice}">${body}</voice></speak>`
   );
 }
 
-export async function edgeNativeTts(
+function splitChunks(text: string): string[] {
+  const clean = text.replace(/\s+/g, " ").trim();
+  if (clean.length <= CHUNK_CHARS) return [clean];
+  const parts: string[] = [];
+  let rest = clean;
+  while (rest.length > CHUNK_CHARS) {
+    let cut = rest.slice(0, CHUNK_CHARS);
+    const stop = Math.max(
+      cut.lastIndexOf(". "),
+      cut.lastIndexOf("! "),
+      cut.lastIndexOf("? "),
+      cut.lastIndexOf("; "),
+      cut.lastIndexOf(", "),
+      cut.lastIndexOf(" "),
+    );
+    if (stop > 80) cut = cut.slice(0, stop + 1);
+    parts.push(cut.trim());
+    rest = rest.slice(cut.length).trim();
+  }
+  if (rest) parts.push(rest);
+  return parts;
+}
+
+async function synthesizeChunk(
   text: string,
-  locale: string,
-  gender: VoiceGender,
+  voice: string,
   rate: RateKey,
-): Promise<{ buffer: Buffer; voice: string }> {
-  const voice =
-    VOICES[locale]?.[gender] ?? VOICES.kh[gender] ?? VOICES.kh.female;
+): Promise<Buffer> {
   const connectionId = randomUUID().replace(/-/g, "");
   const url =
     `${WSS_BASE}?TrustedClientToken=${TRUSTED_CLIENT_TOKEN}` +
@@ -82,6 +101,9 @@ export async function edgeNativeTts(
   const chunks: Buffer[] = [];
 
   await new Promise<void>((resolve, reject) => {
+    let settled = false;
+    let idleTimer: ReturnType<typeof setTimeout> | null = null;
+
     const ws = new WebSocket(url, {
       host: "speech.platform.bing.com",
       origin: "chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold",
@@ -91,20 +113,34 @@ export async function edgeNativeTts(
       },
     });
 
-    const fail = (err: Error) => {
+    const done = (err?: Error) => {
+      if (settled) return;
+      settled = true;
+      if (idleTimer) clearTimeout(idleTimer);
+      clearTimeout(hardTimer);
       try {
         ws.close();
       } catch {
         /* ignore */
       }
-      reject(err);
+      if (err) reject(err);
+      else resolve();
     };
 
-    const timer = setTimeout(() => fail(new Error("edge_timeout")), 25000);
+    const bumpIdle = () => {
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        if (chunks.length) done();
+      }, 900);
+    };
+
+    const hardTimer = setTimeout(() => {
+      if (chunks.length) done();
+      else done(new Error("edge_timeout"));
+    }, 14000);
 
     ws.on("error", (err) => {
-      clearTimeout(timer);
-      fail(err instanceof Error ? err : new Error(String(err)));
+      done(err instanceof Error ? err : new Error(String(err)));
     });
 
     ws.on("open", () => {
@@ -116,7 +152,7 @@ export async function edgeNativeTts(
                 sentenceBoundaryEnabled: "false",
                 wordBoundaryEnabled: "false",
               },
-              outputFormat: "audio-24khz-48kbitrate-mono-mp3",
+              outputFormat: "audio-24khz-96kbitrate-mono-mp3",
             },
           },
         },
@@ -138,29 +174,42 @@ export async function edgeNativeTts(
         const buf = Buffer.isBuffer(data)
           ? data
           : Buffer.from(data as ArrayBuffer);
-        // First 2 bytes = header length (big-endian), then header, then audio
         if (buf.length < 2) return;
         const headerLen = buf.readUInt16BE(0);
+        if (headerLen + 2 > buf.length) return;
         const audio = buf.subarray(2 + headerLen);
-        if (audio.length) chunks.push(audio);
+        if (audio.length) {
+          chunks.push(audio);
+          bumpIdle();
+        }
         return;
       }
-
-      const message = data.toString();
-      if (message.includes("Path:turn.end")) {
-        clearTimeout(timer);
-        ws.close();
-        resolve();
-      }
+      if (data.toString().includes("Path:turn.end")) done();
     });
 
     ws.on("close", () => {
-      clearTimeout(timer);
-      if (chunks.length) resolve();
+      if (chunks.length) done();
+      else done(new Error("edge_closed"));
     });
   });
 
   const buffer = Buffer.concat(chunks);
   if (!buffer.length) throw new Error("edge_empty");
-  return { buffer, voice };
+  return buffer;
+}
+
+export async function edgeNativeTts(
+  text: string,
+  locale: string,
+  gender: VoiceGender,
+  rate: RateKey,
+): Promise<{ buffer: Buffer; voice: string }> {
+  const voice =
+    VOICES[locale]?.[gender] ?? VOICES.kh[gender] ?? VOICES.kh.female;
+  const parts = splitChunks(text);
+  const buffers: Buffer[] = [];
+  for (const part of parts) {
+    buffers.push(await synthesizeChunk(part, voice, rate));
+  }
+  return { buffer: Buffer.concat(buffers), voice };
 }
