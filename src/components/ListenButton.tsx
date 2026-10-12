@@ -245,7 +245,55 @@ export function ListenButton({
     return true;
   }
 
-  function playBrowser(payload: string): Promise<void> {
+  async function ensureVoices(): Promise<SpeechSynthesisVoice[]> {
+    if (typeof window === "undefined" || !window.speechSynthesis) return [];
+    const current = window.speechSynthesis.getVoices();
+    if (current.length) return current;
+    await new Promise<void>((resolve) => {
+      const done = () => resolve();
+      window.speechSynthesis.addEventListener("voiceschanged", done, {
+        once: true,
+      });
+      window.setTimeout(done, 700);
+    });
+    return window.speechSynthesis.getVoices();
+  }
+
+  function pickNeuralVoice(
+    voices: SpeechSynthesisVoice[],
+  ): SpeechSynthesisVoice | null {
+    const langPrefix = speechLang(locale).slice(0, 2).toLowerCase();
+    const gender = voiceRef.current;
+    const sameLang = voices.filter((v) =>
+      v.lang.toLowerCase().startsWith(langPrefix),
+    );
+    if (!sameLang.length) return null;
+
+    const genderRe =
+      gender === "male"
+        ? [/dmitry/i, /ostap/i, /guy/i, /david/i, /\bmale\b/i]
+        : [/svetlana/i, /polina/i, /jenny/i, /aria/i, /zira/i, /\bfemale\b/i];
+
+    const neural = sameLang.filter((v) =>
+      /natural|neural|online/i.test(v.name),
+    );
+    for (const re of genderRe) {
+      const hit = neural.find((v) => re.test(v.name));
+      if (hit) return hit;
+    }
+    if (neural.length) return neural[0];
+
+    for (const re of genderRe) {
+      const hit = sameLang.find((v) => re.test(v.name));
+      if (hit) return hit;
+    }
+    return null;
+  }
+
+  function playBrowser(
+    payload: string,
+    preferred: SpeechSynthesisVoice | null,
+  ): Promise<void> {
     return new Promise((resolve, reject) => {
       if (typeof window === "undefined" || !window.speechSynthesis) {
         reject(new Error("no_speech"));
@@ -253,24 +301,10 @@ export function ListenButton({
       }
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(payload);
-      u.lang = speechLang(locale);
+      u.lang = preferred?.lang || speechLang(locale);
       const r = rateRef.current;
-      const v = voiceRef.current;
-      u.rate = r === "slow" ? 0.85 : r === "fast" ? 1.1 : 0.95;
-      const voices = window.speechSynthesis.getVoices();
-      const langPrefix = speechLang(locale).slice(0, 2);
-      const match =
-        voices.find(
-          (voiceItem) =>
-            voiceItem.lang.toLowerCase().startsWith(langPrefix) &&
-            (v === "male"
-              ? /male|dmitry|guy|ostap|david/i.test(voiceItem.name)
-              : /female|svetlana|jenny|polina|aria|zira/i.test(voiceItem.name)),
-        ) ||
-        voices.find((voiceItem) =>
-          voiceItem.lang.toLowerCase().startsWith(langPrefix),
-        );
-      if (match) u.voice = match;
+      u.rate = r === "slow" ? 0.85 : r === "fast" ? 1.12 : 0.98;
+      if (preferred) u.voice = preferred;
       u.onend = () => {
         naturalEndRef.current = true;
         resolve();
@@ -293,17 +327,27 @@ export function ListenButton({
     cleanupAudio();
 
     try {
+      // 1) Local Microsoft Neural voices (same family as Edge) — best free option in browser.
+      const voices = await ensureVoices();
+      const neural = pickNeuralVoice(voices);
+      if (neural && !stopRef.current) {
+        await playBrowser(payload, neural);
+        return;
+      }
+
+      // 2) Server (Edge from Vercel is often blocked → may be Google).
       const ok = await playServer(payload).catch(() => false);
       if (stopRef.current) return;
-      if (!ok) {
-        setNote(labels.unavailable);
-        await playBrowser(payload);
-      }
+      if (ok) return;
+
+      setNote(labels.unavailable);
+      await playBrowser(payload, pickNeuralVoice(voices));
     } catch {
       if (stopRef.current) return;
       setNote(labels.unavailable);
       try {
-        await playBrowser(payload);
+        const voices = await ensureVoices();
+        await playBrowser(payload, pickNeuralVoice(voices));
       } catch {
         setNote(labels.unavailable);
       }
